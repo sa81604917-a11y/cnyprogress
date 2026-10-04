@@ -1,0 +1,1141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:,">
+<title>Who else is writing the data-center deal terms? A public resource for host communities</title>
+<meta name="description" content="A public resource for local and state officials: the templates, model term sheets, guides and ordinances available to data-center host communities, the strongest public-side terms anyone has assembled, and a 30-term model package you can adapt.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,400&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+:root{
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --sans:"Public Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --radius:10px;
+}
+:root{
+  --bg:#fbfbf7; --surface:#ffffff; --surface2:#f3f2ec; --surface3:#e9e7db;
+  --line:#dfddd0; --line-soft:#eae9de;
+  --ink:#1d1c17; --ink2:#33322b; --muted:#5f5a4c;
+  --accent:#0a5c55; --accent-ink:#ffffff; --accent-soft:#e2efe9;
+  --new:#7a4c0b; --new-soft:#f6ead2; --new-line:#dcc488;
+  --up:#0a5c55; --up-soft:#e2efe9;
+  --good:#1e7a3f; --good-soft:#e0f0e4;
+  --warn:#8f5c07; --warn-soft:#f7ecd4;
+  --unk:#6b6a63; --unk-soft:#e7e6de;
+  --link:#0a5c55; --link-visited:#084a44;
+}
+html[data-theme="dark"]{
+  --bg:#141511; --surface:#1c1d19; --surface2:#24251f; --surface3:#2d2e27;
+  --line:#383a32; --line-soft:#2b2d26;
+  --ink:#edece2; --ink2:#d8d7cb; --muted:#a6a190;
+  --accent:#8fd3bd; --accent-ink:#0f1a17; --accent-soft:#1d322b;
+  --new:#e5b96b; --new-soft:#352916; --new-line:#6b5224;
+  --up:#8fd3bd; --up-soft:#1d322b;
+  --good:#7fce96; --good-soft:#1c3022;
+  --warn:#d9a94e; --warn-soft:#302912;
+  --unk:#a6a190; --unk-soft:#27281f;
+  --link:#8fd3bd; --link-visited:#7cbfad;
+}
+@media (prefers-color-scheme:dark){
+  html[data-theme=""]{--noop:1}
+  html:not([data-theme="light"]):not([data-theme="dark"]){
+    --bg:#141511; --surface:#1c1d19; --surface2:#24251f; --surface3:#2d2e27;
+    --line:#383a32; --line-soft:#2b2d26;
+    --ink:#edece2; --ink2:#d8d7cb; --muted:#a6a190;
+    --accent:#8fd3bd; --accent-ink:#0f1a17; --accent-soft:#1d322b;
+    --new:#e5b96b; --new-soft:#352916; --new-line:#6b5224;
+    --up:#8fd3bd; --up-soft:#1d322b;
+    --good:#7fce96; --good-soft:#1c3022;
+    --warn:#d9a94e; --warn-soft:#302912;
+    --unk:#a6a190; --unk-soft:#27281f;
+    --link:#8fd3bd; --link-visited:#7cbfad;
+  }
+}
+@media (prefers-color-scheme:dark){html{color-scheme:dark}}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:var(--sans); font-size:16px; line-height:1.62;
+  -webkit-text-size-adjust:100%;
+}
+a{color:var(--link); text-decoration-thickness:1px; text-underline-offset:2px}
+a:visited{color:var(--link-visited)}
+a:hover{text-decoration-thickness:2px}
+.wrap{max-width:1080px; margin:0 auto; padding:0 22px}
+.skip{display:inline-block; font-size:12.5px; color:var(--muted); margin:0 0 12px; text-decoration:underline; text-underline-offset:2px}
+.skip:hover{color:var(--link)}
+
+/* ---------- masthead ---------- */
+.masthead{
+  border-bottom:1px solid var(--line);
+  padding:26px 0 34px; margin-bottom:10px;
+}
+.themebar{display:flex; justify-content:flex-end; margin-bottom:22px}
+.theme-toggle{
+  display:flex; gap:2px; border:1px solid var(--line); border-radius:999px;
+  background:var(--surface); padding:3px; font-family:var(--sans); font-size:12.5px;
+}
+.theme-toggle button{
+  border:0; border-radius:999px; background:transparent; color:var(--muted);
+  padding:6px 12px; cursor:pointer; font-size:12.5px; font-family:var(--sans);
+}
+.theme-toggle button[aria-pressed="true"]{background:var(--surface3); color:var(--ink); font-weight:600}
+.kicker{
+  font-family:var(--serif); font-style:italic; font-size:1.05rem; color:var(--muted); margin:0 0 10px;
+}
+h1{
+  font-family:var(--serif); font-weight:600; font-size:clamp(2.1rem,4.6vw,3.2rem);
+  line-height:1.08; letter-spacing:-0.01em; margin:0 0 14px; max-width:17em;
+}
+.standfirst{
+  font-size:1.12rem; line-height:1.55; color:var(--ink2); max-width:44em; margin:0 0 18px;
+}
+.updated{
+  display:inline-flex; align-items:center; gap:8px;
+  background:var(--surface2); border:1px solid var(--line); border-radius:999px;
+  padding:8px 16px; font-size:13.5px; color:var(--ink2);
+}
+.updated .dot{width:8px; height:8px; border-radius:50%; background:var(--good); flex:none}
+.updated strong{font-weight:700}
+
+/* ---------- structure ---------- */
+section{padding:38px 0 8px}
+.catline{border-top:1px solid var(--line); padding-top:34px}
+h2{
+  font-family:var(--serif); font-weight:600; font-size:clamp(1.5rem,3vw,2rem);
+  line-height:1.15; margin:0 0 12px; letter-spacing:-0.005em;
+}
+h2 .secnum{color:var(--muted); font-weight:400; margin-right:.4em; font-size:.72em; vertical-align:.14em}
+h3{font-family:var(--serif); font-weight:600; font-size:1.28rem; line-height:1.25; margin:2em 0 .6em}
+h4{font-family:var(--sans); font-weight:700; font-size:1rem; margin:1.6em 0 .4em}
+.section-lede{font-size:1.05rem; color:var(--ink2); max-width:46em; margin:0 0 1.2em}
+p{margin:0 0 1em}
+.small{font-size:.88rem}
+.muted{color:var(--muted)}
+ul,ol{margin:0 0 1.2em; padding-left:1.35em}
+li{margin-bottom:.45em}
+.anchor{scroll-margin-top:18px}
+
+/* index of contents */
+.toc{
+  list-style:none; padding:0; margin:1.4em 0 0;
+  display:grid; grid-template-columns:1fr 1fr; gap:2px 34px;
+}
+@media(max-width:760px){.toc{grid-template-columns:1fr}}
+.toc li{margin:0; border-bottom:1px solid var(--line-soft); padding:.6em 0}
+.toc a{display:flex; gap:.7em; text-decoration:none; color:var(--ink2)}
+.toc a:hover{color:var(--link); text-decoration:underline}
+.toc .n{font-family:var(--serif); font-style:italic; color:var(--muted); min-width:1.6em}
+
+/* how to use */
+.howto{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:1.4em 0 0;
+}
+@media(max-width:820px){.howto{grid-template-columns:1fr}}
+.howto .step{
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+  padding:18px 20px;
+}
+.howto .step-num{
+  font-family:var(--serif); font-style:italic; font-size:1.8rem; color:var(--accent);
+  line-height:1; display:block; margin-bottom:10px;
+}
+.howto p{margin:0; font-size:.95rem; color:var(--ink2)}
+
+/* stats strip */
+.stats{display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin:1.4em 0}
+@media(max-width:820px){.stats{grid-template-columns:1fr 1fr}}
+.stat{
+  background:var(--surface2); border-radius:var(--radius); padding:16px 18px;
+}
+.stat b{display:block; font-family:var(--serif); font-size:2rem; font-weight:600; line-height:1; margin-bottom:8px}
+.stat span{font-size:.9rem; color:var(--muted); line-height:1.4}
+
+/* findings list */
+.findings{list-style:none; padding:0; margin:1.2em 0}
+.findings li{
+  display:grid; grid-template-columns:2.2em 1fr; gap:14px;
+  padding:16px 0; border-bottom:1px solid var(--line-soft);
+}
+.findings li:first-child{border-top:1px solid var(--line-soft)}
+.findings .fn{
+  font-family:var(--serif); font-style:italic; font-size:1.6rem; color:var(--accent); line-height:1.2;
+}
+.findings p{margin:0; max-width:52em}
+.findings strong{font-weight:700}
+
+/* comparators */
+.comparators{display:grid; gap:16px; margin-top:1.6em}
+.comp{
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+  padding:24px 26px;
+}
+.comp-head{display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 14px; margin-bottom:4px}
+.comp-head h3{margin:0; font-size:1.45rem}
+.comp-meta{color:var(--muted); font-size:.9rem}
+.badges{display:flex; flex-wrap:wrap; gap:8px; margin:12px 0 14px}
+.badge{
+  display:inline-flex; align-items:center; gap:6px; font-size:12.5px; font-weight:600;
+  border-radius:999px; padding:4px 12px; border:1px solid transparent; line-height:1.5;
+}
+.badge.free{background:var(--good-soft); color:var(--good); border-color:transparent}
+.badge.wall{background:var(--warn-soft); color:var(--warn)}
+.badge.unk{background:var(--unk-soft); color:var(--unk)}
+.badge.depth{background:var(--surface2); color:var(--ink2); border-color:var(--line)}
+.badge.ver{background:var(--accent-soft); color:var(--accent)}
+.badge.newb{background:var(--new-soft); color:var(--new); border:1px solid var(--new-line)}
+.badge.updb{background:var(--up-soft); color:var(--up)}
+.comp dl{margin:0}
+.comp dt{font-weight:700; font-size:.82rem; letter-spacing:.04em; text-transform:uppercase; color:var(--muted); margin:1.1em 0 .35em}
+.comp dd{margin:0 0 .6em}
+.comp dd p{margin:0 0 .5em; font-size:.96rem}
+.comp ul{font-size:.96rem}
+.cols2{display:grid; grid-template-columns:1fr 1fr; gap:0 28px; margin-top:.4em}
+@media(max-width:820px){.cols2{grid-template-columns:1fr}}
+.vs-cols .col{border-top:2px solid var(--line); padding-top:10px}
+.vs-cols .col h4{margin-top:.4em; font-size:.95rem}
+.vs-cols ul{font-size:.92rem}
+
+/* terms */
+.principles{list-style:none; padding:0; margin:1.2em 0 2.2em; counter-reset:pr}
+.principles li{
+  counter-increment:pr; display:grid; grid-template-columns:2.6em 1fr; gap:12px;
+  padding:12px 0; border-bottom:1px solid var(--line-soft); align-items:start;
+}
+.principles li:first-child{border-top:1px solid var(--line-soft)}
+.principles li::before{
+  content:"P" counter(pr); font-family:var(--serif); font-style:italic; font-size:1.25rem;
+  color:var(--accent); line-height:1.4;
+}
+.principles p{margin:0; font-size:.98rem}
+.pkg-note{
+  background:var(--accent-soft); border-radius:var(--radius); padding:16px 20px; margin:1.2em 0;
+  font-size:.95rem; color:var(--ink2);
+}
+.pkg-note p:last-child{margin-bottom:0}
+/* core principle box */
+.corebox{
+  background:var(--accent-soft); border-radius:var(--radius);
+  padding:24px 26px; margin:34px 0 4px;
+}
+.corebox-title{
+  font-family:var(--serif); font-style:italic; font-weight:600; font-size:1.35rem;
+  color:var(--accent); margin:0 0 8px;
+}
+.corebox p{margin:0; font-size:1.02rem; color:var(--ink); max-width:56em}
+.term-groups{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:1.4em}
+@media(max-width:880px){.term-groups{grid-template-columns:1fr}}
+.term-group{
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+  padding:20px 22px;
+}
+.term-group.full{grid-column:1/-1}
+.term-group h3{margin-top:0; font-size:1.18rem; font-family:var(--sans); font-weight:700}
+.term-group h3 .cnt{color:var(--muted); font-weight:400; font-size:.85em}
+.terms{list-style:none; padding:0; margin:0; counter-reset:t}
+.terms.grid2{display:grid; grid-template-columns:1fr 1fr; gap:2px 30px}
+@media(max-width:880px){.terms.grid2{grid-template-columns:1fr}}
+.term-note{margin:12px 0 0; font-size:.88rem; color:var(--muted); border-top:1px solid var(--line-soft); padding-top:12px}
+.terms li{
+  counter-increment:t; display:grid; grid-template-columns:2em 1fr; gap:8px;
+  padding:9px 0; border-top:1px solid var(--line-soft); align-items:start; margin:0;
+}
+.terms li:first-child{border-top:0}
+.terms li::before{
+  content:counter(t); font-family:var(--serif); font-size:1.02rem; font-weight:600;
+  color:var(--muted); line-height:1.5;
+}
+.terms p{margin:0; font-size:.94rem; color:var(--ink2)}
+.terms .tagline{margin:6px 0 0}
+
+/* comparison tables (reflow to cards) */
+.rtable{margin:1.6em 0; border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; background:var(--surface)}
+.rrow{display:grid; grid-template-columns:.8fr 1.2fr 1fr; gap:0; border-bottom:1px solid var(--line-soft)}
+.rrow:last-child{border-bottom:0}
+.rrow.head{background:var(--surface2); font-weight:700; font-size:.82rem; text-transform:uppercase; letter-spacing:.04em; color:var(--muted)}
+.rrow > div{padding:14px 18px; font-size:.94rem; vertical-align:top}
+.rrow.head > div{padding:11px 18px}
+.rrow:not(.head):hover{background:var(--surface2)}
+.rrow .rlab{display:none; font-weight:700; font-size:.76rem; text-transform:uppercase; letter-spacing:.04em; color:var(--muted); margin-bottom:6px}
+.verdict{font-weight:700; color:var(--accent)}
+.rrow p{margin:0 0 .5em}
+.rrow p:last-child{margin-bottom:0}
+@media(max-width:860px){
+  .rtable .rrow{grid-template-columns:1fr; padding:8px 0}
+  .rtable .rrow.head{display:none}
+  .rtable .rrow > div{padding:6px 18px}
+  .rrow .rlab{display:block; margin-top:8px}
+}
+.narrow .rrow{grid-template-columns:1.1fr 2fr}
+.narrow32 .rrow{grid-template-columns:1fr 1.2fr}
+
+/* matrix */
+.legend{display:flex; flex-wrap:wrap; gap:8px 22px; font-size:.9rem; color:var(--muted); margin:1em 0}
+.legend .k{display:inline-flex; align-items:center; gap:6px}
+.sym{font-family:var(--sans); font-weight:700; font-size:1rem; width:1.4em; text-align:center; display:inline-block}
+.sym.yes{color:var(--good)} .sym.part{color:var(--warn)} .sym.no{color:var(--unk); font-weight:400}
+.matrix-scroll{overflow-x:auto; -webkit-overflow-scrolling:touch}
+table.matrix{border-collapse:collapse; width:100%; font-size:.85rem; background:var(--surface)}
+.matrix th,.matrix td{border:1px solid var(--line-soft); padding:7px 8px; text-align:center}
+.matrix thead th{
+  background:var(--surface2); font-size:.74rem; line-height:1.25; color:var(--ink2);
+  font-weight:600; padding:10px 6px;
+}
+.matrix thead th.hl, .matrix tbody td.hlcol{background:var(--accent-soft)}
+.matrix tbody th{
+  text-align:left; font-weight:600; font-size:.86rem; color:var(--ink);
+  background:var(--surface); min-width:150px; white-space:normal;
+}
+.matrix tbody tr:hover{background:var(--surface2)}
+.write{writing-mode:vertical-rl; transform:rotate(180deg); white-space:nowrap; letter-spacing:.01em}
+@media(max-width:1020px){table.matrix{display:none}}
+.tcards{display:none}
+@media(max-width:1020px){.tcards{display:block}}
+.tcard{
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+  padding:16px 18px; margin-bottom:12px;
+}
+.tcard h4{margin:0 0 10px; font-size:1rem}
+.tgrp{margin-bottom:8px}
+.tgrp:last-child{margin-bottom:0}
+.tgrp .tlabel{font-size:.76rem; font-weight:700; text-transform:uppercase; letter-spacing:.05em; color:var(--muted); margin-bottom:6px}
+.chips{display:flex; flex-wrap:wrap; gap:6px}
+.chip{font-size:.8rem; border-radius:999px; padding:3px 10px; background:var(--surface2); border:1px solid var(--line); color:var(--ink2)}
+.chip.yes{background:var(--good-soft); border-color:transparent; color:var(--good); font-weight:600}
+.chip.part{background:var(--warn-soft); border-color:transparent; color:var(--warn); font-weight:600}
+.notmiss{font-size:.82rem; color:var(--muted)}
+
+/* catalog */
+.catbar{
+  display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:8px;
+  border-bottom:2px solid var(--line); padding-bottom:8px; margin:2.2em 0 0;
+}
+.catbar h3{margin:0; font-size:1.35rem}
+.catbar .cnt{font-size:.85rem; color:var(--muted)}
+.entry{padding:20px 2px 22px; border-bottom:1px solid var(--line-soft)}
+.entry:last-child{border-bottom:0}
+.entry-top{display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 12px}
+.entry-top h4{margin:0; font-size:1.08rem; line-height:1.35}
+.entry-top h4 a{text-decoration-thickness:1px}
+.entry .pub{font-size:.88rem; color:var(--muted)}
+.entry .badges{margin:10px 0 6px}
+.entry .covers{font-size:.93rem; margin:8px 0}
+.entry .covers p{margin:0}
+.covers-grid{display:grid; grid-template-columns:1fr 1fr; gap:2px 26px; margin:8px 0 0}
+@media(max-width:820px){.covers-grid{grid-template-columns:1fr}}
+.entry .took{
+  background:var(--surface2); border-radius:8px; padding:10px 14px; margin:10px 0 0;
+  font-size:.88rem; color:var(--ink2);
+}
+.entry .took strong{font-weight:700}
+.entry .cost{font-size:.88rem; margin:8px 0 0}
+.entry .note{font-size:.88rem; color:var(--muted); margin:8px 0 0}
+.compact-list{margin:0; padding:0; list-style:none}
+.compact-list li{padding:12px 2px; border-bottom:1px solid var(--line-soft); font-size:.93rem}
+.compact-list li:last-child{border-bottom:0}
+.compact-list .at{color:var(--muted); font-size:.86rem}
+
+/* access section */
+.access-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:1.4em 0}
+@media(max-width:860px){.access-grid{grid-template-columns:1fr}}
+.access-card{
+  border-radius:var(--radius); padding:20px 22px; border:1px solid var(--line);
+  background:var(--surface);
+}
+.access-card h3{margin:0 0 8px; font-size:1.05rem; font-family:var(--sans); font-weight:700}
+.access-card .big{font-family:var(--serif); font-size:2.2rem; font-weight:600; display:block; line-height:1.1; margin-bottom:6px}
+.access-card p{font-size:.92rem; margin:0 0 .6em; color:var(--ink2)}
+.access-card p:last-child{margin-bottom:0}
+
+/* open questions */
+ol.openq{margin:1em 0 2em}
+ol.openq li{margin-bottom:.9em; font-size:.95rem; max-width:52em}
+
+/* sources */
+ol.sources{margin:1em 0 0; padding-left:1.2em; font-size:.85rem; color:var(--ink2)}
+ol.sources li{margin-bottom:.7em; overflow-wrap:anywhere; word-break:break-word}
+ol.sources a{overflow-wrap:anywhere}
+.srcflag{
+  display:inline-block; font-size:.74rem; font-weight:600; border-radius:4px; padding:1px 8px;
+  background:var(--surface3); color:var(--muted); margin-left:8px; white-space:nowrap;
+}
+/* changelog / citation / feedback */
+.cite-box{
+  background:var(--surface2); border:1px solid var(--line); border-radius:var(--radius);
+  padding:16px 20px; margin:1.2em 0; font-size:.98rem; color:var(--ink);
+}
+footer.page{
+  border-top:1px solid var(--line); margin-top:56px; padding:26px 0 60px;
+  font-size:.88rem; color:var(--muted);
+}
+footer.page p{max-width:52em}
+.backtop{margin-top:18px}
+.empty-note{
+  background:var(--warn-soft); border:1px solid var(--warn); border-radius:var(--radius);
+  padding:16px 20px; margin:1.2em 0; font-size:.95rem; color:var(--ink2);
+}
+@media(max-width:640px){
+  .wrap{padding:0 16px}
+  .masthead{padding-top:18px}
+  .findings li{grid-template-columns:1.8em 1fr; gap:8px}
+  .comp{padding:18px}
+}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="skip" href="#content">Skip to content</a>
+    <div class="themebar" role="group" aria-label="Color scheme">
+      <div class="theme-toggle">
+        <button type="button" data-theme-set="" aria-pressed="true">System</button>
+        <button type="button" data-theme-set="light" aria-pressed="false">Light</button>
+        <button type="button" data-theme-set="dark" aria-pressed="false">Dark</button>
+      </div>
+    </div>
+    <p class="kicker">A public resource for local and state officials</p>
+    <h1>Who else is writing the data-center deal terms?</h1>
+    <p class="standfirst">About 20 public-side publications were examined in depth for this page, with roughly six additional resources identified but not reviewed in full. This page maps what is out there, what each publication costs to access, the strongest public-side terms anyone has assembled, and a model package you can adapt, with each idea credited to its source.</p>
+    <p class="updated"><span class="dot" aria-hidden="true"></span><span><strong>Last updated: October 2026.</strong> Sources were checked live on October 1, 2026; the model package below was expanded that day in response.</span></p>
+  </div>
+</header>
+
+<main id="content" class="wrap">
+
+<div class="corebox">
+  <p class="corebox-title">Core principle</p>
+  <p>Costs caused by the project are not community benefits. Impact mitigation (grid, roads, water, wastewater, fire/EMS, noise, environmental cleanup, decommissioning) merely keeps the public from losing money and is non-negotiable. Community value (taxes/PILOT, recurring host payments, community investment, housing, schools, child care, workforce investment, residential energy relief) is what the public gains for the use of its scarce land, electricity, water, and infrastructure. A strong deal requires both.</p>
+</div>
+
+<section class="anchor" id="contents" aria-label="On this page">
+  <h2><span class="secnum">00</span>On this page</h2>
+  <ol class="toc">
+    <li><a href="#how"><span class="n">01</span><span>How to use this page</span></a></li>
+    <li><a href="#landscape"><span class="n">02</span><span>The landscape in brief: what exists and what it costs</span></a></li>
+    <li><a href="#package"><span class="n">03</span><span>The model package: 10 principles and 30 terms</span></a></li>
+    <li><a href="#origins"><span class="n">04</span><span>What the package drew from its peers</span></a></li>
+    <li><a href="#distinctive"><span class="n">05</span><span>Terms you will not find anywhere else</span></a></li>
+    <li><a href="#matrix"><span class="n">06</span><span>Topic-by-topic coverage comparison</span></a></li>
+    <li><a href="#library"><span class="n">07</span><span>The public template library</span></a></li>
+    <li><a href="#access"><span class="n">08</span><span>Free, login-walled, and paid: access and the NDA question</span></a></li>
+    <li><a href="#missing"><span class="n">09</span><span>What no one covers</span></a></li>
+    <li><a href="#open"><span class="n">10</span><span>Open questions and verification notes</span></a></li>
+    <li><a href="#sources"><span class="n">11</span><span>Sources</span></a></li>
+    <li><a href="#changelog"><span class="n">12</span><span>Changelog</span></a></li>
+    <li><a href="#cite"><span class="n">13</span><span>How to cite</span></a></li>
+    <li><a href="#feedback"><span class="n">14</span><span>Corrections and feedback</span></a></li>
+  </ol>
+</section>
+
+<section class="anchor catline" id="how">
+  <h2><span class="secnum">01</span>How to use this page</h2>
+  <div class="howto">
+    <div class="step"><span class="step-num">1.</span><p><strong>See what already exists.</strong> Section 7 lists the public-side templates, guides, and ordinances with plain-language summaries, what each one covers, and what it costs to access. Most are free downloads your office can use today.</p></div>
+    <div class="step"><span class="step-num">2.</span><p><strong>Borrow the strongest terms.</strong> Sections 3 through 6 assemble a 30-term model package that draws on the best ideas found anywhere, with each addition credited to what it came from.</p></div>
+    <div class="step"><span class="step-num">3.</span><p><strong>Know the limits.</strong> Section 10 flags what could not be verified, and section 9 lists topics the whole landscape still skips.</p></div>
+  </div>
+  <p class="small muted" style="margin-top:1.4em">This is a public resource published without an author name. It is not legal advice; treat it as a starting point, then have your municipal counsel confirm what fits your state's law.</p>
+</section>
+
+<section class="anchor catline" id="landscape">
+  <h2><span class="secnum">02</span>The landscape in brief</h2>
+  <p class="section-lede">The public-side landscape is crowded but uneven. About twenty publications were examined in depth, nearly all of them free. But most are checklists or high-level principles. Only a few are actual model legal text or term sheets you could hand to your attorney and negotiate from.</p>
+  <div class="stats">
+    <div class="stat"><b>~20</b><span>public-side publications examined in depth (about half a dozen more were identified but not read in full)</span></div>
+    <div class="stat"><b>All but one</b><span>are free downloads with no paywall and no NDA gate; one item is behind a login</span></div>
+    <div class="stat"><b>2</b><span>are full model legal text: the NAACP community-benefits template and the Kentucky Resources Council model zoning ordinance</span></div>
+    <div class="stat"><b>1</b><span>is a government-issued negotiation template: New York State's Community Investment Framework (September 2026)</span></div>
+  </div>
+  <ol class="findings">
+    <li><span class="fn">1.</span><p><strong>Yes, many others publish data-center negotiation tools.</strong> Governments, nonprofits, journalists, academics, and a law firm have all published guides, checklists, and model documents for host communities. This page catalogs them (<a href="#library">section 7</a>) so you do not start from a blank page.</p></li>
+    <li><span class="fn">2.</span><p><strong>Depth varies widely.</strong> Only the NAACP's 2026 community-benefits template and the Kentucky Resources Council's model zoning ordinance are full model legal text. New York State's Community Investment Framework is the only government-issued template, though its template file itself could not be verified. Everything else runs from county checklists to state policy menus.</p></li>
+    <li><span class="fn">3.</span><p><strong>Almost everything is free.</strong> No template, guide, or model ordinance was found behind a paywall, a login, or an NDA gate. The one login-walled item is the National League of Cities' key-questions guide. The paid side is bespoke legal and consulting work, not documents for sale (<a href="#access">section 8</a>).</p></li>
+    <li><span class="fn">4.</span><p><strong>Our model package filled its gaps from this landscape.</strong> In October 2026 it added ten terms and two principles and strengthened six existing terms, borrowing from the NAACP, the New York State framework, the Kentucky Resources Council, WRI, and others. <a href="#origins">Section 4</a> shows which idea came from where.</p></li>
+    <li><span class="fn">5.</span><p><strong>Two topics are missing everywhere.</strong> No publication found covers property-tax assessment methodology for data centers, or electromagnetic fields (EMF) from the facilities (<a href="#missing">section 9</a>).</p></li>
+  </ol>
+</section>
+
+<section class="anchor catline" id="package">
+  <h2><span class="secnum">03</span>The model package: 10 principles and 30 terms</h2>
+  <p class="section-lede">This is a host-community package you can adapt: a short framework brief built on 10 principles, plus a 30-term model term sheet grouped by topic. Ten new terms were added in October 2026: seven came from reviewing every publication on this page, and three more came from a follow-up expert review of the package's earlier form; the two new principles and the strengthened terms were added at the same time. New terms are labeled <span class="badge newb">New</span>; terms that were strengthened are labeled <span class="badge updb">Extended</span>. The peer review behind this page compared the package's earlier form (8 principles, 20 terms); every October 2026 addition closes a gap one of those reviews found, so all comparisons on this page apply to the current 10-principle, 30-term version.</p>
+
+  <div class="pkg-note">
+    <p><strong>Starting premise:</strong> most real data-center deals are negotiated under nondisclosure agreements, so communities negotiate without knowing what comparable towns have gotten. This package assumes communities know each deal's terms, compare them against public benchmarks, and never accept secrecy on the public side of the deal.</p>
+  </div>
+
+  <h3>The 10 principles</h3>
+  <ol class="principles">
+    <li><p><strong>Developer pays for incremental grid infrastructure.</strong> The project's own grid buildout is its own cost, and the contract reserves grid-emergency curtailment rights. <span class="badge updb">Extended</span></p></li>
+    <li><p><strong>Protect existing ratepayers from cost shifting.</strong> No household or business should pay more because a data center connected.</p></li>
+    <li><p><strong>Assign water and wastewater costs contractually.</strong> Who pays for extra water and sewer capacity goes in writing; treated potable water is off-limits above a large-user threshold. <span class="badge updb">Extended</span></p></li>
+    <li><p><strong>Tie tax breaks to measurable benefits disclosed per megawatt.</strong> Any payments in lieu of taxes (PILOTs) or abatements scale to verified public value, not a flat deal.</p></li>
+    <li><p><strong>Index community-benefit payments to project scale, not flat fees.</strong> Payments rise with megawatts and adjust with inflation.</p></li>
+    <li><p><strong>Require public transparency and reporting on power, water and compliance.</strong> Reporting is developer-funded and independently reviewed, and includes a cumulative air-quality impact assessment. <span class="badge updb">Extended</span></p></li>
+    <li><p><strong>Clawbacks for unmet commitments.</strong> Missed milestones cost the developer automatically, with minimum operating duration and exit fees so the community is not left holding stranded assets. <span class="badge updb">Extended</span></p></li>
+    <li><p><strong>Negotiate from a common countywide framework.</strong> Towns are not played against each other; every community starts from the same floor.</p></li>
+    <li><p><strong>Require labor standards.</strong> Local hiring, prevailing wage, and apprenticeships are part of the deal. <span class="badge newb">New</span></p></li>
+    <li><p><strong>Steer projects to appropriate sites.</strong> Brownfields and industrial land preferred over farmland and sensitive habitat. <span class="badge newb">New</span></p></li>
+  </ol>
+
+  <h3>The 30 terms</h3>
+  <div class="term-groups">
+    <div class="term-group">
+      <h3>Fiscal terms <span class="cnt">1 to 4</span></h3>
+      <ol class="terms" style="counter-reset:t 0">
+        <li><p><strong>Full taxation as the default.</strong> Any tax break must be earned against verified public benefits, not granted up front.</p></li>
+        <li><p><strong>A contractual tax floor.</strong> The developer commits in writing to a minimum tax floor, so the deal cannot be eroded quietly later.</p></li>
+        <li><p><strong>Annual community payments indexed to project scale with inflation ratchets.</strong> Payments track megawatts of demand and rise with inflation rather than freezing at signing values. Any project expansion automatically reopens project economics: more community investment, higher annual payments, and fresh water, sewer, grid, decommissioning, and environmental review. The term also keeps the three money measures separate: upfront or lifetime community investment, recurring annual tax or PILOT revenue, and recurring community payments above taxes. <span class="badge updb tagline">Extended Oct 2026</span></p></li>
+        <li><p><strong>No vote without a 30-day public comparison against benchmarks.</strong> The deal sits in public view for 30 days next to comparable-deal benchmarks before any board vote.</p></li>
+      </ol>
+    </div>
+    <div class="term-group">
+      <h3>Power <span class="cnt">5 to 7</span></h3>
+      <ol class="terms" style="counter-reset:t 4">
+        <li><p><strong>Developer pays 100% of incremental grid infrastructure.</strong> Substations, lines, and upgrades the project requires are the project's bill.</p></li>
+        <li><p><strong>Explicit ratepayer protection.</strong> The agreement states directly that existing customers bear none of the project's costs.</p></li>
+        <li><p><strong>Minimum clean-energy share.</strong> A defined fraction of project power comes from clean energy, with milestones.</p></li>
+      </ol>
+    </div>
+    <div class="term-group">
+      <h3>Water <span class="cnt">8 to 10</span></h3>
+      <ol class="terms" style="counter-reset:t 7">
+        <li><p><strong>Water and wastewater costs assigned in writing.</strong> No handshake promises on who funds treatment and capacity.</p></li>
+        <li><p><strong>Closed-loop cooling caps and a drought hierarchy that puts homes first.</strong> Water-hungry cooling is capped, and treated potable water is barred above a large-user threshold. Water sources follow a hierarchy: reclaimed or non-potable water first, then closed-loop systems, then potable water only where necessary. All of it sits under a maximum daily and annual withdrawal, drought-stage restrictions, and a hard priority for residential and public-health supply, with all use metered and publicly reported. <span class="badge updb tagline">Extended Oct 2026</span></p></li>
+        <li><p><strong>Developer-funded water improvements deeded to the public.</strong> Upgrades the project pays for become public assets.</p></li>
+      </ol>
+    </div>
+    <div class="term-group">
+      <h3>Neighbor protections <span class="cnt">11 to 14</span></h3>
+      <ol class="terms" style="counter-reset:t 10">
+        <li><p><strong>Private-well guarantees.</strong> Neighboring well owners get monitoring and a guaranteed remedy if their water is harmed.</p></li>
+        <li><p><strong>Property-value buyout at 110% of assessed value.</strong> Owners near the project who suffer measured loss can sell at a defined fair price.</p></li>
+        <li><p><strong>Enforceable noise limits.</strong> The project must meet defined noise standards, now including light-trespass limits. <span class="badge updb tagline">Extended Oct 2026</span></p></li>
+        <li><p><strong>Affordable-housing earmarks.</strong> A share of community payments is reserved for housing.</p></li>
+      </ol>
+    </div>
+    <div class="term-group full">
+      <h3>Accountability <span class="cnt">15 to 20</span></h3>
+      <ol class="terms grid2" style="counter-reset:t 14">
+        <li><p><strong>No NDAs on the public side.</strong> Secrecy agreements cannot cover the public side of the deal.</p></li>
+        <li><p><strong>Public developer scorecard before any vote.</strong> A public record of the developer's track record, now requiring a cumulative air-quality impact assessment. <span class="badge updb tagline">Extended Oct 2026</span></p></li>
+        <li><p><strong>Hard milestones with automatic clawbacks.</strong> Missed milestones trigger penalties automatically; commitments now include minimum operating duration with exit fees. <span class="badge updb tagline">Extended Oct 2026</span></p></li>
+        <li><p><strong>Decommissioning bond posted up front.</strong> Financial assurance is posted before operations begin, now explicitly covering electronic waste at teardown. <span class="badge updb tagline">Extended Oct 2026</span></p></li>
+        <li><p><strong>One regional negotiating floor.</strong> A common floor across the county or region stops communities from underbidding each other.</p></li>
+        <li><p><strong>Competitive solicitation above the floor.</strong> When communities seek projects, they compete openly on terms above the floor.</p></li>
+      </ol>
+    </div>
+    <div class="term-group full">
+      <h3>New terms added October 2026 <span class="cnt">21 to 30</span></h3>
+      <ol class="terms grid2" style="counter-reset:t 20">
+        <li><p><strong>Labor standards.</strong> A project labor agreement, local-hire targets, prevailing wage, and apprenticeships are in the deal, with permanent-job wage floors and benefits, reporting by worker ZIP code and residency, and MWBE and veteran procurement reporting. <span class="badge newb tagline">New</span></p></li>
+        <li><p><strong>Backup-generator disclosure, emissions limits, and testing windows.</strong> The developer discloses generator count, capacity, fuel type, and on-site fuel storage; nitrogen-oxide and particulate-matter emissions are capped; testing has limited hours and windows; and actual operating hours are reported publicly. <span class="badge newb tagline">New</span></p></li>
+        <li><p><strong>Construction and traffic management.</strong> A baseline road-condition study, designated truck routes, bridge limits, and road restoration after construction are required, along with traffic controls and construction-hour restrictions. <span class="badge newb tagline">New</span></p></li>
+        <li><p><strong>Developer-funded independent review.</strong> The developer funds a county-controlled escrow account that pays for the community's own experts: a utility and grid consultant, a water and wastewater engineer, a municipal-finance expert, an environmental consultant, and data-center-specialist counsel. The county chooses its own experts. <span class="badge newb tagline">New</span></p></li>
+        <li><p><strong>Grid-emergency curtailment, demand response, and interruptible service.</strong> The community can require participation in demand response, emergency load reduction, and interruptible service during grid emergencies. Nevada's 2026 framework is a precedent: <a href="https://www.gov.nv.gov/executive-actions/executive-orders/2026-executive-orders/eo-2026-005/" rel="noopener" target="_blank">no cost of serving a data center is borne by any other ratepayer</a>. <span class="badge newb tagline">New</span></p></li>
+        <li><p><strong>Waste-heat reuse.</strong> Heat-recovery options must be evaluated or enabled. <span class="badge newb tagline">New</span></p></li>
+        <li><p><strong>Responsible siting.</strong> Brownfields and industrial lands are preferred over farmland and sensitive lands. <span class="badge newb tagline">New</span></p></li>
+        <li><p><strong>Creditworthy guarantor and successor liability.</strong> A parent-company guarantee or equivalent credit support; obligations bind successors and assigns; the county must approve any assignment or change of control; obligations survive sale of the facility; and replacement security is required if the guarantor's credit deteriorates. <span class="badge newb tagline">New</span></p></li>
+        <li><p><strong>Take-or-pay and stranded-grid protection.</strong> Minimum-load commitments and take-or-pay utility contracts, substantial deposits and security, milestone-based release of reserved capacity, and forfeiture if the project fails to proceed. <span class="badge newb tagline">New</span></p></li>
+        <li><p><strong>Battery storage and fire/EMS costs.</strong> Disclosure of battery chemistry and capacity, a fire-hazard analysis, fire-department preplanning and training, developer-funded specialized equipment, emergency-response planning, and annual public-safety reimbursement, in line with New Jersey's 2026 municipal guidance (<a href="https://www.nj.gov/dca/dlgs/lfns/2026/2026-13.pdf" rel="noopener" target="_blank">Local Finance Notice 2026-13</a>). <span class="badge newb tagline">New</span></p></li>
+      </ol>
+      <p class="term-note"><strong>Companion:</strong> the four deal benchmarks below (West Feliciana Parish LA / Hut 8, STAMP NY / Stream, DeForest WI / QTS, New York State's $1M-per-MW framework) back the 30-day public comparison in term 4, with the cautions each one needs. <a href="#benchmarks">Reading the dollar benchmarks</a>.</p>
+    </div>
+  </div>
+
+  <h3 class="anchor" id="benchmarks">Reading the dollar benchmarks</h3>
+  <p class="section-lede"><em>DeForest is included as a negotiated benchmark even though the proposed QTS project ultimately did not proceed; its draft agreement shows what one community was able to negotiate before final approval.</em></p>
+  <p>Term 4's 30-day public comparison is only as honest as the benchmarks it uses. The four comparable deals below were rechecked against October 2026 reporting, but they are three <em>different measures</em>. Read them as a set:</p>
+  <div class="pkg-note">
+    <p><strong>Three different measures, not one.</strong></p>
+    <ul style="margin-top:.4em">
+      <li><strong>(a) Upfront or lifetime community investment.</strong> New York's voluntary framework recommends a community-investment benchmark of at least $1 million per MW of utility demand. It is voluntary guidance — a flexible upfront-or-lifetime investment target negotiated locally, paid upfront or phased over the project's lifetime. It is not a mandatory statewide payment, not an annual per-MW payment, and not necessarily cash to the host community (it can include qualifying infrastructure).</li>
+      <li><strong>(b) Recurring annual tax or PILOT revenue.</strong> What the property pays every year in taxes or in lieu of them. West Feliciana's projected figure is about $273,000 per MW of contracted utility demand per year, and that is projected PILOT/lease revenue, not a separate community-benefit payment on top of ordinary taxes.</li>
+      <li><strong>(c) Recurring community payments above taxes.</strong> Annual payments negotiated on top of whatever taxes are paid. A separate category entirely.</li>
+    </ul>
+    <p><strong>Do not compare a one-time per-MW figure with an annual per-MW figure.</strong> One million dollars per MW <em>once</em> is not the same kind of number as $273,000 per MW <em>every year</em>: they measure different things, and a strong deal can include both.</p>
+  </div>
+  <div class="comparators">
+    <article class="comp">
+      <div class="comp-head"><h3>West Feliciana Parish, Louisiana / Hut 8</h3></div>
+      <div class="badges"><span class="badge ver">Last verified: October 2026</span><span class="badge depth">Deal comparable</span></div>
+      <dl>
+        <dt>Structure</dt>
+        <dd><p>A PILOT and lease arrangement through the parish Industrial Development Board: developer-donated property is leased back to the developer. This is not full taxation.</p></dd>
+        <dt>Projected public revenue</dt>
+        <dd><p>Parish officials project roughly $90 million per year in PILOT revenue for the project, reported at 330 MW of utility capacity — about $273,000 per MW per year. This is government revenue replacing conventional property taxation, not an additional community-benefit payment.</p></dd>
+        <dt>Water</dt>
+        <dd><p>Hut 8 committed about $16 million for wells and mains to be transferred to the parish, potentially benefiting thousands of households. This is the deal's real community-investment headline.</p></dd>
+      </dl>
+    </article>
+    <article class="comp">
+      <div class="comp-head"><h3>STAMP, Genesee County, NY / Stream</h3></div>
+      <div class="badges"><span class="badge ver">Last verified: October 2026</span><span class="badge depth">Deal comparable</span></div>
+      <dl>
+        <dt>Requested exemptions</dt>
+        <dd><p>About $1.4 billion in sales-tax exemption plus about $31 million in mortgage-recording-tax exemption, per 2026 public reporting. Stream says the sales-tax figure is a failsafe in case the state's internet-data-center exemption does not apply.</p></dd>
+        <dt>PILOT</dt>
+        <dd><p>$285 million over 30 years: about $9.5 million per year, about $19,000 per MW per year, and about 125 permanent jobs.</p></dd>
+      </dl>
+    </article>
+    <article class="comp">
+      <div class="comp-head"><h3>DeForest, Wisconsin / QTS</h3></div>
+      <div class="badges"><span class="badge ver">Last verified: October 2026</span><span class="badge depth">Negotiated benchmark</span></div>
+      <dl>
+        <dt>Status</dt>
+        <dd><p>A detailed draft pre-annexation agreement the village negotiated with QTS for a $12 billion, 1,600-acre campus; the project ultimately did not proceed and the village never voted on annexation. Its terms are included here as a negotiated-only benchmark.</p></dd>
+        <dt>Tax floor</dt>
+        <dd><p>A guaranteed assessed value of at least $1.2 billion for 15 years, worth an estimated $12 million per year in property-tax payments to the village, schools, and other taxing bodies — a contractual minimum taxable-value floor.</p></dd>
+        <dt>Community commitments</dt>
+        <dd><p>About $50 million in community payments, including Yahara River restoration, $1.5 million toward a planned interstate interchange, affordable housing, and a community solar project; all power-infrastructure improvements paid by QTS, with 750 megawatts of renewable energy credits; private wells within a quarter mile repaired, replaced, or connected to municipal water; materially affected homes bought at no less than 110% of assessed value; and no tax-increment financing.</p></dd>
+      </dl>
+    </article>
+    <article class="comp">
+      <div class="comp-head"><h3>New York's $1M-per-MW benchmark</h3></div>
+      <div class="badges"><span class="badge ver">Last verified: October 2026</span><span class="badge depth">Benchmark</span></div>
+      <dl>
+        <dt>The benchmark</dt>
+        <dd><p>New York's voluntary framework recommends a community-investment benchmark of at least $1 million per MW of utility demand. It is voluntary guidance — a flexible upfront-or-lifetime investment target negotiated locally, not a mandatory statewide payment, a recurring annual payment, or necessarily cash to the host community. New York's Host Community Investment Framework says it can include state-required grid modernization, can be phased over time, and should consider inflation. See the framework entry in <a href="#library">section 7</a> for the full terms.</p></dd>
+      </dl>
+    </article>
+  </div>
+</section>
+
+<section class="anchor catline" id="origins">
+  <h2><span class="secnum">04</span>What the package drew from its peers</h2>
+  <p class="section-lede">The October 2026 additions mostly came directly from the peer templates reviewed on this page; terms 28 to 30 and the added strengthening on terms 3, 9, 21, 22, 23, 24, and 25 came from a follow-up expert review of the package's earlier form. This is the credit line: each new or extended item is paired with what it was drawn from. Any office borrowing these ideas can follow the links in <a href="#library">section 7</a> to read the originals.</p>
+  <div class="rtable narrow">
+    <div class="rrow head"><div>New or extended item</div><div>Drawn from</div></div>
+    <div class="rrow"><div><span class="rlab">New or extended item</span><strong>Term 21, labor standards</strong> and <strong>Principle 9</strong></div><div><span class="rlab">Drawn from</span>The NAACP template (40 to 50% local hire, prevailing wage, union neutrality, apprenticeships) and the NY State Community Investment Framework's labor pillar (prevailing wage, labor agreements, local hiring, apprenticeships). The project-labor-agreement requirement, wage floors, ZIP-code reporting, and MWBE and veteran procurement reporting were added in the follow-up review.</div></div>
+    <div class="rrow"><div><span class="rlab">New or extended item</span><strong>Term 22, backup-generator emissions and testing limits</strong></div><div><span class="rlab">Drawn from</span>The Southern Environmental Law Center report, WRI's mitigation table, Shelby Independent's zoning toolkit (weekday testing windows), and Sierra Club's generator and battery-storage provisions. Generator disclosure, emissions caps, testing windows, and public operating-hour reporting were added in the follow-up review.</div></div>
+    <div class="rrow"><div><span class="rlab">New or extended item</span><strong>Term 23, construction and traffic management</strong></div><div><span class="rlab">Drawn from</span>The National Association of Counties checklist and Cuyahoga County's recommendations, with the Kentucky Resources Council's transportation provisions. The baseline road study, bridge limits, and road restoration after construction were added in the follow-up review.</div></div>
+    <div class="rrow"><div><span class="rlab">New or extended item</span><strong>Term 24, developer-funded independent review</strong></div><div><span class="rlab">Drawn from</span>WRI (developer-funded independent technical and legal funds) and the Kentucky Resources Council ordinance (a permit fee that funds the planning commission's independent expert review). The follow-up review specified a county-controlled escrow that pays for the county's own utility, water, municipal-finance, environmental, and legal experts.</div></div>
+    <div class="rrow"><div><span class="rlab">New or extended item</span><strong>Term 25, grid-emergency curtailment and Principle 1</strong></div><div><span class="rlab">Drawn from</span>The AI Now North Star toolkit, which reserves a right to tax or curtail data-center power during heat waves and emergencies. The follow-up review added demand-response and interruptible-service obligations, citing <a href="https://www.gov.nv.gov/executive-actions/executive-orders/2026-executive-orders/eo-2026-005/" rel="noopener" target="_blank">Nevada's 2026 framework</a> as the precedent that no cost of serving a data center is borne by any other ratepayer.</div></div>
+    <div class="rrow"><div><span class="rlab">New or extended item</span><strong>Term 26, waste-heat reuse</strong></div><div><span class="rlab">Drawn from</span>The Climate Mayors resource (heat-reuse readiness as a condition for tax breaks) and Shelby Independent (a heat-recovery feasibility study at the first meeting).</div></div>
+    <div class="rrow"><div><span class="rlab">New or extended item</span><strong>Term 27, responsible siting and Principle 10</strong></div><div><span class="rlab">Drawn from</span>The Kentucky Resources Council ordinance (prime-farmland protection and siting criteria) and brownfield-first policies discussed in the literature.</div></div>
+    <div class="rrow"><div><span class="rlab">New or extended item</span><strong>Term 28, creditworthy guarantor and successor liability</strong></div><div><span class="rlab">Drawn from</span>The follow-up expert review: a special-purpose project company must not be the only obligor on a 30-year deal.</div></div>
+    <div class="rrow"><div><span class="rlab">New or extended item</span><strong>Term 29, take-or-pay and stranded-grid protection</strong></div><div><span class="rlab">Drawn from</span>The follow-up expert review; comparable minimum-load, termination-charge, and collateral provisions appear in the large-load utility tariffs described in Sierra Club's policy menu and TechPolicy.press's moratorium playbook.</div></div>
+    <div class="rrow"><div><span class="rlab">New or extended item</span><strong>Term 30, battery storage and fire/EMS costs</strong></div><div><span class="rlab">Drawn from</span>The follow-up expert review, citing <a href="https://www.nj.gov/dca/dlgs/lfns/2026/2026-13.pdf" rel="noopener" target="_blank">New Jersey's 2026 municipal guidance</a> (Local Finance Notice 2026-13), which singles out battery storage, UPS, generators, and fuel storage as unusual hazards and urges municipalities to make the developer fund needed public-safety improvements.</div></div>
+    <div class="rrow"><div><span class="rlab">New or extended item</span><strong>Term 3 strengthened: expansion automatically reopens economics, and the three money measures kept separate</strong></div><div><span class="rlab">Drawn from</span>The follow-up expert review; it also follows New York's guidance that agreements address increases in utility demand or project scope.</div></div>
+    <div class="rrow"><div><span class="rlab">New or extended item</span><strong>Term 9 (water): treated potable water barred above a large-user threshold and a drought hierarchy with residential priority</strong> and <strong>Principle 3</strong></div><div><span class="rlab">Drawn from</span>The AI Now toolkit (large-water-user thresholds with recycled-water offsets) and WRI (reclaimed water and closed-loop scrutiny). The drought hierarchy, withdrawal maxima, and drought-stage restrictions were added in the follow-up review.</div></div>
+    <div class="rrow"><div><span class="rlab">New or extended item</span><strong>Term 13 (noise): light-trespass limits added</strong></div><div><span class="rlab">Drawn from</span>The Kentucky Resources Council ordinance, WRI's mitigation table, the NY State framework's good-neighbor commitments, and the NACo checklist.</div></div>
+    <div class="rrow"><div><span class="rlab">New or extended item</span><strong>Term 16 (scorecard): cumulative air-quality impact assessment required</strong> and <strong>Principle 6</strong></div><div><span class="rlab">Drawn from</span>The NAACP template (an independent cumulative impact assessment every five years), the Southern Environmental Law Center, and Sierra Club's cumulative air-quality provisions.</div></div>
+    <div class="rrow"><div><span class="rlab">New or extended item</span><strong>Term 17 (clawbacks): minimum operating duration with exit fees</strong> and <strong>Principle 7</strong></div><div><span class="rlab">Drawn from</span>Public Citizen (minimum operating commitments that prevent abandonment) and the TechPolicy.press playbook (exit fees if the project fails).</div></div>
+    <div class="rrow"><div><span class="rlab">New or extended item</span><strong>Term 18 (decommissioning bond): electronic waste explicitly covered</strong></div><div><span class="rlab">Drawn from</span>The Rockdale County, Georgia draft development standards, which call for a decommissioning and recycling plan for electronic infrastructure (per dig.watch; the draft itself was not read in depth).</div></div>
+  </div>
+</section>
+
+<section class="anchor catline" id="distinctive">
+  <h2><span class="secnum">05</span>Terms you will not find anywhere else</h2>
+  <p class="section-lede">After the peer review, eleven elements of the model package still have no close counterpart in anything published. "Closest analogue" shows the nearest thing found anywhere; "finding" says where the search came up short.</p>
+  <div class="rtable">
+    <div class="rrow head"><div>Model package element</div><div>Closest analogue found</div><div>Finding</div></div>
+    <div class="rrow"><div><span class="rlab">Element</span><strong>Competitive solicitation above a floor</strong></div><div><span class="rlab">Closest analogue</span>Nothing found.</div><div><span class="rlab">Finding</span><span class="verdict">Distinctive.</span> No one else proposes this.</div></div>
+    <div class="rrow"><div><span class="rlab">Element</span><strong>A common countywide or regional negotiating floor</strong></div><div><span class="rlab">Closest analogue</span>WRI nods to Detroit-style benefits ordinances and uniform state rules; AI Now mentions state or regional action.</div><div><span class="rlab">Finding</span><span class="verdict">Distinctive as a deal term.</span> Others talk about regional policy; none make a floor a term.</div></div>
+    <div class="rrow"><div><span class="rlab">Element</span><strong>Property-value buyout at 110% of assessed value</strong></div><div><span class="rlab">Closest analogue</span>Nothing found.</div><div><span class="rlab">Finding</span><span class="verdict">Distinctive.</span></div></div>
+    <div class="rrow"><div><span class="rlab">Element</span><strong>Private-well guarantees</strong></div><div><span class="rlab">Closest analogue</span>The Alliance for the Great Lakes and the Kentucky Resources Council address groundwater generally.</div><div><span class="rlab">Finding</span><span class="verdict">Distinctive in specificity.</span> A named guarantee for private wells exists nowhere else.</div></div>
+    <div class="rrow"><div><span class="rlab">Element</span><strong>No vote without a 30-day public benchmark comparison</strong></div><div><span class="rlab">Closest analogue</span>Public Citizen proposes 90 days of public disclosure before a permit or procurement move.</div><div><span class="rlab">Finding</span><span class="verdict">Distinctive as a deal term.</span> Public Citizen's version is a legislative requirement, not a negotiated term.</div></div>
+    <div class="rrow"><div><span class="rlab">Element</span><strong>A public developer scorecard before any vote</strong></div><div><span class="rlab">Closest analogue</span>Brookings, WRI, and the NAACP all propose public dashboards, but for monitoring after the deal is signed.</div><div><span class="rlab">Finding</span><span class="verdict">Distinctive.</span> Pre-vote and deal-gating, not post-deal monitoring.</div></div>
+    <div class="rrow"><div><span class="rlab">Element</span><strong>Per-MW-indexed community payments with inflation ratchets</strong></div><div><span class="rlab">Closest analogue</span>The NAACP template is closest: benefits indexed to scale plus inflation-indexed annual payments. NY State's $1M-per-MW benchmark is voluntary and has no ratchet.</div><div><span class="rlab">Finding</span><span class="verdict">Strongest quantification found anywhere.</span> The model package leads on dollar terms.</div></div>
+    <div class="rrow"><div><span class="rlab">Element</span><strong>Full-taxation default plus a contractual tax floor</strong></div><div><span class="rlab">Closest analogue</span>Good Jobs First urges canceling or capping exemptions; Sierra Club wants incentive tax rates removed; TechPolicy.press warns that PILOT deals can yield less than full taxation.</div><div><span class="rlab">Finding</span><span class="verdict">The floor mechanism is distinctive.</span> Others urge limits; the floor is new.</div></div>
+    <div class="rrow"><div><span class="rlab">Element</span><strong>Hard milestones with automatic clawbacks</strong></div><div><span class="rlab">Closest analogue</span>The NAACP template has clawbacks and escalating penalties; Climate Mayors propose clawbacks and stepdowns.</div><div><span class="rlab">Finding</span><span class="verdict">"Automatic" is distinctive.</span> Triggers without new votes or lawsuits exist nowhere else.</div></div>
+    <div class="rrow"><div><span class="rlab">Element</span><strong>No-NDA rule on the public side, written as a deal term</strong></div><div><span class="rlab">Closest analogue</span>WRI, Public Citizen, Food and Water Watch, and AI Now all call for legislative bans on government NDAs.</div><div><span class="rlab">Finding</span><span class="verdict">Distinctive as a negotiated term.</span> Others push bans through law; the package makes it a term.</div></div>
+    <div class="rrow"><div><span class="rlab">Element</span><strong>Decommissioning bond posted up front</strong></div><div><span class="rlab">Closest analogue</span>The Kentucky Resources Council, NACo, and Cuyahoga call for decommissioning commitments; Food and Water Watch and the Sabin Center discuss financial assurance without verified text.</div><div><span class="rlab">Finding</span><span class="verdict">Common ask, distinctive form.</span> The package makes an up-front posted bond a hard term.</div></div>
+  </div>
+</section>
+
+<section class="anchor catline" id="matrix">
+  <h2><span class="secnum">06</span>Topic-by-topic coverage comparison</h2>
+  <p class="section-lede">Which publications cover which topics. <strong>Y</strong> means a topic is covered, <strong>P</strong> means partially covered, a dash means not covered (or not found in the portion read). The model-package column reflects the package as expanded in October 2026. On wide screens, click a column header to highlight one publisher; on narrow screens, the table becomes one card per topic with the same information.</p>
+  <div class="legend">
+    <span class="k"><span class="sym yes">Y</span> Covered</span>
+    <span class="k"><span class="sym part">P</span> Partially covered</span>
+    <span class="k"><span class="sym no">-</span> Not covered, or not in the portion read</span>
+  </div>
+  <div class="matrix-scroll" id="matrixTable" role="region" aria-label="Topic coverage matrix, table view" tabindex="0"></div>
+  <div class="tcards" id="matrixCards" role="region" aria-label="Topic coverage, one card per topic"></div>
+  <p class="small muted" style="margin-top:1.2em">The matrix reflects only what could be verified: <em>Y</em> / <em>P</em> marks come from the portion of each document read, and a dash may mean the topic sits in an unread portion of a long document. Key takeaways: fiscal mechanics are rare outside the model package and Good Jobs First; labor standards now appear in the NAACP template, the NY State framework, and the model package; generator limits cluster in the environmental guides; and zoning-only tools carry no fiscal terms at all.</p>
+</section>
+
+<section class="anchor catline" id="library">
+  <h2><span class="secnum">07</span>The public template library</h2>
+  <p class="section-lede">About twenty publications were examined in depth, grouped below. Each entry shows what it covers in plain language, what it costs to access, and, where it applies, what the model package took from it. Bookmarks help: every entry links to its source.</p>
+
+  <div class="catbar" id="lib-gov"><h3>Government publications</h3><span class="cnt">5 entries</span></div>
+
+  <article class="entry">
+    <div class="entry-top"><h4><a href="https://esd.ny.gov/communityinvestmentframework" rel="noopener" target="_blank">Community Investment Framework</a></h4><span class="pub">Empire State Development, NY (September 2026)</span></div>
+    <div class="badges"><span class="badge depth">Template / checklist</span><span class="badge free">Free download</span><span class="badge unk">Template file not verified</span></div>
+    <div class="covers"><p><strong>Covers:</strong> a voluntary template and guidance for municipalities and development agencies negotiating with developers of large data centers (Executive Order No. 62, July 2026; the related moratorium covers projects of 50 megawatts and up). Four pillars: Good Neighbor Commitments (design, noise and light mitigation); labor (prevailing wage, project labor agreements, local hiring, apprenticeships, workforce development); transparency and accountability (economic, environmental, and operational reporting); and targeted investments through a Community Investment Fund (infrastructure, water and sewer, transit, housing, broadband, childcare, schools, blight remediation). New York's voluntary framework recommends a community-investment benchmark of at least $1 million per MW of utility demand. It is voluntary guidance — a flexible upfront-or-lifetime investment target negotiated locally, not a mandatory statewide payment, a recurring annual payment, or necessarily cash to the host community. Related EO-62 work (a grid "beneficiary pays" group, a DEC water report) sits outside the framework itself.</p></div>
+    <p class="cost"><strong>Cost:</strong> free download, no login. It is explicitly voluntary, described in its own materials as something communities "may use or disregard."</p>
+    <p class="note"><strong>Verification:</strong> the ESD page was read in full, but the linked template files did not open during the research read, so their exact character (fill-in worksheet vs. model contract language) is unconfirmed; the description here combines the ESD page with secondary summaries (dig.watch, Cuddy and Feder, Harris Beach Murtha, and the <a href="https://esd.ny.gov/sites/default/files/media/document/CIF-Policy-Outline-071426.pdf" rel="noopener" target="_blank">CIF policy outline PDF</a>).</p>
+    <p class="took"><strong>What the model package took from it:</strong> labor standards (term 21, principle 9); light-trespass limits folded into the noise term; the $1M-per-MW benchmark as a standing dollar reference (held as an upfront-or-lifetime measure, distinct from recurring annual revenue; see <a href="#benchmarks">Reading the dollar benchmarks</a>).</p>
+  </article>
+
+  <article class="entry">
+    <div class="entry-top"><h4><a href="https://cuyahogacms.blob.core.windows.net/home/docs/default-source/sustainability/datacenterrecommendations.pdf?sfvrsn=7d6e5664_3" rel="noopener" target="_blank">Data Center Development: Recommendations for Local Communities</a></h4><span class="pub">Cuyahoga County, Ohio Data Center Working Group (May 2026)</span></div>
+    <div class="badges"><span class="badge depth">Checklist</span><span class="badge free">Free download</span><span class="badge unk">Partial read</span></div>
+    <div class="covers"><p><strong>Covers:</strong> how to recognize a developer approach (vague descriptions, shell LLCs, 100 to 300+ acre assemblages, 50 to 200+ MW utility inquiries, briefings under NDA); a "what to ask" checklist (end user, MW load, confirmed grid capacity and who pays for upgrades, backup fuel, renewables, peak and annual water use and source, wastewater, cooling technology, construction vs. permanent jobs, expansion plans, lifespan, decommissioning commitments, willingness to sign a community-benefits agreement); a "what to ask for" list (local hiring, prevailing wage, salary floors, net fiscal-impact model, local procurement, written utility confirmation of capacity, developer-paid grid upgrades); moratorium guidance; zoning and conditional-use conditions; a community-benefits explainer.</p></div>
+    <p class="cost"><strong>Cost:</strong> free download, no login. Your office can download and use it today.</p>
+    <p class="took"><strong>What the model package took from it:</strong> construction and traffic management cues and who-pays-for-grid-infrastructure questions (term 23 and the grid terms).</p>
+  </article>
+
+  <article class="entry">
+    <div class="entry-top"><h4><a href="https://dced.pa.gov/business-assistance/data-center-resources/planning-toolkit/" rel="noopener" target="_blank">Pennsylvania Data Center Planning Toolkit</a></h4><span class="pub">PA Dept. of Community and Economic Development (2026)</span></div>
+    <div class="badges"><span class="badge depth">Guidance toolkit</span><span class="badge free">Free download</span><span class="badge ver">Read in full</span></div>
+    <div class="covers"><p><strong>Covers:</strong> a Data Centers 101 explainer; siting drivers; infrastructure (power, water, broadband, land); fiscal, economic, and service impacts; zoning, planning, and legal considerations; a companion set of Governor's GRID Requirements. Staff help is advertised at RA-DCEDGRID@pa.gov. This is guidance, not model language.</p></div>
+    <p class="cost"><strong>Cost:</strong> free, no login.</p>
+    <p class="note"><strong>Context:</strong> PA HB2151 (passed the House in April 2026, 124 to 77) would direct DCED to write a voluntary state model zoning ordinance; it has been opposed by Food and Water Watch as pro-industry. The Senate outcome and any resulting model ordinance were not verified.</p>
+    <p class="took"><strong>What the model package took from it:</strong> none yet.</p>
+  </article>
+
+  <article class="entry">
+    <div class="entry-top"><h4><a href="https://www.naco.org/resource/naco-informational-primer-and-county-considerations-data-centers" rel="noopener" target="_blank">Informational Primer and County Considerations: Data Centers</a></h4><span class="pub">National Association of Counties (February 24, 2026)</span></div>
+    <div class="badges"><span class="badge depth">Primer / checklist</span><span class="badge free">Free download</span><span class="badge unk">Verified via search</span></div>
+    <div class="covers"><p><strong>Covers:</strong> a County Considerations Checklist: infrastructure capacity (power and substation upgrades, water and wastewater at peak demand, defining responsibility for upgrades and maintenance); governance (sequence approvals with confirmed utility capacity; enforceable conditions tied to permits and agreements); land use and zoning (setbacks, buffers, screening; noise and lighting standards; traffic routing and construction management plans; repowering, reuse, and decommissioning).</p></div>
+    <p class="cost"><strong>Cost:</strong> free, no login.</p>
+    <p class="took"><strong>What the model package took from it:</strong> traffic routing and construction management plans (term 23); noise and lighting standards folded into the noise term.</p>
+  </article>
+
+  <article class="entry">
+    <div class="entry-top"><h4><a href="https://lpimpactlab.org/wp-content/uploads/2026/06/Data-Centers-Local-Powers.pdf" rel="noopener" target="_blank">Data Centers: Local Powers</a> (one-pager)</h4><span class="pub">Local Progress / Impact Lab (June 2026)</span></div>
+    <div class="badges"><span class="badge depth">One-pager</span><span class="badge free">Free download</span><span class="badge unk">Not read in depth</span></div>
+    <div class="covers"><p><strong>Covers:</strong> maps which decisions sit with local versus state government, so officials know which tools they can actually use.</p></div>
+    <p class="cost"><strong>Cost:</strong> free, no login.</p>
+    <p class="took"><strong>What the model package took from it:</strong> none yet.</p>
+  </article>
+
+  <div class="catbar" id="lib-cba"><h3>Community-benefits templates, checklists, and guides</h3><span class="cnt">9 entries</span></div>
+
+  <article class="entry">
+    <div class="entry-top"><h4><a href="https://climate.law.columbia.edu/sites/climate.law.columbia.edu/files/content/NAACP%20CBA%20Data%20Center%20Template%202026.pdf" rel="noopener" target="_blank">Community Benefits Agreement Template for Data Centers</a></h4><span class="pub">NAACP Center for Environmental and Climate Justice, drafted with the Columbia Law Sabin Center (2026)</span></div>
+    <div class="badges"><span class="badge depth">Model contract language</span><span class="badge free">Free download</span><span class="badge ver">Read in full</span></div>
+    <div class="covers"><p><strong>Covers:</strong> jobs (40 to 50% local hiring, prevailing wage, union neutrality, apprenticeships, automation-displacement disclosure); environment (annual standardized public disclosure of energy, water, emissions, and backup fuel; a renewable ratchet to 100% with interim milestones; an independent cumulative impact assessment before permitting and every five years; an adaptive-review trigger); grid and ratepayer transparency (disclose expected system-upgrade costs and who bears them, as a non-cost-shifting principle); equity (equity impact assessments; protections for renters, small businesses, and Black and Indigenous residents); accountability (independent annual audits, a public dashboard, escalating penalties, subsidy clawbacks); a Community Benefit Fund (upfront plus annual inflation-indexed payments, community-majority board); binding language through construction, operation, and decommissioning.</p></div>
+    <p class="cost"><strong>Cost:</strong> free download, no login. It is written for community coalitions negotiating private CBAs, not for municipalities, and it leaves dollar figures blank; your office can still borrow its structure and indexation.</p>
+    <p class="note"><strong>Verification:</strong> the full template text was read. No decommissioning bond was verified (the decommissioning period is covered; a bond requirement is not confirmed), no NDA-prohibition term, and no regional floor. Companions: <a href="https://naacp.org/sites/default/files/documents/NAACP%20Stop%20Dirty%20Data%20How%20to%20Negotiate%20on%20CBAs%20and%20CAB%20template%20-%20Final.pdf" rel="noopener" target="_blank">"How to Negotiate on CBAs and CAB template"</a> and the <a href="https://naacp.org/campaigns/stop-dirty-data-centers" rel="noopener" target="_blank">Stop Dirty Data Centers campaign page</a>.</p>
+    <p class="took"><strong>What the model package took from it:</strong> labor standards (term 21, principle 9); the independent cumulative impact assessment now folded into the pre-vote scorecard (term 16, principle 6).</p>
+  </article>
+
+  <article class="entry">
+    <div class="entry-top"><h4><a href="https://www.wri.org/technical-perspectives/community-benefits-agreements-data-centers" rel="noopener" target="_blank">"Powering Progress": community-benefits guidelines</a></h4><span class="pub">World Resources Institute (September 2026)</span></div>
+    <div class="badges"><span class="badge depth">Principles / guidelines</span><span class="badge free">Free download</span><span class="badge unk">Partial read</span></div>
+    <div class="covers"><p><strong>Covers:</strong> NDA restrictions (citing a Michigan township ban and NDA-ban bills in 10 states); three-party negotiation with an elected Community Advisory Board; <strong>developer-funded independent technical and legal funds</strong>; periodic reviews and automatic renegotiation triggers; a harm-mitigation table (water assessments; clean-energy contracts plus batteries displacing diesel backup; ratepayer assistance funds plus load shedding; noise setbacks and acoustic walls; light and visual buffers); the Lancaster, Pennsylvania CBA as a model public CBA; Detroit-style benefits ordinances as a scalable model. WRI also keeps a Community Benefits Frameworks Database (March 2025) of executed agreements.</p></div>
+    <p class="cost"><strong>Cost:</strong> free, no login.</p>
+    <p class="took"><strong>What the model package took from it:</strong> developer-funded independent technical review (term 24, principle 6); generator emission limits and testing standards (term 22); light and visual buffers folded into the noise term; potable-water scrutiny tied to the large-user threshold.</p>
+  </article>
+
+  <article class="entry">
+    <div class="entry-top"><h4><a href="https://www.techpolicy.press/how-to-use-your-communitys-data-center-moratorium/" rel="noopener" target="_blank">"How to Use Your Community's Data Center Moratorium"</a></h4><span class="pub">TechPolicy.press (about August 2026)</span></div>
+    <div class="badges"><span class="badge depth">Checklist / guide</span><span class="badge free">Free download</span><span class="badge ver">Read in full</span></div>
+    <div class="covers"><p><strong>Covers:</strong> a policy menu synthesizing 17 public resources: NDA bans; disclosure (entities, subsidies, water and energy, jobs and wages); zoning (no by-right approval, special-use permits, setbacks, constant-noise standards, decommissioning plus financial assurance, stranded-infrastructure plans); power (developer pays grid upgrades; large-load tariffs; long-term contracts with early-termination penalties; curtailment rights; water thresholds; closed-loop cooling; renewable additionality; backup-generator regulation); taxation and CBAs (PILOTs may yield less than full taxation; tie benefits to job targets; codify CBA requirements); labor (local and organized-labor targets, prevailing wage, anti-misclassification); enforcement (third-party audits, public subsidy reporting, penalties escalating up to permit revocation and water shutoffs).</p></div>
+    <p class="cost"><strong>Cost:</strong> free, no login.</p>
+    <p class="took"><strong>What the model package took from it:</strong> exit fees if the project fails (term 17 extension, principle 7).</p>
+  </article>
+
+  <article class="entry">
+    <div class="entry-top"><h4><a href="https://www.brookings.edu/articles/why-community-benefit-agreements-are-necessary-for-data-centers/" rel="noopener" target="_blank">"Why Community Benefit Agreements Are Necessary for Data Centers"</a></h4><span class="pub">Brookings Institution, Nicol Turner Lee and Darrell West (February 3, 2026)</span></div>
+    <div class="badges"><span class="badge depth">Principles</span><span class="badge free">Free access</span><span class="badge unk">Verified via search</span></div>
+    <div class="covers"><p><strong>Covers:</strong> CBAs should be legally binding and co-developed; include quantifiable commitments on jobs, tax revenue, workforce training, and health and well-being; track metrics and evaluate results; be transparent and publicly available; and use formal contracts with legal safeguards. A February 2026 follow-up event added public dashboards and uniform transparency standards.</p></div>
+    <p class="cost"><strong>Cost:</strong> free, no login.</p>
+    <p class="took"><strong>What the model package took from it:</strong> none yet.</p>
+  </article>
+
+  <article class="entry">
+    <div class="entry-top"><h4><a href="https://climate.law.columbia.edu/content/community-benefits-agreements-database" rel="noopener" target="_blank">Community Benefits Agreements Database</a> (+ multi-purpose CBA template, 2024)</h4><span class="pub">Columbia Law School, Sabin Center for Climate Change Law</span></div>
+    <div class="badges"><span class="badge depth">Database + model language</span><span class="badge free">Free download</span><span class="badge unk">Verified via search</span></div>
+    <div class="covers"><p><strong>Covers:</strong> a database of 80-plus executed agreements (1989 to 2025, including the Lancaster AI Hub CBA) for comparing against real deals; "Expert Insights on Best Practices for CBAs"; and a multi-purpose CBA template (<a href="https://climate.law.columbia.edu/sites/climate.law.columbia.edu/files/content/Sabin%20Center_CBA_Multi-purpose_Template.pdf" rel="noopener" target="_blank">PDF</a>, November 2024, written for pipelines and industry rather than data centers) that reportedly includes an independent monitor, a complaint log, a quarterly committee, a public website, decommissioning backed by developer financial security, local hiring, noise limits, and cure and remedies.</p></div>
+    <p class="cost"><strong>Cost:</strong> free, no login.</p>
+    <p class="note"><strong>Verification:</strong> the multi-purpose template was characterized from a third-party summary, not directly verified, and is not data-center specific.</p>
+    <p class="took"><strong>What the model package took from it:</strong> none yet.</p>
+  </article>
+
+  <article class="entry">
+    <div class="entry-top"><h4><a href="https://greatlakes.org/2026/03/data-center-playbook/" rel="noopener" target="_blank">A Regional Playbook for Managing Data Center Impacts in the Great Lakes</a></h4><span class="pub">Alliance for the Great Lakes (March 10, 2026)</span></div>
+    <div class="badges"><span class="badge depth">Checklist / guide</span><span class="badge free">Free download</span><span class="badge unk">Verified via search</span></div>
+    <div class="covers"><p><strong>Covers:</strong> a water-focused explainer; two checklists (evaluating impacts; community and environmental benefits); questions for public meetings; instructions for drafting an accountable community-benefits agreement; ratepayer and water-cost concerns.</p></div>
+    <p class="cost"><strong>Cost:</strong> free, no login.</p>
+    <p class="took"><strong>What the model package took from it:</strong> none yet.</p>
+  </article>
+
+  <article class="entry">
+    <div class="entry-top"><h4><a href="https://goodjobsfirst.org" rel="noopener" target="_blank">Data-center subsidy reports</a></h4><span class="pub">Good Jobs First (reports in 2025 and 2026)</span></div>
+    <div class="badges"><span class="badge depth">Research + recommendations</span><span class="badge free">Free access</span><span class="badge unk">Verified via search</span></div>
+    <div class="covers"><p><strong>Covers:</strong> "Money Lost to the Cloud," "Cloudy Data, Costly Deals" (November 2025), and "Even Cloudier with a Greater Loss of Spending Control" (2026) quantify foregone taxes (over $3B per year nationally; about $1.95M per job across 11 megadeals) and recommend canceling or capping data-center tax exemptions (a cap around $50,000 per job), plus full recipient-and-amount transparency. Its older general model subsidy-accountability legislation (clawbacks, job-quality standards) is not data-center specific. No template.</p></div>
+    <p class="cost"><strong>Cost:</strong> free, no login.</p>
+    <p class="took"><strong>What the model package took from it:</strong> none yet; its findings underpin the case for the package's full-taxation default.</p>
+  </article>
+
+  <article class="entry">
+    <div class="entry-top"><h4><a href="https://www.foodandwaterwatch.org/2026/09/21/national-enviro-group-calls-for-ban-on-all-government-non-disclosure-agreements/" rel="noopener" target="_blank">Model ordinance for data centers (Pennsylvania)</a></h4><span class="pub">Food and Water Watch (referenced February 2026)</span></div>
+    <div class="badges"><span class="badge depth">Presumed model language</span><span class="badge unk">Link public, text unreadable</span><span class="badge unk">Not verified</span></div>
+    <div class="covers"><p><strong>Covers (per secondary descriptions):</strong> described by the <a href="https://buckscountybeacon.com/2026/02/legislation-in-the-state-house-seeks-to-assist-pennsylvania-municipalities-regulate-data-centers-but-who-would-it-actually-help/" rel="noopener" target="_blank">Bucks County Beacon</a> as "a model ordinance for data centers, based on a decade of experience to protect communities where there is fracking," emphasizing decommissioning bonds or escrow posted up front and keeping data centers in industrial districts.</p></div>
+    <p class="cost"><strong>Cost:</strong> the link is public, but the document could not be read during research, so its contents stay unverified. Treat with caution.</p>
+    <p class="took"><strong>What the model package took from it:</strong> none yet.</p>
+  </article>
+
+  <article class="entry">
+    <div class="entry-top"><h4><a href="https://static1.squarespace.com/static/6559a0eea511ed3e8294b547/t/697d44294d4afa5a3a5b0ea9/1769817141936/Climate-Mayors-Data-Center-Resource" rel="noopener" target="_blank">Data Centers and the Climate Landscape: An Actionable Resource for US Mayors</a></h4><span class="pub">Climate Mayors (about January 2026)</span></div>
+    <div class="badges"><span class="badge depth">Negotiation table</span><span class="badge free">Free download</span><span class="badge unk">Verified via search</span></div>
+    <div class="covers"><p><strong>Covers:</strong> a negotiation table: limit tax breaks to projects meeting "gold-standard" criteria (efficiency, on-site clean energy, water reuse, heat-reuse readiness); tie incentives to measurable outcomes; use clawbacks and stepdowns; condition public infrastructure spending on developer contributions.</p></div>
+    <p class="cost"><strong>Cost:</strong> free, no login.</p>
+    <p class="took"><strong>What the model package took from it:</strong> heat-reuse readiness (term 26).</p>
+  </article>
+
+  <div class="catbar" id="lib-zoning"><h3>Zoning and siting</h3><span class="cnt">5 entries</span></div>
+
+  <article class="entry">
+    <div class="entry-top"><h4><a href="https://kyrc.org/wp-content/uploads/2026/07/Model-Data-Center-Zoning-Ordinance-Version-1.4.pdf" rel="noopener" target="_blank">Model Data Center Zoning Ordinance v1.4</a> (+ Home Rule Ordinance, Toolkit, FAQ)</h4><span class="pub">Kentucky Resources Council, with the Kentucky Sierra Club on the toolkit (v1.4 January 2026; Home Rule ordinance May 2026)</span></div>
+    <div class="badges"><span class="badge depth">Full model ordinance text</span><span class="badge free">Free download</span><span class="badge ver">Read in full</span></div>
+    <div class="covers"><p><strong>Covers:</strong> a new industrial-zone category; conditional-use permits with case-specific conditions; a permit fee funding the planning commission's <strong>independent expert review</strong>; siting criteria (karst, wetlands, prime farmland, forests, threatened and endangered habitat, steep slopes, flooding); setbacks up to 1,500 feet; noise, emission, and lighting-glare limits; design, transportation access, stormwater, and fire-safety provisions; water efficiency; decommissioning; definitions expressly covering energy systems (generators, battery storage, substations, transmission). It explicitly does not cover grid or ratepayer costs ("primarily the concern of utilities and utility regulators"), and it carries <strong>no fiscal, tax, or community-payment terms</strong>.</p></div>
+    <p class="cost"><strong>Cost:</strong> free download, no login. The hub at <a href="https://kyrc.org/datacenters/" rel="noopener" target="_blank">kyrc.org/datacenters</a> adds a toolkit and FAQ. Kentucky-tailored but adaptable elsewhere.</p>
+    <p class="took"><strong>What the model package took from it:</strong> responsible-siting precepts (term 27, principle 10); light-trespass limits; the developer-funded independent review fee (term 24).</p>
+  </article>
+
+  <article class="entry">
+    <div class="entry-top"><h4><a href="https://www.selc.org/resource/getting-it-right-local-approaches-to-data-center-development/" rel="noopener" target="_blank">"Getting It Right": Local Approaches to Data Center Development</a></h4><span class="pub">Southern Environmental Law Center (January 21, 2026)</span></div>
+    <div class="badges"><span class="badge depth">Principles + real-world examples</span><span class="badge free">Free access</span><span class="badge unk">Verified via search</span></div>
+    <div class="covers"><p><strong>Covers:</strong> eliminate by-right approvals; special-use permits in heavy-industrial districts; size thresholds; definitions that capture co-located gas turbines ("popup power plants"); data-center-specific development requirements with Virginia examples; <strong>backup-generator regulation</strong>; public-engagement tactics.</p></div>
+    <p class="cost"><strong>Cost:</strong> free, no login.</p>
+    <p class="took"><strong>What the model package took from it:</strong> generator emissions and testing limits (term 22); cumulative air-quality assessment folded into the pre-vote scorecard (term 16, principle 6).</p>
+  </article>
+
+  <article class="entry">
+    <div class="entry-top"><h4><a href="https://www.shelbyindependent.com/post/zoning-for-ai-data-centers-part-2-squaring-the-circle-the-toolkit-we-need" rel="noopener" target="_blank">"Zoning for AI Data Centers": toolkit series</a></h4><span class="pub">Shelby Independent, Ohio (September 2026)</span></div>
+    <div class="badges"><span class="badge depth">Model zoning provisions</span><span class="badge free">Free access</span><span class="badge unk">Verified via search</span></div>
+    <div class="covers"><p><strong>Covers (per available summaries):</strong> model zoning provisions including 1,000-foot residential setbacks; a closed-loop cooling mandate; <strong>generator testing limited to weekdays from 10am to 4pm</strong>; and a heat-recovery feasibility study at the first meeting.</p></div>
+    <p class="cost"><strong>Cost:</strong> free, no login.</p>
+    <p class="took"><strong>What the model package took from it:</strong> generator testing windows (term 22); the heat-recovery feasibility study (term 26).</p>
+  </article>
+
+  <ul class="compact-list">
+    <li><strong>Smart Growth America</strong>, "Data Centers Are Here and More Are Coming. Our Zoning Is Not Ready." <span class="at">Identified; contents not verified in depth.</span></li>
+    <li><strong>Georgia Tech EPIcenter</strong>, "Georgia Data Center Ordinance Hub." <span class="at">Identified; contents not verified in depth.</span></li>
+  </ul>
+
+  <div class="catbar" id="lib-policy"><h3>Policy menus and explainers</h3><span class="cnt">7 entries</span></div>
+
+  <article class="entry">
+    <div class="entry-top"><h4><a href="https://ainowinstitute.org/publications/data-center-policy-guide" rel="noopener" target="_blank">North Star Data Center Policy Toolkit</a></h4><span class="pub">AI Now Institute (December 2025 / January 2026; about 126 pages; interactive version at datacenters.ainowinstitute.org)</span></div>
+    <div class="badges"><span class="badge depth">Policy menu (checklist / principles)</span><span class="badge free">Free download</span><span class="badge unk">Verified via search</span></div>
+    <div class="covers"><p><strong>Covers:</strong> a menu of policy interventions at local, state, and federal levels: bans and moratoriums; zoning and land-use restrictions; environmental assessment mandates (water, heat, noise, grid stress); energy and utility reform (no preferential rates, ratepayer protection, new large-load rate classes); water disclosure and permitting; <strong>large-water-user thresholds (about 10,000 ccf per month) with recycled-water offsets</strong>; closed-loop cooling mandates; air quality including backup-generator emission controls; repeal of tax subsidies; CBAs and revenue-sharing; labor (local hiring, prevailing wage); transparency (public water, energy, and emissions disclosure); and a <strong>right to tax or curtail data-center power in emergencies</strong>.</p></div>
+    <p class="cost"><strong>Cost:</strong> free, no login. Note its framing is "stop, slow, and restrict," not "negotiate the best deal."</p>
+    <p class="took"><strong>What the model package took from it:</strong> grid-emergency curtailment rights (term 25, principle 1); treated potable water barred above a large-user threshold (term 9 extension, principle 3).</p>
+  </article>
+
+  <article class="entry">
+    <div class="entry-top"><h4><a href="https://www.citizen.org/article/reining-in-big-tech-policy-solutions-to-address-the-data-center-buildout/" rel="noopener" target="_blank">"Reining in Big Tech": Policy Solutions to Address the Data Center Buildout</a></h4><span class="pub">Public Citizen, Deanna Noel and Meghan Pazik (December 3, 2025)</span></div>
+    <div class="badges"><span class="badge depth">Principles</span><span class="badge free">Free access</span><span class="badge unk">Verified via search</span></div>
+    <div class="covers"><p><strong>Covers:</strong> prohibit or strictly limit NDAs binding public officials; 90 or more days of online disclosure before a permit or procurement (identity, subsidies, water and energy, environmental impacts, jobs claims, noise and light); direct engagement of impacted communities; <strong>minimum operating-duration commitments</strong> that guard against abandonment and stranded costs.</p></div>
+    <p class="cost"><strong>Cost:</strong> free, no login.</p>
+    <p class="took"><strong>What the model package took from it:</strong> minimum operating duration with exit fees (term 17 extension, principle 7).</p>
+  </article>
+
+  <article class="entry">
+    <div class="entry-top"><h4><a href="https://www.sierraclub.org/sites/default/files/2026-01/policies-for-data-centers-2026.pdf" rel="noopener" target="_blank">"Policies for Data Centers, 2026"</a></h4><span class="pub">Sierra Club (January 14, 2026)</span></div>
+    <div class="badges"><span class="badge depth">State-policy menu (checklist)</span><span class="badge free">Free download</span><span class="badge unk">Verified via search</span></div>
+    <div class="covers"><p><strong>Covers:</strong> a state-policy menu (more useful for regulators and legislators than deal negotiators): large-load tariffs (mandatory above a threshold, 15-plus-year terms, minimum and termination charges, collateral); separate rate classes; anti-cross-subsidy rules; transparency; clean-energy-first rules (renewable standards enforcement, on-site clean energy); removing or reducing incentive tax and utility rates; public health (cumulative impacts and air permits, on-site battery storage). Companions: Sierra Club Wisconsin's "Big Tech Unchecked" community-action toolkit (December 2025, 34 pages) and Sierra Club Virginia's "Unconstrained Demand" (2026, 60 pages).</p></div>
+    <p class="cost"><strong>Cost:</strong> free, no login.</p>
+    <p class="took"><strong>What the model package took from it:</strong> generator and battery-storage provisions (term 22); cumulative air-quality provisions folded into the pre-vote scorecard (term 16, principle 6).</p>
+  </article>
+
+  <article class="entry">
+    <div class="entry-top"><h4><a href="https://www.datacenterpolicy.com" rel="noopener" target="_blank">Data Center Policy Database</a></h4><span class="pub">UVA DIGS Lab (ongoing)</span></div>
+    <div class="badges"><span class="badge depth">Database (no template)</span><span class="badge free">Free access</span><span class="badge unk">Verified via search</span></div>
+    <div class="covers"><p><strong>Covers:</strong> a transparency tool tracking 700-plus data-center policies.</p></div>
+    <p class="cost"><strong>Cost:</strong> free, no login.</p>
+    <p class="took"><strong>What the model package took from it:</strong> none yet; it is a database, not a template.</p>
+  </article>
+
+  <ul class="compact-list">
+    <li><strong>Federation of American Scientists</strong>, "Empowering Communities through CBAs in AI-Fueled Data Center Development." <span class="at">Identified; contents not verified in depth.</span></li>
+    <li><strong>Vanderbilt Policy Accelerator</strong>, "Nine Ways to Address the Energy Impacts of AI Data Centers" (January 2026; utility and energy-regulatory focused). <span class="at">Identified; contents not verified in depth.</span></li>
+    <li><strong>MediaJustice</strong>, "The People Say No: Resisting Data Centers Toolkit" (January 2026; resistance-oriented, not a negotiation template). <span class="at">Identified; contents not verified in depth.</span></li>
+    <li><strong>Urban Land Institute</strong>, "Local Guidelines for Data Center Development" (industry-adjacent). <span class="at">Identified; contents not verified in depth.</span></li>
+    <li><strong>Mifflin County, PA</strong>, "Data Center Planning and Guidance Document." <span class="at">Identified; contents not verified in depth.</span></li>
+  </ul>
+
+  <div class="empty-note">
+    <p><strong>Also found, not read in depth:</strong> the National League of Cities' "Key Questions to Ask When Considering Data Centers in Your Community" (April 2026) is behind a login, and its contents are unverified (per the Joyce Foundation / Fresh Coast landscape deck). The Rockdale County, Georgia draft development standards call for a decommissioning and recycling plan for electronic infrastructure (per dig.watch; the draft itself was not read in depth). See <a href="#open">section 10</a> for all the verification caveats.</p>
+  </div>
+</section>
+
+<section class="anchor catline" id="access">
+  <h2><span class="secnum">08</span>Free, login-walled, and paid: access and the NDA question</h2>
+  <p class="section-lede">The most useful finding for a busy official: you do not need to buy anything. The entire public-side landscape is free except for one login-walled guide, and nothing credible was found for sale.</p>
+
+  <div class="access-grid">
+    <div class="access-card">
+      <h3>Free downloads</h3>
+      <span class="big">Nearly all</span>
+      <p>Every publication in <a href="#library">section 7</a> except one is a free download with no paywall and no NDA gate. This includes both full model legal texts (the NAACP CBA template, the Kentucky Resources Council ordinance) and the only government-issued template (New York's Community Investment Framework).</p>
+    </div>
+    <div class="access-card">
+      <h3>Login-walled</h3>
+      <span class="big">One</span>
+      <p>The National League of Cities' "Key Questions to Ask When Considering Data Centers in Your Community" (April 2026) requires a login. Its contents are unverified because of that login wall (per the Joyce Foundation / Fresh Coast landscape deck).</p>
+    </div>
+    <div class="access-card">
+      <h3>Paid</h3>
+      <span class="big">None for sale</span>
+      <p>No pre-written "negotiation playbook" or term-sheet product is sold to municipalities anywhere the research could find. Paid help is bespoke: law firms and consultants sell their time, not a document.</p>
+    </div>
+  </div>
+
+  <h3>The paid side</h3>
+  <ul>
+    <li><p><strong><a href="https://plunkettcooney.sitepilot13.firmseek.com/printpilot-area-municipal-land-use-data-centers.pdf?1782757795" rel="noopener" target="_blank">Plunkett Cooney</a> (Michigan law firm)</strong> is the clearest documented example of a firm selling municipal-side data-center help. Its Data Center Approvals and Regulation practice offers local governments negotiated and drafted development agreements covering community-benefit packages (infrastructure, workforce, revenue sharing), resource-consumption caps, performance guarantees and monitoring, phasing tied to compliance, and decommissioning financial assurances, plus government-relations advocacy and coalition building. It is a paid legal engagement; no public template or playbook is offered.</p></li>
+    <li><p><strong>Planning and engineering consultants</strong> sell bespoke engagements: for example, McKenna advised the City of Grandville, Michigan on its data-center zoning amendment (per reporting in September 2026). Fresh Coast Climate Solutions and Cascade Energy produced a funder-facing landscape deck (Joyce Foundation, May 2026), marked "proprietary and confidential" but publicly hosted. That deck tracks the publication landscape for funders; it is not a community template.</p></li>
+    <li><p><strong>Developer-side firms for contrast:</strong> McGuireWoods Consulting, Greenbaum Rowe, Babst Calland, Holland and Hart, and Olshan all run data-center practices that sell to developers, not communities (site selection, incentives, PILOT and redevelopment agreements). If your developer brings counsel from one of these firms, remember who the client is.</p></li>
+  </ul>
+
+  <h3>The NDA question</h3>
+  <p><strong>No template, guide, or model ordinance was found behind a paywall or an NDA.</strong> That said, NDAs are still the central problem in real deals: most data-center deals are negotiated under confidentiality agreements, which is why communities negotiate blind and why this page's model package starts from a no-NDA rule on the public side.</p>
+  <ul>
+    <li><p>WRI cites a township-level NDA ban (Big Rapids Township, Michigan) and NDA-ban bills in 10 states.</p></li>
+    <li><p>Public Citizen calls for prohibiting or strictly limiting NDAs binding public officials.</p></li>
+    <li><p>Food and Water Watch issued a <a href="https://www.foodandwaterwatch.org/2026/09/21/national-enviro-group-calls-for-ban-on-all-government-non-disclosure-agreements/" rel="noopener" target="_blank">national call for a ban on all government nondisclosure agreements</a> (September 2026).</p></li>
+    <li><p>The model package treats the no-NDA rule as a <em>deal term</em>, distinct from the legislative bans others advocate.</p></li>
+  </ul>
+</section>
+
+<section class="anchor catline" id="missing">
+  <h2><span class="secnum">09</span>What no one covers</h2>
+  <p class="section-lede">Two topics were absent from every publication verified, through no one's oversight alone. They are genuinely open research questions for anyone building the next template.</p>
+  <ol class="findings">
+    <li><span class="fn">1.</span><p><strong>Property-tax assessment methodology for data centers.</strong> Nobody anywhere covers how a data center should be valued for property-tax purposes. Several publications urge limiting or removing tax breaks, and the model package sets a full-taxation default with a contractual tax floor, but the assessment question itself, how the taxable value is computed, is covered by neither side.</p></li>
+    <li><span class="fn">2.</span><p><strong>Electromagnetic fields (EMF).</strong> No template, guide, or ordinance found addresses EMF exposure from data-center facilities. This includes the model package.</p></li>
+  </ol>
+</section>
+
+<section class="anchor catline" id="open">
+  <h2><span class="secnum">10</span>Open questions and verification notes</h2>
+  <p class="section-lede">Ten things the research could not confirm, stated plainly so you can discount accordingly. "Verified live" means a document was actually opened and read; "search-verified" means it was confirmed to exist and characterized from reliable descriptions without a full read.</p>
+  <ol class="openq">
+    <li><strong>NY State CIF template full text.</strong> The ESD page links a CIF Guidance, a CIF Template, and a worked Template Example, but the file links did not resolve during the research read. This page characterizes the framework as a template from the ESD page and secondary summaries, not from the template itself.</li>
+    <li><strong>Food and Water Watch model ordinance.</strong> Referenced in multiple secondary sources, but the Google Drive-hosted full text was unreadable through the viewer. Its contents stay unverified.</li>
+    <li><strong>National League of Cities "Key Questions."</strong> Login-walled; contents unverified.</li>
+    <li><strong>Sabin Center multi-purpose CBA template (2024).</strong> Characterized from a third-party summary only; not directly verified. It is also not data-center specific.</li>
+    <li><strong>NAACP template decommissioning bond.</strong> The agreement covers the decommissioning period, but a bonding or financial-security requirement was not verified in the portion read.</li>
+    <li><strong>WRI and Cuyahoga remainders.</strong> The latter halves of both documents (WRI's air-quality and additional mitigation rows; Cuyahoga's water, land, and "what not to do" sections) were not read. The coverage matrix reflects what was read, and a dash may mean the topic sits in an unread portion of a long document.</li>
+    <li><strong>PA HB2151 outcome.</strong> Passed the PA House in April 2026; the Senate outcome and whether DCED ever published the voluntary model ordinance were not verified.</li>
+    <li><strong>Items not verified in depth.</strong> Identified from other publications' reference tables or search descriptions but not read in full: ULI Local Guidelines, the Federation of American Scientists CBA paper, Smart Growth America, the Georgia Tech Ordinance Hub, Mifflin County's guidance, Climate Mayors (search-level), MediaJustice, Vanderbilt "Nine Ways," Shelby Independent (search-level), and the Sierra Club chapter toolkits.</li>
+    <li><strong>Regulator-oriented materials</strong> (for example, RAP/NARUC large-load guidance) were out of scope; ratepayer-protection substance was captured through the Sierra Club, AI Now, and WRI instead.</li>
+    <li><strong>The model package itself</strong> is this page's editorial work, printed in full in section 3, expanded in October 2026 from the peer review above. The peer comparisons it embeds were each verified from a live source on October 1, 2026, at the verification level marked on each entry in section 7.</li>
+  </ol>
+</section>
+
+<section class="anchor catline" id="sources">
+  <h2><span class="secnum">11</span>Sources</h2>
+  <p class="section-lede">Every source below was checked on October 1, 2026, and is labeled with how it was verified.</p>
+  <ol class="sources">
+    <li><a href="https://esd.ny.gov/communityinvestmentframework" rel="noopener" target="_blank">esd.ny.gov/communityinvestmentframework</a>, NY ESD Community Investment Framework page<span class="srcflag">page read in full; template files not resolved</span></li>
+    <li><a href="https://climate.law.columbia.edu/sites/climate.law.columbia.edu/files/content/NAACP%20CBA%20Data%20Center%20Template%202026.pdf" rel="noopener" target="_blank">NAACP Community Benefits Agreement template, 2026 (PDF)</a><span class="srcflag">read in full</span></li>
+    <li><a href="https://kyrc.org/wp-content/uploads/2026/07/Model-Data-Center-Zoning-Ordinance-Version-1.4.pdf" rel="noopener" target="_blank">Kentucky Resources Council, Model Data Center Zoning Ordinance v1.4 (PDF)</a><span class="srcflag">read in full</span></li>
+    <li><a href="https://kyrc.org/datacenters/" rel="noopener" target="_blank">kyrc.org/datacenters</a>, KRC data-center hub, toolkit and FAQ<span class="srcflag">read in full</span></li>
+    <li><a href="https://www.wri.org/technical-perspectives/community-benefits-agreements-data-centers" rel="noopener" target="_blank">wri.org/technical-perspectives/community-benefits-agreements-data-centers</a>, "Powering Progress"<span class="srcflag">partial read</span></li>
+    <li><a href="https://www.techpolicy.press/how-to-use-your-communitys-data-center-moratorium/" rel="noopener" target="_blank">techpolicy.press/how-to-use-your-communitys-data-center-moratorium</a><span class="srcflag">read in full</span></li>
+    <li><a href="https://cuyahogacms.blob.core.windows.net/home/docs/default-source/sustainability/datacenterrecommendations.pdf?sfvrsn=7d6e5664_3" rel="noopener" target="_blank">Cuyahoga County, Data Center Development: Recommendations for Local Communities (PDF)</a><span class="srcflag">partial read</span></li>
+    <li><a href="https://dced.pa.gov/business-assistance/data-center-resources/planning-toolkit/" rel="noopener" target="_blank">PA DCED Data Center Planning Toolkit</a><span class="srcflag">read in full</span></li>
+    <li><a href="https://assets.joycefdn.org/content/uploads/Fresh-Coast_Data-Center-Env-Policy-City-Updates_5.18.2026.pdf" rel="noopener" target="_blank">Fresh Coast / Joyce Foundation landscape deck (PDF)</a><span class="srcflag">read in full</span></li>
+    <li><a href="https://ainowinstitute.org/publications/data-center-policy-guide" rel="noopener" target="_blank">ainowinstitute.org/publications/data-center-policy-guide</a>, North Star Data Center Policy Toolkit<span class="srcflag">verified via search</span></li>
+    <li><a href="https://www.naco.org/resource/naco-informational-primer-and-county-considerations-data-centers" rel="noopener" target="_blank">naco.org, NACo Informational Primer and County Considerations</a><span class="srcflag">verified via search</span></li>
+    <li><a href="https://www.selc.org/resource/getting-it-right-local-approaches-to-data-center-development/" rel="noopener" target="_blank">selc.org, "Getting It Right"</a><span class="srcflag">verified via search</span></li>
+    <li><a href="https://www.citizen.org/article/reining-in-big-tech-policy-solutions-to-address-the-data-center-buildout/" rel="noopener" target="_blank">citizen.org, "Reining in Big Tech"</a><span class="srcflag">verified via search</span></li>
+    <li><a href="https://www.sierraclub.org/sites/default/files/2026-01/policies-for-data-centers-2026.pdf" rel="noopener" target="_blank">Sierra Club, Data Center State Policies 2026 (PDF)</a><span class="srcflag">verified via search</span></li>
+    <li><a href="https://www.brookings.edu/articles/why-community-benefit-agreements-are-necessary-for-data-centers/" rel="noopener" target="_blank">brookings.edu, Why Community Benefit Agreements Are Necessary for Data Centers</a><span class="srcflag">verified via search</span></li>
+    <li><a href="https://greatlakes.org/2026/03/data-center-playbook/" rel="noopener" target="_blank">greatlakes.org, A Regional Playbook for Managing Data Center Impacts</a><span class="srcflag">verified via search</span></li>
+    <li><a href="https://naacp.org/campaigns/stop-dirty-data-centers" rel="noopener" target="_blank">naacp.org/campaigns/stop-dirty-data-centers</a><span class="srcflag">verified via search</span></li>
+    <li><a href="https://naacp.org/sites/default/files/documents/NAACP%20Stop%20Dirty%20Data%20How%20to%20Negotiate%20on%20CBAs%20and%20CAB%20template%20-%20Final.pdf" rel="noopener" target="_blank">NAACP, How to Negotiate on CBAs and CAB template (PDF)</a><span class="srcflag">verified via search</span></li>
+    <li><a href="https://climate.law.columbia.edu/content/community-benefits-agreements-database" rel="noopener" target="_blank">climate.law.columbia.edu, Sabin Center CBA Database</a><span class="srcflag">verified via search</span></li>
+    <li><a href="https://climate.law.columbia.edu/sites/climate.law.columbia.edu/files/content/Sabin%20Center_CBA_Multi-purpose_Template.pdf" rel="noopener" target="_blank">Sabin Center multi-purpose CBA template (PDF)</a><span class="srcflag">third-party summary only</span></li>
+    <li><a href="https://goodjobsfirst.org" rel="noopener" target="_blank">goodjobsfirst.org</a>, data-center subsidy reports<span class="srcflag">verified via search</span></li>
+    <li><a href="https://www.datacenterpolicy.com" rel="noopener" target="_blank">datacenterpolicy.com</a>, UVA DIGS Lab policy database<span class="srcflag">verified via search</span></li>
+    <li><a href="https://plunkettcooney.sitepilot13.firmseek.com/printpilot-area-municipal-land-use-data-centers.pdf?1782757795" rel="noopener" target="_blank">Plunkett Cooney, Data Center Approvals and Regulation (PDF)</a><span class="srcflag">verified via search</span></li>
+    <li><a href="https://dig.watch/updates/new-york-community-investment-framework" rel="noopener" target="_blank">dig.watch, New York Community Investment Framework explainer</a><span class="srcflag">verified via search</span></li>
+    <li><a href="https://www.cuddyfeder.com/case-study/new-yorks-data-center-host-community-investment-framework-will-it-catch-on/" rel="noopener" target="_blank">Cuddy and Feder, NY data-center host community framework legal analysis</a><span class="srcflag">verified via search</span></li>
+    <li><a href="https://www.harrisbeachmurtha.com/insights/ny-governor-hochul-establishes-first-in-the-nation-data-center-moratorium/" rel="noopener" target="_blank">Harris Beach Murtha, NY data-center moratorium insight</a><span class="srcflag">verified via search</span></li>
+    <li><a href="https://esd.ny.gov/sites/default/files/media/document/CIF-Policy-Outline-071426.pdf" rel="noopener" target="_blank">NY ESD, CIF policy outline (PDF)</a><span class="srcflag">verified via search</span></li>
+    <li><a href="https://www.techpolicy.press/the-state-of-data-center-policy-in-the-united-states" rel="noopener" target="_blank">techpolicy.press, The State of Data Center Policy in the United States</a><span class="srcflag">verified via search</span></li>
+    <li><a href="https://www.foodandwaterwatch.org/2026/09/21/national-enviro-group-calls-for-ban-on-all-government-non-disclosure-agreements/" rel="noopener" target="_blank">foodandwaterwatch.org, national call to ban all government NDAs</a><span class="srcflag">verified via search</span></li>
+    <li><a href="https://buckscountybeacon.com/2026/02/legislation-in-the-state-house-seeks-to-assist-pennsylvania-municipalities-regulate-data-centers-but-who-would-it-actually-help/" rel="noopener" target="_blank">Bucks County Beacon, FWW model ordinance description</a><span class="srcflag">verified via search</span></li>
+    <li><a href="https://www.shelbyindependent.com/post/zoning-for-ai-data-centers-part-2-squaring-the-circle-the-toolkit-we-need" rel="noopener" target="_blank">Shelby Independent, Zoning for AI Data Centers</a><span class="srcflag">verified via search</span></li>
+    <li><a href="https://static1.squarespace.com/static/6559a0eea511ed3e8294b547/t/697d44294d4afa5a3a5b0ea9/1769817141936/Climate-Mayors-Data-Center-Resource" rel="noopener" target="_blank">Climate Mayors data-center resource (PDF)</a><span class="srcflag">verified via search</span></li>
+    <li><a href="https://lpimpactlab.org/wp-content/uploads/2026/06/Data-Centers-Local-Powers.pdf" rel="noopener" target="_blank">Local Progress / Impact Lab, Data Centers: Local Powers (PDF)</a><span class="srcflag">verified via search</span></li>
+    <li><a href="https://www.nj.gov/dca/dlgs/lfns/2026/2026-13.pdf" rel="noopener" target="_blank">nj.gov, Local Finance Notice 2026-13: data-center community-benefits guidance for municipalities (PDF)</a><span class="srcflag">verified via search; cited for term 30</span></li>
+    <li><a href="https://www.gov.nv.gov/executive-actions/executive-orders/2026-executive-orders/eo-2026-005/" rel="noopener" target="_blank">gov.nv.gov, Executive Order 2026-005: Nevada data-center standards</a><span class="srcflag">verified via search; cited for term 25</span></li>
+    <li><a href="https://civicmedia.us/news/2026/08/03/guaranteed-tax-revenue-river-funding-affordable-housing-what-deforest-negotiated-before-a-data-center-deal-collapsed" rel="noopener" target="_blank">Civic Media, What DeForest negotiated before a data center deal collapsed</a>, DeForest / QTS draft agreement terms, with Wisconsin Watch<span class="srcflag">read in full</span></li>
+    <li><a href="https://www.govtech.com/products/data-center-deal-could-net-louisiana-parish-90m-a-year" rel="noopener" target="_blank">govtech.com (TNS), Data Center Deal Could Net Louisiana Parish $90M a Year</a>, Industrial Development Board and PILOT structure<span class="srcflag">verified via search</span></li>
+    <li><a href="https://d3nqdp0e3r32g8.cloudfront.net/news/west-feliciana-parish-approves-schedule-for-distributing-data-center-payments" rel="noopener" target="_blank">WBRZ, West Feliciana Parish approves schedule for distributing data center payments</a>, donate-leaseback PILOT agreement with Hut 8<span class="srcflag">verified via search</span></li>
+    <li><a href="https://gray-wafb-prod.gtv-cdn.com/2026/04/16/legislation-would-allow-west-feliciana-rebate-property-taxes-data-center-windfall/" rel="noopener" target="_blank">WAFB, Legislation would allow West Feliciana to rebate property taxes from data center windfall</a>, $90M/yr PILOT payments, HB466 rebates<span class="srcflag">verified via search</span></li>
+    <li><a href="https://www.1012industryreport.com/technology/ai/hut-8-lands-a-massive-partnership-for-its-west-feliciana-data-center/" rel="noopener" target="_blank">1012 Industry Report, Hut 8 lands a massive partnership for its West Feliciana data center</a>, initial 330 MW of utility capacity<span class="srcflag">verified via search</span></li>
+  </ol>
+</section>
+
+<section class="anchor catline" id="changelog">
+  <h2><span class="secnum">12</span>Changelog</h2>
+  <p class="section-lede">Notable changes to this page and the model package, newest first.</p>
+  <h3>October 1, 2026</h3>
+  <ul>
+    <li><strong>DeForest, WI (QTS) added as a fourth deal benchmark.</strong> Its detailed draft pre-annexation agreement is included as a negotiated-only benchmark, with the explicit note that the proposed project did not proceed (<a href="#benchmarks">Reading the dollar benchmarks</a>).</li>
+    <li><strong>Dollar-benchmark wording tightened.</strong> New York's $1 million-per-MW benchmark is now stated with its voluntary character up front, and West Feliciana's per-MW figure now shows its $90M-per-year / 330 MW basis.</li>
+    <li><strong>Primary deal sources added</strong> to the sources list (<a href="#sources">section 11</a>): reporting on the DeForest draft agreement and the West Feliciana / Hut 8 PILOT terms.</li>
+    <li><strong>Model package expanded from 27 to 30 terms.</strong> Term 28 requires a creditworthy guarantor with successor liability; term 29 adds take-or-pay and stranded-grid protection; term 30 covers battery storage plus fire and EMS costs. Terms 3, 9, and 21 through 25 were strengthened the same day.</li>
+    <li><strong>Factual corrections to the dollar benchmarks.</strong> West Feliciana is now reported as projected PILOT revenue (about $273,000 per MW per year), the STAMP figures were updated, and New York's $1 million per MW is stated as a flexible upfront-or-lifetime benchmark, not a recurring payment.</li>
+    <li><strong>Core-principle box added at the top of the page.</strong> Project-caused costs are not community benefits; mitigation keeps the public from losing money and is a separate matter from community value.</li>
+    <li><strong>Per-deal last-verified dates added</strong> to the three deal benchmarks in <a href="#benchmarks">section 3</a>.</li>
+  </ul>
+</section>
+
+<section class="anchor catline" id="cite">
+  <h2><span class="secnum">13</span>How to cite this page</h2>
+  <p class="section-lede">No attribution is required; the toolkit is free to use and adapt. If you need a reference line, use the following:</p>
+  <div class="cite-box"><strong>Who else is writing the data-center deal terms?</strong> A public resource for host communities. 30-term model package, October 2026 edition.</div>
+</section>
+
+<section class="anchor catline" id="feedback">
+  <h2><span class="secnum">14</span>Corrections and feedback</h2>
+  <p class="section-lede">Found a factual error or a stale figure? Please report it to the publisher of this page.</p>
+</section>
+
+</main>
+
+<footer class="page">
+  <div class="wrap">
+    <p><strong>Last updated: October 2026.</strong> The underlying research checked live sources on October 1, 2026, and the model package was expanded from that review the same day. This page is a public resource, published without an author name. It is not legal advice; confirm what fits your state's law with municipal counsel before using any term in a deal.</p>
+    <p class="backtop"><a href="#content">Back to top</a></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---- theme toggle (in-session only, respects system by default) ---- */
+  var html = document.documentElement;
+  var btns = document.querySelectorAll(".theme-toggle button[data-theme-set]");
+  btns.forEach(function(b){
+    b.addEventListener("click", function(){
+      var v = b.getAttribute("data-theme-set");
+      if (v) { html.setAttribute("data-theme", v); }
+      else { html.removeAttribute("data-theme"); }
+      btns.forEach(function(x){ x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+    });
+  });
+
+  /* ---- coverage matrix data ----
+     y = covered, p = partially covered / partial read, n = not covered or not in the portion read.
+     Values come from the October 2026 research read; the model package column reflects the
+     package as expanded that month. */
+  var pubs = [
+    { short:"Model pkg", full:"Model package on this page (Oct 2026)" },
+    { short:"NAACP", full:"NAACP community-benefits template, 2026" },
+    { short:"NY CIF", full:"NY State Community Investment Framework, Sep 2026" },
+    { short:"KRC", full:"Kentucky Resources Council model ordinance v1.4" },
+    { short:"AI Now", full:"AI Now North Star policy toolkit" },
+    { short:"WRI", full:"World Resources Institute, Powering Progress" },
+    { short:"TechPolicy", full:"TechPolicy.press moratorium playbook" },
+    { short:"Cuyahoga", full:"Cuyahoga County recommendations" },
+    { short:"NACo", full:"National Association of Counties primer" },
+    { short:"SELC", full:"Southern Environmental Law Center: Getting It Right" },
+    { short:"Pub Citizen", full:"Public Citizen: Reining in Big Tech" },
+    { short:"Sierra Club", full:"Sierra Club data-center policies, 2026" },
+    { short:"Brookings", full:"Brookings CBA principles" },
+    { short:"Alliance GL", full:"Alliance for the Great Lakes playbook" },
+    { short:"GJF", full:"Good Jobs First subsidy reports" }
+  ];
+  var rows = [
+    { topic:"Tax and PILOT terms", vals:["y","n","p","n","p","n","p","p","n","n","n","p","p","n","p"] },
+    { topic:"Grid-infrastructure cost allocation", vals:["y","p","n","n","y","p","y","y","p","p","n","y","n","p","n"] },
+    { topic:"Ratepayer protection", vals:["y","p","n","n","y","y","y","p","n","p","n","y","n","p","n"] },
+    { topic:"Water", vals:["y","y","p","p","y","y","y","y","y","p","n","p","n","y","n"] },
+    { topic:"Jobs and wages", vals:["y","y","y","n","y","n","y","y","n","n","p","n","y","n","p"] },
+    { topic:"Noise and environment", vals:["y","y","p","y","y","y","y","y","y","y","p","y","n","y","n"] },
+    { topic:"Transparency", vals:["y","y","y","n","y","y","y","y","p","y","y","y","y","y","y"] },
+    { topic:"Clawbacks", vals:["y","y","n","n","n","p","p","n","n","n","n","n","n","n","p"] },
+    { topic:"Decommissioning", vals:["y","p","n","y","n","n","y","y","y","n","y","n","n","n","n"] },
+    { topic:"Community payments", vals:["y","y","y","n","p","p","p","p","n","n","n","n","y","p","n"] },
+    { topic:"NDAs", vals:["y","n","n","n","y","y","y","p","n","n","y","n","n","n","p"] },
+    { topic:"Labor standards", vals:["y","y","y","n","y","n","y","y","n","n","n","n","n","n","n"] },
+    { topic:"Backup-generator emissions and testing", vals:["y","p","n","p","y","y","y","p","n","y","n","y","n","n","n"] }
+  ];
+  var CELL = { y:{t:"Y", c:"yes"}, p:{t:"P", c:"part"}, n:{t:"-", c:"no"} };
+
+  function esc(s){
+    return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+  }
+
+  /* Desktop table */
+  (function(){
+    var host = document.getElementById("matrixTable");
+    if (!host) return;
+    var h = '<table class="matrix"><caption class="sr" style="position:absolute;left:-9999px">Coverage of thirteen topics across fifteen publications</caption><thead><tr><th scope="col">Topic vs. publisher</th>';
+    pubs.forEach(function(p, i){
+      h += '<th scope="col" data-col="' + (i+1) + '" title="' + esc(p.full) + ' (click to highlight)"><span class="write">' + esc(p.short) + '</span></th>';
+    });
+    h += '</tr></thead><tbody>';
+    rows.forEach(function(r){
+      h += '<tr><th scope="row">' + esc(r.topic) + '</th>';
+      r.vals.forEach(function(v){
+        var c = CELL[v] || CELL.n;
+        h += '<td><span class="sym ' + c.c + '">' + c.t + '</span><span style="position:absolute;left:-9999px">' + (v === "y" ? "covered" : v === "p" ? "partially covered" : "not covered") + '</span></td>';
+      });
+      h += '</tr>';
+    });
+    h += '</tbody></table>';
+    host.innerHTML = h;
+
+    var table = host.querySelector("table");
+    var active = -1;
+    function clear(){
+      table.querySelectorAll("th.hl, td.hlcol").forEach(function(el){ el.classList.remove("hl","hlcol"); });
+      active = -1;
+    }
+    table.querySelectorAll("thead th[data-col]").forEach(function(th){
+      th.style.cursor = "pointer";
+      th.addEventListener("click", function(){
+        var col = parseInt(th.getAttribute("data-col"), 10);
+        if (active === col) { clear(); return; }
+        clear();
+        active = col;
+        th.classList.add("hl");
+        table.querySelectorAll("tbody tr").forEach(function(tr){
+          var td = tr.children[col];
+          if (td) td.classList.add("hlcol");
+        });
+      });
+    });
+  })();
+
+  /* Mobile topic cards */
+  (function(){
+    var host = document.getElementById("matrixCards");
+    if (!host) return;
+    var html = "";
+    rows.forEach(function(r){
+      var yes = [], part = [], not = [];
+      r.vals.forEach(function(v, i){
+        if (v === "y") yes.push(esc(pubs[i].short));
+        else if (v === "p") part.push(esc(pubs[i].short));
+        else not.push(esc(pubs[i].short));
+      });
+      html += '<div class="tcard"><h4>' + esc(r.topic) + '</h4>';
+      html += '<div class="tgrp"><div class="tlabel">Covered</div><div class="chips">' +
+        yes.map(function(n){ return '<span class="chip yes">' + n + '</span>'; }).join("") + '</div></div>';
+      if (part.length){
+        html += '<div class="tgrp"><div class="tlabel">Partially covered</div><div class="chips">' +
+          part.map(function(n){ return '<span class="chip part">' + n + '</span>'; }).join("") + '</div></div>';
+      }
+      html += '<p class="notmiss">Not covered, or not in the portion read: ' + not.join(", ") + '</p></div>';
+    });
+    host.innerHTML = html;
+  })();
+})();
+</script>
+</body>
+</html>

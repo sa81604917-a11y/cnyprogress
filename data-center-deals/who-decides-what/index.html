@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="data:," />
+  <title>Who Decides What: Onondaga County Data Center Roles</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,700&family=Public+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #ffffff;
+      --ink: #1e2430;
+      --muted: #57616f;
+      --faint: #8b94a2;
+      --line: #e2e6eb;
+      --card: #f6f8fa;
+      --pill: #eef1f5;
+      --link: #0d5a8f;
+      --can: #187240;
+      --cant: #b3401f;
+      --shadow: none;
+      color-scheme: light dark;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0e1319;
+        --ink: #e9edf2;
+        --muted: #a6b0bd;
+        --faint: #767f8c;
+        --line: #253041;
+        --card: #141b25;
+        --pill: #182131;
+        --link: #8fc7ff;
+        --can: #7cd69f;
+        --cant: #eda57e;
+      }
+    }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+      font-size: 1.05rem;
+      line-height: 1.65;
+    }
+    main { display: block; }
+    .wrap { max-width: 46rem; margin: 0 auto; padding: 0 1.25rem; }
+
+    header.page-head { padding: 2.75rem 0 1.5rem; }
+    .kicker {
+      font-size: .95rem; color: var(--muted); margin: 0 0 .6rem;
+    }
+    h1, h2, h3 { font-family: "Newsreader", Georgia, serif; font-weight: 700; line-height: 1.18; }
+    h1 { font-size: clamp(2.35rem, 6vw, 3.4rem); margin: 0 0 .9rem; letter-spacing: -0.01em; }
+    .dek { font-size: 1.15rem; color: var(--muted); max-width: 42rem; margin: 0 0 1rem; }
+    .shortest {
+      border-left: 3px solid var(--link);
+      padding: .1rem 0 .1rem 1rem;
+      margin: 1.25rem 0 1.75rem;
+      font-size: 1.02rem;
+    }
+    .meta { display: flex; flex-wrap: wrap; gap: .5rem; margin: 0; padding: 0; list-style: none; }
+    .meta li {
+      background: var(--pill); color: var(--muted);
+      font-size: .85rem; padding: .35rem .8rem; border-radius: 999px;
+    }
+
+    nav.toc { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: .9rem 0; margin: 0; }
+    nav.toc p { font-size: .85rem; color: var(--faint); margin: 0 0 .55rem; }
+    nav.toc ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .45rem; }
+    nav.toc a {
+      display: inline-block; font-size: .92rem; color: var(--link);
+      border: 1px solid var(--line); border-radius: 999px; padding: .28rem .85rem;
+      text-decoration: none;
+    }
+    nav.toc a:hover { background: var(--pill); }
+
+    section.block { padding: 2.4rem 0 1.4rem; border-bottom: 1px solid var(--line); scroll-margin-top: 1rem; }
+    section.block:last-of-type { border-bottom: none; }
+    h2 { font-size: 1.7rem; margin: 0 0 .8rem; }
+    h3 { font-size: 1.18rem; margin: 0 0 .6rem; font-family: "Public Sans", system-ui, sans-serif; font-weight: 700; }
+    p { margin: 0 0 1rem; }
+    a { color: var(--link); text-decoration: underline; text-underline-offset: .14em; }
+    a:hover { color: var(--ink); }
+
+    /* Finder */
+    .finder-tools { margin: 0 0 1rem; }
+    #finder-q {
+      width: 100%; font-size: 1.05rem; padding: .7rem .9rem;
+      border: 1px solid var(--line); border-radius: 10px;
+      background: var(--bg); color: var(--ink);
+    }
+    #finder-q:focus { outline: 2px solid var(--link); outline-offset: 2px; }
+    #finder-count { font-size: .92rem; color: var(--faint); margin: .45rem 0 0; }
+    table.finder-table { width: 100%; border-collapse: collapse; font-size: .98rem; }
+    .finder-table th {
+      text-align: left; font-size: .82rem; letter-spacing: .04em; text-transform: uppercase;
+      color: var(--faint); font-weight: 600; padding: .55rem .5rem; border-bottom: 2px solid var(--line);
+    }
+    .finder-table td { padding: .62rem .5rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+    .finder-table tr:last-child td { border-bottom: none; }
+    .finder-table td.body { color: var(--muted); }
+    #finder-empty { display: none; color: var(--muted); font-style: italic; }
+
+    /* Role cards */
+    .role-head { display: flex; gap: 1rem; align-items: baseline; margin-bottom: .35rem; }
+    .num {
+      font-family: "Newsreader", Georgia, serif; font-size: 1.05rem; font-weight: 700;
+      color: var(--muted); border: 1px solid var(--line); border-radius: 8px;
+      padding: .15rem .55rem; white-space: nowrap;
+    }
+    .role-head h2 { margin: 0; font-size: 1.55rem; }
+    .take { color: var(--muted); font-size: 1.06rem; margin: 0 0 1.2rem; max-width: 44rem; }
+    .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+    .can, .cannot {
+      background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+      padding: 1.1rem 1.15rem;
+    }
+    .can h3, .cannot h3 { display: flex; align-items: center; gap: .5rem; font-size: 1.02rem; }
+    .can h3 { color: var(--can); }
+    .cannot h3 { color: var(--cant); }
+    .can ul, .cannot ul { margin: 0; padding-left: 0; list-style: none; }
+    .can li, .cannot li { position: relative; padding-left: 1.35rem; margin-bottom: .55rem; font-size: .99rem; }
+    .can li::before {
+      content: ""; position: absolute; left: 0; top: .52em; width: .5rem; height: .85rem;
+      border: solid var(--can); border-width: 0 2.5px 2.5px 0; transform: rotate(45deg) translateY(-60%);
+    }
+    .cannot li::before {
+      content: ""; position: absolute; left: .28rem; top: .85em; width: .55rem; height: 0;
+      border-top: 2.5px solid var(--cant); transform: translateY(-50%) rotate(0deg);
+    }
+    .cannot li::after {
+      content: ""; position: absolute; left: .28rem; top: .85em; width: .55rem; height: 0;
+      border-top: 2.5px solid var(--cant); transform: translateY(-50%) rotate(90deg);
+    }
+    .door {
+      background: var(--bg); border: 1px dashed var(--faint); border-radius: 10px;
+      padding: .85rem 1.1rem; font-size: .98rem; margin: 0;
+    }
+    .door strong { font-weight: 700; }
+    .cite-note { font-size: .88rem; color: var(--faint); margin-top: .9rem; }
+
+    /* Simple sections */
+    .leverage-box, .open-box {
+      background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+      padding: 1.2rem 1.35rem;
+    }
+    .leverage-box ul, .open-box ul { margin: 0; padding-left: 1.25rem; }
+    .leverage-box li, .open-box li { margin-bottom: .6rem; font-size: 1rem; }
+    .leverage-box li::marker { color: var(--link); }
+    .open-box li::marker { color: var(--cant); }
+
+    dl.glossary { margin: 0; }
+    .glossary div { padding: .7rem 0; border-bottom: 1px solid var(--line); }
+    .glossary div:last-child { border-bottom: none; }
+    .glossary dt { font-weight: 700; margin-bottom: .15rem; }
+    .glossary dd { margin: 0; color: var(--muted); font-size: .99rem; }
+
+    ol.sources { margin: 0; padding-left: 1.4rem; font-size: .95rem; }
+    ol.sources li { margin-bottom: .65rem; color: var(--muted); }
+    ol.sources a { word-break: break-word; }
+    ol.sources .src-tag { font-size: .8rem; color: var(--faint); }
+
+    footer.site {
+      border-top: 2px solid var(--ink); margin-top: 1rem; padding: 1.8rem 0 3rem;
+      font-size: .92rem; color: var(--muted);
+    }
+    footer.site p { margin: 0 0 .7rem; }
+    footer.site .updated { font-weight: 700; color: var(--ink); }
+
+    @media (max-width: 46rem) {
+      .cols { grid-template-columns: 1fr; }
+      .finder-table thead { display: none; }
+      .finder-table, .finder-table tbody, .finder-table tr, .finder-table td { display: block; width: 100%; }
+      .finder-table tr { border-bottom: 1px solid var(--line); padding: .55rem 0; }
+      .finder-table td { border: none; padding: .12rem 0; }
+      .finder-table td.body { font-size: .93rem; }
+      .finder-table td.body::before { content: "Decided by: "; color: var(--faint); }
+    }
+
+    @media print {
+      :root {
+        --bg: #ffffff; --ink: #000000; --muted: #333333; --faint: #666666;
+        --line: #bbbbbb; --card: #ffffff; --pill: #eeeeee; --link: #000085;
+        --can: #0a5a2a; --cant: #8f2f12;
+      }
+      body { font-size: 11pt; }
+      .finder-tools { display: none; }
+      nav.toc { display: none; }
+      .can, .cannot, .door, .leverage-box, .open-box { break-inside: avoid; }
+      section.block { break-inside: avoid-page; }
+      ol.sources a[href]::after {
+        content: " (" attr(href) ")"; font-size: .72rem; color: #444; word-break: break-all;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main id="start">
+    <div class="wrap">
+      <header class="page-head">
+        <p class="kicker">Onondaga County, New York: a plain-language roles guide</p>
+        <h1>Who decides what</h1>
+        <p class="dek">A data center proposal moves through at least six different bodies, and each one controls a different set of decisions. This page explains, in plain language, what each can actually demand or approve and what it cannot. Read it to know where the real leverage sits and which door to knock on.</p>
+        <p class="shortest"><strong>Shortest version:</strong> The town or village with zoning jurisdiction decides whether the proposed use and site plan are allowed. OCIDA decides requested tax incentives. The utility sets proposed service terms, subject to state regulation. County agencies, environmental regulators, and the applicable water and sewer providers decide the permits, capacity, and agreements within their own authority.</p>
+        <ul class="meta">
+          <li>Last updated: October 2026</li>
+          <li>Plain language on purpose</li>
+          <li>General information, not legal advice</li>
+        </ul>
+      </header>
+
+      <nav class="toc" aria-label="Sections of this guide">
+        <p>Jump to:</p>
+        <ul>
+          <li><a href="#county">County government</a></li>
+          <li><a href="#ida">The IDA</a></li>
+          <li><a href="#towns">Towns and villages</a></li>
+          <li><a href="#utility">The utility</a></li>
+          <li><a href="#state">State regulators</a></li>
+          <li><a href="#water">Water authorities</a></li>
+          <li><a href="#leverage">Where the leverage sits</a></li>
+          <li><a href="#open">Open questions</a></li>
+          <li><a href="#glossary">Glossary</a></li>
+          <li><a href="#sources">Sources</a></li>
+        </ul>
+      </nav>
+
+      <section class="block" aria-labelledby="finder-h">
+        <h2 id="finder-h">Find who decides what you care about</h2>
+        <p>Type a topic, like <em>noise</em> or <em>tax breaks</em>, to see the body that controls it.</p>
+        <div class="finder-tools">
+          <label for="finder-q" style="position:absolute;left:-9999px">Search the decision list</label>
+          <input type="search" id="finder-q" placeholder="Search topics, e.g. noise, tax breaks, water" autocomplete="off" />
+          <p id="finder-count" role="status"></p>
+        </div>
+        <table class="finder-table" id="finder-table">
+          <thead>
+            <tr><th scope="col">The question</th><th scope="col">The body that decides</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Does the developer get tax breaks? How big, and for how long?</td><td class="body"><a href="#ida">The IDA (OCIDA)</a></td></tr>
+            <tr><td>How the PILOT is divided among the county, town and school district</td><td class="body"><a href="#ida">The IDA (OCIDA)</a></td></tr>
+            <tr><td>What happens if the developer breaks its promises (clawbacks)</td><td class="body"><a href="#ida">The IDA (OCIDA)</a>, through the deal it signs</td></tr>
+            <tr><td>Can a data center be built on this land at all?</td><td class="body"><a href="#towns">The town or village</a> (zoning)</td></tr>
+            <tr><td>Setbacks from homes, height, screening</td><td class="body"><a href="#towns">The town or village</a> (local zoning law)</td></tr>
+            <tr><td>Noise and light limits on the site</td><td class="body"><a href="#towns">The town or village</a> (local law and special-use conditions)</td></tr>
+            <tr><td>Construction hours, truck routes, road repair</td><td class="body"><a href="#towns">The town or village</a> (site plan conditions)</td></tr>
+            <tr><td>A local pause on new data centers</td><td class="body"><a href="#towns">The town or village</a> (local moratorium)</td></tr>
+            <tr><td>The price of electricity, for the project and for everyone else</td><td class="body"><a href="#state">The state utility regulator (PSC)</a></td></tr>
+            <tr><td>Whether the grid can carry the project, and what upgrades it needs</td><td class="body"><a href="#utility">National Grid</a>, under PSC oversight</td></tr>
+            <tr><td>Who pays for grid upgrades the project triggers</td><td class="body"><a href="#state">The PSC</a>, not the town or county</td></tr>
+            <tr><td>Air permits for backup generators</td><td class="body"><a href="#state">NYSDEC</a> (state)</td></tr>
+            <tr><td>Big on-site water withdrawals (100,000 or more gallons a day)</td><td class="body"><a href="#state">NYSDEC</a> (state)</td></tr>
+            <tr><td>Water hookup, available capacity and water rates</td><td class="body"><a href="#water">OCWA</a> or the City of Syracuse water system</td></tr>
+            <tr><td>Sewer hookup, discharge limits and sewer rates</td><td class="body"><a href="#water">The county&#x27;s WEP</a> (sewer district)</td></tr>
+            <tr><td>The state&#x27;s $1 million per MW community investment benchmark</td><td class="body"><a href="#state">Empire State Development</a> (voluntary guidance only)</td></tr>
+            <tr><td>Countywide policy and the county&#x27;s data center study</td><td class="body"><a href="#county">Onondaga County</a> (legislature and executive)</td></tr>
+            <tr><td>County review of big projects near county roads or boundaries</td><td class="body"><a href="#county">Onondaga County planning</a> (a recommendation, not a veto)</td></tr>
+          </tbody>
+        </table>
+        <p id="finder-empty">No topics match that search. Try a broader word.</p>
+      </section>
+
+      <section class="block" id="county">
+        <div class="role-head"><span class="num" aria-hidden="true">01</span><h2>Onondaga County government</h2></div>
+        <p class="take">The county sets policy and pays for the outside study of data center impacts, but it cannot approve or stop a specific project in a town. The county legislature and county executive sit in Syracuse.</p>
+        <div class="cols">
+          <div class="can">
+            <h3>Can demand or decide</h3>
+            <ul>
+              <li>Pay for and steer the outside study of data center impacts (announced June 2026; about $500,000), then adopt county policy from it.</li>
+              <li>Appoint the IDA&#x27;s board, all seven members, by legislature resolution. This is the county&#x27;s main pull on tax-break decisions.</li>
+              <li>Set countywide expectations: a shared negotiating floor for PILOTs, disclosure rules, and publication of any deals it approves.</li>
+              <li>Fund county infrastructure tied to growth: roads, county sewer work through the Water Environment Protection department.</li>
+              <li>Give county planning staff a review role on some big projects near county lines or county assets under state law. The county&#x27;s take is a recommendation, not a veto.</li>
+            </ul>
+          </div>
+          <div class="cannot">
+            <h3>Cannot demand or decide</h3>
+            <ul>
+              <li>Change zoning in any town or village. Zoning is the town&#x27;s, the village&#x27;s, or the city&#x27;s own power.</li>
+              <li>Set electric rates or tell the utility whom to serve. The state utility commission does that.</li>
+              <li>Grant, shrink, or rewrite IDA tax breaks directly. The IDA&#x27;s board makes those calls; the county&#x27;s say runs through the board it appoints.</li>
+              <li>Overrule a town planning board on a site plan or a special use permit.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="door"><strong>Which door to knock on:</strong> county legislators and legislature committee meetings. Watch for the public input process tied to the data center study once dates are announced.</p>
+        <p class="cite-note">County role and the outside study were reported by regional outlets including NewsChannel 9 in June 2026; the IDA board-appointment rule comes from OCIDA&#x27;s own financial statements.</p>
+      </section>
+
+      <section class="block" id="ida">
+        <div class="role-head"><span class="num" aria-hidden="true">02</span><h2>The industrial development agency (OCIDA)</h2></div>
+        <p class="take">The IDA decides whether a data center gets tax breaks, how big they are, and what the developer promises in return. It does not decide whether the project gets built.</p>
+        <div class="cols">
+          <div class="can">
+            <h3>Can demand or decide</h3>
+            <ul>
+              <li>Grant or refuse three kinds of tax relief for a project: sales tax exemptions, mortgage recording tax exemptions, and property tax abatements through a PILOT agreement.</li>
+              <li>Decide the PILOT&#x27;s schedule under its written Uniform Tax Exemption Policy: what the developer pays each year and how it rises or falls over time.</li>
+              <li>Divide PILOT payments among the affected taxing places: the county, the town or village, and the school district.</li>
+              <li>Ask for job creation and investment promises before it grants anything, and set those promises in writing.</li>
+              <li>Write clawback provisions so benefits can be taken back if the project breaks its promises.</li>
+              <li>Choose to follow the state&#x27;s voluntary Community Investment Framework, including the $1 million per MW benchmark, when it negotiates.</li>
+            </ul>
+          </div>
+          <div class="cannot">
+            <h3>Cannot demand or decide</h3>
+            <ul>
+              <li>Change or override town zoning. If the town says no to the land use, there is no project to give a tax break to.</li>
+              <li>Set electric or water rates, or order a utility to build new capacity.</li>
+              <li>Approve the project itself. Site plans, environmental review, and state permits live elsewhere.</li>
+              <li>Guarantee that promised jobs go to local people or pay a certain wage. It can set commitments in a deal; delivery is on the developer, with clawbacks as the public&#x27;s backstop.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="door"><strong>Which door to knock on:</strong> OCIDA&#x27;s board, a public body that meets in Syracuse (333 W. Washington St.), and the public record for each project it takes up. Ask to see the draft PILOT schedule and the clawback terms before any vote.</p>
+        <p class="cite-note">OCIDA was created in 1970 by the county legislature under the state&#x27;s IDA act; its powers and the PILOT process were described in detail in a 2020 audit by the state comptroller.</p>
+      </section>
+
+      <section class="block" id="towns">
+        <div class="role-head"><span class="num" aria-hidden="true">03</span><h2>Towns and villages (zoning and land use)</h2></div>
+        <p class="take">The town where the land sits decides whether a data center can be built there, and on what conditions. This is the most direct power anyone holds over a specific project. The key players are the town board, the planning board, and the zoning board of appeals.</p>
+        <div class="cols">
+          <div class="can">
+            <h3>Can demand or decide</h3>
+            <ul>
+              <li>Decide whether data centers are an allowed use in a zoning district, a special use needing extra permission, or banned unless the zoning changes.</li>
+              <li>Adopt a data center law before any proposal arrives: where they may go, setbacks from homes, height, screening, noise and light limits, and backup generator testing rules.</li>
+              <li>Attach conditions to site plan or special use approval: traffic and truck routes, construction hours, landscaping, and road repair.</li>
+              <li>Adopt a temporary local moratorium to pause new projects while new rules are written.</li>
+              <li>Lead the state environmental review (SEQR) for a project and require studies on traffic, noise, views, and water before deciding.</li>
+              <li>Require reporting and a decommissioning bond or escrow, paid up front, under local law.</li>
+            </ul>
+          </div>
+          <div class="cannot">
+            <h3>Cannot demand or decide</h3>
+            <ul>
+              <li>Set or change the price of electricity, or decide who pays for grid upgrades. That lives with the utility regulator.</li>
+              <li>Grant property tax breaks or write PILOTs. Only the IDA does that; the town receives its share of the payments.</li>
+              <li>Overrule state permits. A town cannot waive a DEC permit requirement, and a DEC permit does not waive the town&#x27;s own zoning. They run in parallel.</li>
+              <li>Regulate the power grid itself: substations, lines, and tariffs sit with the utility and the state.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="door"><strong>Which door to knock on:</strong> the town board and planning board, at their public hearings on zoning and site plans. For a specific project, this is where resident voices carry the most weight.</p>
+        <p class="cite-note">Towns get their zoning power from state law (Town Law and the state&#x27;s local government publications); the toolkit side of this is mapped in model ordinances and county checklists in the sources below.</p>
+      </section>
+
+      <section class="block" id="utility">
+        <div class="role-head"><span class="num" aria-hidden="true">04</span><h2>The electric utility (National Grid)</h2></div>
+        <p class="take">National Grid figures out what a big new user costs the grid and proposes who pays. But the state commission decides the rules.</p>
+        <div class="cols">
+          <div class="can">
+            <h3>Can demand or decide</h3>
+            <ul>
+              <li>Run the interconnection study for a data center: how much power it needs, what must be built (substation, lines, upgrades), and a cost estimate.</li>
+              <li>Sign service contracts with large customers under utility commission approved tariffs.</li>
+              <li>Propose rate structures for huge new users for the commission to approve.</li>
+              <li>Confirm in writing whether existing capacity can carry a project, which towns and the developer can demand before approvals move forward.</li>
+              <li>Refuse a connection that would be unsafe or unreliable, under the rules set for all customers.</li>
+            </ul>
+          </div>
+          <div class="cannot">
+            <h3>Cannot demand or decide</h3>
+            <ul>
+              <li>Set its own rates. The Public Service Commission approves them.</li>
+              <li>Pick where data centers get built, or change the zoning.</li>
+              <li>Grant tax incentives or write host community agreements.</li>
+              <li>Decide alone who pays for big grid upgrades. If the company cannot make the developer pay through a contract, whether ordinary customers pick up part of the cost is fought out at the commission. The state has ordered its utility staff to study a &#x27;beneficiary pays&#x27; approach for large new users.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="door"><strong>Which door to knock on:</strong> residents cannot negotiate with the utility over a data center&#x27;s deal. The real door is the state utility commission&#x27;s public comment process in rate and tariff cases.</p>
+        <p class="cite-note">National Grid (Niagara Mohawk Power Corporation) is the electric and gas utility for Syracuse and much of upstate New York, acquired by National Grid in 2000.</p>
+      </section>
+
+      <section class="block" id="state">
+        <div class="role-head"><span class="num" aria-hidden="true">05</span><h2>State regulators</h2></div>
+        <p class="take">The state sets the rules for electricity, air, and water, and right now it is writing new rules specifically for data centers. The key agencies: the Public Service Commission (electric), NYSDEC (environment), and Empire State Development (economic development).</p>
+        <div class="cols">
+          <div class="can">
+            <h3>Can demand or decide</h3>
+            <ul>
+              <li>The Public Service Commission sets electric rates and can approve special tariffs for huge new users (&#x27;large-load tariffs&#x27;: minimum bills, long terms, exit charges). Advocates are pushing for them; nothing is confirmed adopted in National Grid territory as of this page&#x27;s sources.</li>
+              <li>DEC decides whether the project&#x27;s backup generators and on-site engines need air permits.</li>
+              <li>DEC permits water withdrawals for any system with the capacity to pull 100,000 gallons a day or more.</li>
+              <li>DEC also permits wastewater discharges to waterways and protects wetlands and stormwater quality.</li>
+              <li>The Governor&#x27;s July 2026 executive order put a one-year hold on state permits for data centers of 50 MW or more and started a statewide environmental study; whether the hold reaches local approvals is not settled in the public record.</li>
+              <li>Empire State Development published a voluntary Community Investment Framework: a $1 million per MW community-investment benchmark and a negotiation template that towns and IDAs can use or ignore.</li>
+            </ul>
+          </div>
+          <div class="cannot">
+            <h3>Cannot demand or decide</h3>
+            <ul>
+              <li>Grant local tax breaks or write PILOTs. That is the IDA&#x27;s call.</li>
+              <li>Rezone land in a town or overrule a local planning board&#x27;s site plan decision.</li>
+              <li>Approve a project&#x27;s fit with a local zoning code. State permits and local zoning run on separate tracks.</li>
+              <li>Order a town to host a data center or to change its rules.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="door"><strong>Which door to knock on:</strong> written comments in utility commission rate and tariff cases; public notice and hearings tied to DEC permits; comments when the state&#x27;s data center environmental study opens.</p>
+        <p class="cite-note">The state moratorium and permit hold were reported in September 2026; the Community Investment Framework is published by Empire State Development.</p>
+      </section>
+
+      <section class="block" id="water">
+        <div class="role-head"><span class="num" aria-hidden="true">06</span><h2>Water authorities</h2></div>
+        <p class="take">Whoever pipes the water in and treats the wastewater decides whether the project gets hooked up, how much capacity it gets, and what it pays.</p>
+        <div class="cols">
+          <div class="can">
+            <h3>Can demand or decide</h3>
+            <ul>
+              <li>OCWA, the Onondaga County Water Authority, supplies drinking water across most of the county outside the City of Syracuse (about 340,000 people across five counties, from Lake Ontario, Otisco Lake, and Skaneateles Lake). It sets rates and decides how it serves big users.</li>
+              <li>The City of Syracuse runs its own water system for the city.</li>
+              <li>The county Water Environment Protection department (WEP) runs the public sewer system in the Consolidated Sanitary District, reviews every new sewer service request for available capacity, issues industrial discharge permits, and monitors what big users send to the plants.</li>
+              <li>Both systems can put the cost of extensions and upgrades the project forces onto the developer through their service terms. This is where &#x27;costs the project causes are not community benefits&#x27; gets enforced for water.</li>
+              <li>Water is not a free good here. In December 2025 a broken 42-inch OCWA main put 27,000 accounts under conservation orders. A heavy new user is a real ask of that system.</li>
+            </ul>
+          </div>
+          <div class="cannot">
+            <h3>Cannot demand or decide</h3>
+            <ul>
+              <li>Override state water, health, or environmental permits.</li>
+              <li>Set electric rates or grant tax breaks.</li>
+              <li>Decide zoning; the water body can&#x27;t block a project outside its own hookup and capacity decisions.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="door"><strong>Which door to knock on:</strong> OCWA for water service and capacity questions; WEP for sewer discharge permits and capacity review.</p>
+        <p class="cite-note">OCWA&#x27;s service area comes from its public records; WEP&#x27;s capacity and discharge-permit roles are stated on the county&#x27;s own WEP pages.</p>
+      </section>
+
+      <section class="block" id="leverage">
+        <h2>Where the leverage sits</h2>
+        <div class="leverage-box">
+          <ul>
+            <li><strong>Two gates matter most.</strong> The town&#x27;s land-use approval and the IDA&#x27;s tax-break decision shape any deal more than anything else. Silence the tax break and the project may still get built; change the zoning and it often cannot get built at all.</li>
+            <li><strong>Write the rules before the proposal arrives.</strong> A town that adopts data center setbacks, noise limits, and a special use requirement before a developer shows up holds the cards. So does an IDA that insists on full PILOT schedules and real clawbacks as the price of subsidies.</li>
+            <li><strong>Money lives at the IDA table.</strong> PILOTs, host payments, investment commitments, and clawbacks are negotiated with the IDA, not the town planning board.</li>
+            <li><strong>Power costs are the state&#x27;s arena.</strong> Electric rates, large-load tariffs, and who pays for grid upgrades are decided by the utility commission, not by towns or the county. Residents have the least direct say here, and the public comment process is their route in.</li>
+            <li><strong>The county sets the table.</strong> Appointing the IDA board, running the study, and adopting a countywide floor that towns can take up: that is what county-level power looks like.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="block" id="open">
+        <h2>Open questions</h2>
+        <p>Public facts that are not settled, so this page will not pretend they are:</p>
+        <div class="open-box">
+          <ul>
+            <li>What the state&#x27;s one-year environmental study and its grid funding work will conclude, and what rules they will produce.</li>
+            <li>Whether the utility commission adopts large-load tariffs for National Grid customers. Campaigned for, not confirmed.</li>
+            <li>Which towns and villages will actually see proposals, and what each one&#x27;s zoning code currently requires. This page did not check every town&#x27;s code; verify for any specific project.</li>
+            <li>What OCIDA&#x27;s current written tax exemption policy says term by term, and how it might change for a data center deal. Ask the agency for the text.</li>
+            <li>Purchasing and merger rules change often. The utility facts here were checked in October 2026 and can change with new orders.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="block" id="glossary">
+        <h2>Glossary</h2>
+        <dl class="glossary">
+          <div>
+            <dt>MW (megawatt)</dt>
+            <dd>A unit of electrical power demand. A data center of 50 MW uses roughly what tens of thousands of homes use at peak times. The state&#x27;s one-year permit review applies at 50 MW or more.</dd>
+          </div>
+          <div>
+            <dt>PILOT</dt>
+            <dd>Payment in lieu of taxes. When an IDA holds title to a project, the property leaves the tax rolls; the PILOT agreement sets what the developer pays instead, and how the money is split among the county, town or village, and school district.</dd>
+          </div>
+          <div>
+            <dt>IDA / OCIDA</dt>
+            <dd>Industrial development agency. In New York these are county or local public benefit corporations that can grant tax incentives. OCIDA is the one for Onondaga County.</dd>
+          </div>
+          <div>
+            <dt>UTEP</dt>
+            <dd>Uniform Tax Exemption Policy. The written policy each IDA must keep, describing the tax breaks it offers and the rules and recapture terms attached to them.</dd>
+          </div>
+          <div>
+            <dt>Clawback</dt>
+            <dd>A deal term that takes tax breaks or cash back when the developer breaks its promises on jobs, investment, or other commitments.</dd>
+          </div>
+          <div>
+            <dt>SEQR</dt>
+            <dd>The State Environmental Quality Review Act. New York&#x27;s review process for the environmental impacts of agency decisions, including project approvals.</dd>
+          </div>
+          <div>
+            <dt>Large-load tariff</dt>
+            <dd>A special utility rate structure for very large new electricity users, often with minimum bills, long contract terms, and exit charges so the public does not end up paying for infrastructure a big user stops needing.</dd>
+          </div>
+          <div>
+            <dt>Beneficiary pays</dt>
+            <dd>The principle that the new large user, not ordinary customers, should pay for the grid upgrades its load triggers. The state has ordered its utility staff to study this for data centers.</dd>
+          </div>
+          <div>
+            <dt>Host community agreement / CBA</dt>
+            <dd>A contract through which the developer funds local projects or services (roads, schools, emergency response). &#x27;CBA&#x27; means community benefits agreement; host community agreement is the common New York label.</dd>
+          </div>
+          <div>
+            <dt>Home rule</dt>
+            <dd>In this context, the long standing New York rule that towns, villages, and cities control their own zoning and land use unless the state clearly takes that power back.</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="block" id="sources">
+        <h2>Sources</h2>
+        <p>Public records checked in September and October 2026. Nothing on this page is drawn from a source that requires a login or a signed agreement.</p>
+        <ol class="sources">
+          <li><a href="https://www.osc.ny.gov/files/local-government/audits/pdf/onondaga-county-2019-160.pdf">Onondaga County Industrial Development Agency: Project Approval and Monitoring (Report 2019M-160)</a> <span class="src-tag"> Office of the NYS Comptroller. IDA powers, PILOTs, and the written tax exemption policy.</span></li>
+          <li><a href="https://clayny.news/document/675/original">OCIDA financial statements, 2025</a> <span class="src-tag">Created by the county legislature in 1970; a public benefit corporation; board appointed by the legislature.</span></li>
+          <li><a href="https://en.wikipedia.org/wiki/Niagara_Mohawk_Power_Corporation">Niagara Mohawk Power Corporation</a> <span class="src-tag">Serves Syracuse and upstate NY; acquired by National Grid in 2000.</span></li>
+          <li><a href="https://dec.ny.gov/environmental-protection/water/water-quantity/water-withdrawal-permits-reporting/permits">Water Withdrawal Permits</a> <span class="src-tag">NYSDEC. Permits required at 100,000 gallons per day or more of capacity.</span></li>
+          <li><a href="https://dos.ny.gov/system/files/documents/2024/09/zoning-and-the-comprehensive-plan.pdf">Zoning and the Comprehensive Plan</a> <span class="src-tag">NYS Department of State. Town and village zoning power under state law.</span></li>
+          <li><a href="https://www.lawserver.com/law/state/new-york/ny-laws/ny_town_law_284">N.Y. Town Law section 284</a> <span class="src-tag">Land use power stays with towns and villages; counties run land use tasks for them only by agreement.</span></li>
+          <li><a href="https://www.newyorkappellatedigest.com/2018/04/18/towns-comprehensive-plan-which-was-adopted-while-petitioner-development-project-application-was-pending-and-negatively-affected-it-was-properly-adopted-under-the-general-municipal-law-town-law/">Town&#x27;s police and zoning powers</a> <span class="src-tag">NY Appellate Digest summary. Town zoning power under the General Municipal and Town Laws; county review under GML 239-m.</span></li>
+          <li><a href="https://esd.ny.gov/communityinvestmentframework">Community Investment Framework</a> <span class="src-tag">Empire State Development, Sept 2026. Voluntary template; $1M per MW benchmark for municipalities and IDAs.</span></li>
+          <li><a href="https://senecalake.org/pure-waters-supports-moratorium-on-data-center-development/">Pure Waters Supports Moratorium on Data Center Development</a> <span class="src-tag">Sept 11, 2026. Governor&#x27;s one-year moratorium and DEC permit hold; statewide environmental study; utility commission approval of grid connections; town home rule moratoria.</span></li>
+          <li><a href="https://github.com/huangzesen/us-dc-intel/blob/HEAD/dc/usdc-0127-stream-data-centers-western-new-york-stamp/NOTES.md">Reading notes: EO-62 and the STAMP data center proposal</a> <span class="src-tag">Third party notes; records the state-local permit split as unresolved in the public record. Used here only for the hedge, not as a primary source.</span></li>
+          <li><a href="https://onondaga.gov/wep/service-area/">WEP service area</a> <span class="src-tag">Onondaga County. The county&#x27;s public sewer system, Consolidated Sanitary District, capacity reviews.</span></li>
+          <li><a href="https://onondaga.gov/wep/">Water Environment Protection</a> <span class="src-tag">Onondaga County. Industrial wastewater monitoring and discharge permits.</span></li>
+          <li><a href="https://ocwa.org/wp-content/uploads/2012/09/Annual-Report-Documentation1.pdf">OCWA service area</a> <span class="src-tag">Onondaga County Water Authority public records (2012 report; service area facts stable).</span></li>
+          <li><a href="https://law.justia.com/codes/new-york/2015/pba/article-5/title-7/1152/">Onondaga County Water Authority district</a> <span class="src-tag">NY Public Authorities Law. The authority&#x27;s statutory district.</span></li>
+          <li><a href="https://wsyr.iheart.com/content/2025-12-23-six-onondaga-communities-face-water-shortage-due-to-pipe-break/">Six Onondaga Communities Face Water Shortage Due to Pipe Break</a> <span class="src-tag">WSYR, Dec 23, 2025. 42-inch OCWA main break; 27,000 accounts under conservation.</span></li>
+          <li><a href="https://www.youtube.com/watch?v=M7eevBCFIng">Onondaga Co. creating task force to study possible data center impacts</a> <span class="src-tag">NewsChannel 9, June 2026. County to hire an outside entity to conduct the study.</span></li>
+          <li><a href="https://lpimpactlab.org/wp-content/uploads/2026/06/Data-Centers-Local-Powers.pdf">Data Centers: Local Powers</a> <span class="src-tag">Local Progress Impact Lab, June 2026. Maps local vs. state authority.</span></li>
+          <li><a href="https://www.naco.org/resource/naco-informational-primer-and-county-considerations-data-centers">Informational Primer and County Considerations: Data Centers</a> <span class="src-tag">National Association of Counties, Feb 2026. County checklist: capacity, zoning conditions, decommissioning.</span></li>
+          <li><a href="https://cuyahogacms.blob.core.windows.net/home/docs/default-source/sustainability/datacenterrecommendations.pdf?sfvrsn=7d6e5664_3">Data Center Development: Recommendations for Local Communities</a> <span class="src-tag">Cuyahoga County, May 2026. What to ask the utility and the developer; local conditions.</span></li>
+          <li><a href="https://www.techpolicy.press/how-to-use-your-communitys-data-center-moratorium/">How to Use Your Community&#x27;s Data Center Moratorium</a> <span class="src-tag">TechPolicy.press, ~Aug 2026. Playbook synthesizing 17 public resources.</span></li>
+          <li><a href="https://www.sierraclub.org/sites/default/files/2026-01/policies-for-data-centers-2026.pdf">Data Center State Policies, 2026</a> <span class="src-tag">Sierra Club, Jan 2026. Large-load tariff menu and ratepayer protections as advocated policies, not adopted law.</span></li>
+        </ol>
+      </section>
+
+      <footer class="site">
+        <p class="updated">Last updated: October 2026</p>
+        <p>No names and no bio on this page, on purpose. It was prepared by a Central New York physician with no financial interest in any data center proposal, as a public resource for residents, town staff, and county and state officials.</p>
+        <p>Cite: <em>Who decides what: Onondaga County data center roles.</em> Last updated: October 2026.</p>
+        <p>This page is general information drawn from public sources. It is not legal advice, and do not treat it as a substitute for reading the actual ordinance, tariff, or permit at issue.</p>
+      </footer>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      var input = document.getElementById('finder-q');
+      var rows = document.querySelectorAll('#finder-table tbody tr');
+      var count = document.getElementById('finder-count');
+      var empty = document.getElementById('finder-empty');
+      if (!input || !rows.length) { return; }
+
+      function filter() {
+        var q = input.value.trim().toLowerCase();
+        var shown = 0;
+        for (var i = 0; i < rows.length; i++) {
+          var text = rows[i].textContent.toLowerCase();
+          var show = !q || text.indexOf(q) !== -1;
+          rows[i].style.display = show ? '' : 'none';
+          if (show) { shown++; }
+        }
+        empty.style.display = shown === 0 ? 'block' : 'none';
+        if (q) {
+          count.textContent = shown === 0
+            ? 'No topics match.'
+            : 'Showing ' + shown + ' of ' + rows.length + ' topics.';
+        } else {
+          count.textContent = rows.length + ' decision topics listed.';
+        }
+      }
+
+      input.addEventListener('input', filter);
+      filter();
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="data:," />
+  <title>10 Questions to Ask at a Data Center Public Hearing</title>
+  <style>
+    :root {
+      --paper: #ffffff;
+      --soft: #f4f6f9;
+      --ink: #1b2430;
+      --muted: #5c6675;
+      --line: #dde2ea;
+      --accent: #17418f;
+      --accent-soft: #e8eefb;
+      --pl: #9aa3b2;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #0f141b;
+        --soft: #171e27;
+        --ink: #e9edf3;
+        --muted: #9aa5b4;
+        --line: #28313d;
+        --accent: #8fb0ff;
+        --accent-soft: #1c2740;
+        --pl: #5f6a79;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .page {
+      max-width: 43rem;
+      margin: 0 auto;
+      padding: 2.25rem 1.5rem 3rem;
+    }
+
+    /* ---- Document header ---- */
+    .dateline {
+      margin: 0 0 0.5rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    h1 {
+      margin: 0 0 0.9rem;
+      font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+      font-size: clamp(1.75rem, 4.5vw, 2.45rem);
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+    }
+    .lede {
+      margin: 0 0 1.1rem;
+      font-size: 1.06rem;
+      color: var(--ink);
+    }
+    .lede strong { color: var(--ink); }
+    .howto {
+      margin: 0 0 1.9rem;
+      padding: 0.85rem 1rem;
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      font-size: 0.94rem;
+      color: var(--muted);
+    }
+    .howto strong { color: var(--ink); }
+
+    /* ---- Table of contents ---- */
+    .toc { margin: 0 0 1.6rem; }
+    .toc-title {
+      margin: 0 0 0.55rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .toc ol {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 0.3rem 2rem;
+    }
+    @media (min-width: 620px) {
+      .toc ol { grid-template-columns: 1fr 1fr; }
+    }
+    .toc li { margin: 0; }
+    .toc a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line);
+      transition: border-color 0.15s ease;
+    }
+    .toc a:hover { border-bottom-color: var(--accent); }
+    .toc .n {
+      display: inline-block;
+      min-width: 1.5rem;
+      font-weight: 700;
+      color: var(--accent);
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* ---- Questions ---- */
+    .questions { margin: 0; padding: 0; }
+    .q {
+      display: grid;
+      grid-template-columns: 2.75rem 1fr;
+      gap: 0 0.9rem;
+      padding: 1.35rem 0 1.3rem;
+      border-top: 1px solid var(--line);
+      scroll-margin-top: 1.5rem;
+    }
+    .q:last-child { border-bottom: 1px solid var(--line); }
+    .q-num {
+      font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+      font-size: 2.1rem;
+      line-height: 1.1;
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+    }
+    .q h2 {
+      margin: 0 0 0.45rem;
+      font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+      font-size: 1.2rem;
+      line-height: 1.35;
+      font-weight: 700;
+      text-wrap: pretty;
+    }
+    .plink {
+      margin-right: 0.35rem;
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--pl);
+      text-decoration: none;
+      opacity: 0;
+      transition: opacity 0.15s ease;
+    }
+    .q:hover .plink,
+    .plink:focus-visible { opacity: 1; }
+    @media (hover: none) { .plink { opacity: 1; } }
+    .why {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 36rem;
+    }
+    .why strong {
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .q:target .q-body {
+      background: var(--accent-soft);
+      border-radius: 4px;
+      margin: -0.5rem;
+      padding: 0.5rem;
+    }
+    .q:target .why { color: var(--ink); }
+
+    /* ---- Footer ---- */
+    .foot {
+      margin-top: 2rem;
+      padding-top: 1.1rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+    .foot p { margin: 0 0 0.5rem; }
+    .foot p:last-child { margin-bottom: 0; }
+
+    /* ---- Print: clean 2-page handout ---- */
+    @page { margin: 0.7in 0.75in; }
+    @media print {
+      :root {
+        --paper: #ffffff;
+        --soft: #f4f6f9;
+        --ink: #111111;
+        --muted: #3c4148;
+        --line: #cccccc;
+        --accent: #111111;
+        --accent-soft: #ffffff;
+        --pl: #999999;
+      }
+      body { font-size: 10.5pt; line-height: 1.5; }
+      .page { max-width: none; margin: 0; padding: 0; }
+      h1 { font-size: 21pt; margin-bottom: 8pt; }
+      .lede { font-size: 11pt; margin-bottom: 10pt; }
+      .howto { margin-bottom: 14pt; padding: 8pt 10pt; font-size: 10pt; }
+      .toc { margin-bottom: 12pt; }
+      .toc ol { grid-template-columns: 1fr 1fr; gap: 2pt 24pt; }
+      .toc a { border-bottom: none; }
+      .q {
+        padding: 9pt 0;
+        break-inside: avoid;
+        grid-template-columns: 2.2rem 1fr;
+      }
+      .q-num { font-size: 20pt; }
+      .q h2 { font-size: 12pt; margin-bottom: 3pt; }
+      .plink { display: none; }
+      .why { font-size: 10pt; }
+      .foot { margin-top: 14pt; font-size: 9pt; }
+      a { color: inherit; text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <p class="dateline">October 2026</p>
+      <h1>10 questions to ask at a data center public hearing</h1>
+      <p class="lede">A data center proposal can affect your taxes, your electric bills, and your water supply for decades. In many towns the public hearing is the only chance to get promises <strong>on the record</strong> before officials vote. Pick the questions that matter most to you and read them aloud.</p>
+      <p class="howto"><strong>How to use this sheet:</strong> read each question out, then ask that the answer be given in public. If no one can answer at the hearing, ask the board to require a written answer before any vote.</p>
+    </header>
+
+    <nav class="toc" aria-label="The ten questions">
+      <p class="toc-title">The questions</p>
+      <ol>
+        <li><a href="#q1"><span class="n">1</span> Grid upgrades</a></li>
+        <li><a href="#q2"><span class="n">2</span> Water and drought</a></li>
+        <li><a href="#q3"><span class="n">3</span> Your electric bill</a></li>
+        <li><a href="#q4"><span class="n">4</span> Permanent jobs</a></li>
+        <li><a href="#q5"><span class="n">5</span> Taxes</a></li>
+        <li><a href="#q6"><span class="n">6</span> Payments above taxes</a></li>
+        <li><a href="#q7"><span class="n">7</span> Backup generators</a></li>
+        <li><a href="#q8"><span class="n">8</span> Cleanup and closure</a></li>
+        <li><a href="#q9"><span class="n">9</span> Secret negotiations</a></li>
+        <li><a href="#q10"><span class="n">10</span> Future expansion</a></li>
+      </ol>
+    </nav>
+
+    <section class="questions">
+      <article class="q" id="q1">
+        <div class="q-num" aria-hidden="true">1</div>
+        <div class="q-body">
+          <h2><a class="plink" href="#q1" aria-label="Link to question 1">#</a>Who pays for the grid upgrades this project needs?</h2>
+          <p class="why"><strong>Why it matters:</strong> new substations and power lines can cost millions, and without a signed deal the bill can land on regular customers.</p>
+        </div>
+      </article>
+
+      <article class="q" id="q2">
+        <div class="q-num" aria-hidden="true">2</div>
+        <div class="q-body">
+          <h2><a class="plink" href="#q2" aria-label="Link to question 2">#</a>Where will this data center get its water, and what happens in a drought?</h2>
+          <p class="why"><strong>Why it matters:</strong> some data centers use large amounts of water depending on how they are cooled, so residents and essential public needs should come first during shortages.</p>
+        </div>
+      </article>
+
+      <article class="q" id="q3">
+        <div class="q-num" aria-hidden="true">3</div>
+        <div class="q-body">
+          <h2><a class="plink" href="#q3" aria-label="Link to question 3">#</a>Will my electric bill go up because of this project?</h2>
+          <p class="why"><strong>Why it matters:</strong> if the developer does not cover every dollar of new grid spending, the gap can show up on residential bills.</p>
+        </div>
+      </article>
+
+      <article class="q" id="q4">
+        <div class="q-num" aria-hidden="true">4</div>
+        <div class="q-body">
+          <h2><a class="plink" href="#q4" aria-label="Link to question 4">#</a>How many permanent local jobs will this create, not counting construction?</h2>
+          <p class="why"><strong>Why it matters:</strong> construction crews leave when the building opens, and the permanent payroll is usually far smaller.</p>
+        </div>
+      </article>
+
+      <article class="q" id="q5">
+        <div class="q-num" aria-hidden="true">5</div>
+        <div class="q-body">
+          <h2><a class="plink" href="#q5" aria-label="Link to question 5">#</a>Will this project pay full property taxes, a payment in lieu of taxes (a PILOT), or some other reduced amount, and how much each year?</h2>
+          <p class="why"><strong>Why it matters:</strong> reduced deals can pay far less than full taxes for decades, so ask for both numbers and the gap between them.</p>
+        </div>
+      </article>
+
+      <article class="q" id="q6">
+        <div class="q-num" aria-hidden="true">6</div>
+        <div class="q-body">
+          <h2><a class="plink" href="#q6" aria-label="Link to question 6">#</a>Beyond taxes, what will this project pay the community each year?</h2>
+          <p class="why"><strong>Why it matters:</strong> paying for the harm a project causes is not a benefit, so real community payments should be separate, annual, and tied to the project's size.</p>
+        </div>
+      </article>
+
+      <article class="q" id="q7">
+        <div class="q-num" aria-hidden="true">7</div>
+        <div class="q-body">
+          <h2><a class="plink" href="#q7" aria-label="Link to question 7">#</a>When will the backup generators run, and what do they put into the air?</h2>
+          <p class="why"><strong>Why it matters:</strong> diesel generators are tested regularly and run in outages, and neighbors breathe the exhaust.</p>
+        </div>
+      </article>
+
+      <article class="q" id="q8">
+        <div class="q-num" aria-hidden="true">8</div>
+        <div class="q-body">
+          <h2><a class="plink" href="#q8" aria-label="Link to question 8">#</a>If this project closes, who pays for the teardown and cleanup?</h2>
+          <p class="why"><strong>Why it matters:</strong> servers, batteries, and cooling equipment are costly to remove, so money for cleanup should be guaranteed up front.</p>
+        </div>
+      </article>
+
+      <article class="q" id="q9">
+        <div class="q-num" aria-hidden="true">9</div>
+        <div class="q-body">
+          <h2><a class="plink" href="#q9" aria-label="Link to question 9">#</a>Was any of this deal negotiated in secret or under an NDA?</h2>
+          <p class="why"><strong>Why it matters:</strong> if officials signed nondisclosure agreements with the developer, the public never got to see what was offered or given away.</p>
+        </div>
+      </article>
+
+      <article class="q" id="q10">
+        <div class="q-num" aria-hidden="true">10</div>
+        <div class="q-body">
+          <h2><a class="plink" href="#q10" aria-label="Link to question 10">#</a>Can this project expand later without another public vote?</h2>
+          <p class="why"><strong>Why it matters:</strong> data centers often grow in phases, and each phase should face the same public review as the first.</p>
+        </div>
+      </article>
+    </section>
+
+    <footer class="foot">
+      <p>Dated October 2026. Free to copy, print, and share.</p>
+      <p>If a question cannot be answered at the hearing, ask the board to require a written answer before the vote. Public questions deserve public answers.</p>
+    </footer>
+  </main>
+</body>
+</html>
