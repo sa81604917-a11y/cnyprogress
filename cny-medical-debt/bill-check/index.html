@@ -240,6 +240,19 @@
   stateSel.addEventListener("change", refreshReferralBox);
   refreshReferralBox();
 
+  // In-results assister info. NY names both the CNY and statewide options;
+  // other states use their verified referral org from the research.
+  function assisterInfo(code, st) {
+    if (code === "NY") {
+      return {
+        name: "ACR Health (Central New York) or Community Health Advocates (statewide)",
+        phone: "315-475-2430 / 1-888-614-5400",
+        url: "https://acrhealth.org/"
+      };
+    }
+    return st.referral || {};
+  }
+
   function sourcesLine(st) {
     if (!st.sources || !st.sources.length) return "";
     var links = st.sources.slice(0, 3).map(function (u) {
@@ -367,8 +380,8 @@
     if (insured === "no" || eob === "none") {
       steps.push("<strong>Uninsured or self-pay?</strong> Federal law requires a written good-faith estimate before scheduled care. If the bill is at least $400 above that estimate, you can use the federal patient&ndash;provider dispute process, generally within 120 days of the first bill.");
     }
-    var r = st.referral || {};
-    steps.push("<strong>Talk to a free assister in " + esc(st.name) + ".</strong> " + esc(r.name || "Find a local assister") +
+    var r = assisterInfo(code, st);
+    steps.push("<strong>Talk to a free assister" + (code === "NY" ? "" : " in " + esc(st.name)) + ".</strong> " + esc(r.name || "Find a local assister") +
       (r.phone ? " at " + esc(r.phone) : "") + ". Bring your bill, your EOB if you have one, and a rough sense of your household income.");
     steps.push("<strong>Want someone to file the paperwork?</strong> <a href=\"https://dollarfor.org/\">Dollar For</a> is a national nonprofit that checks charity-care eligibility and submits hospital financial-assistance applications for free. Different from this tool: they will ask for your identity and documents, because they file on your behalf.");
     cards.push({
