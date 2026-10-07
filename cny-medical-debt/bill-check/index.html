@@ -103,7 +103,7 @@
       <fieldset>
         <legend>3. Your household (for financial-aid screening)</legend>
         <label for="householdSize">How many people are in your household?</label>
-        <p class="hint">Count yourself, your spouse or partner, and children or others you support.</p>
+        <p class="hint">Enter the household size you would report on the hospital&rsquo;s financial-aid application. If you aren&rsquo;t sure, use your best estimate; an advocate can confirm it.</p>
         <input type="number" id="householdSize" min="1" max="15" step="1" inputmode="numeric" value="1">
 
         <label for="income">About how much does your household earn in a year, before taxes? ($)</label>
@@ -139,10 +139,10 @@
 
     <div class="callout">
       <h3>Need a person, not a tool?</h3>
-      <p><strong>In Central New York:</strong> New York State funds ACR Health to help with medical debt at no cost: understanding bills, applying for financial assistance, fixing insurance problems.<br>
-      <strong>ACR Health:</strong> 315-475-2430 &middot; <a href="https://acrhealth.org/">acrhealth.org</a> &middot; 627 W. Genesee Street, Syracuse (Monday&ndash;Friday, 8:30 AM&ndash;4:30 PM)</p>
-      <p><strong>Anywhere else in New York State:</strong> Community Health Advocates (a Community Service Society of NY program) helps New Yorkers with medical bills and insurance problems statewide at no cost.<br>
-      <strong>CHA Helpline:</strong> 1-888-614-5400 &middot; <a href="https://communityhealthadvocates.org/">communityhealthadvocates.org</a></p>
+      <p><strong>In Central New York:</strong> ACR Health is a local Community Health Advocates resource. Community Health Advocates is New York State&rsquo;s designated health-care consumer assistance program and provides free help with medical bills, insurance problems, and medical debt.<br>
+      <strong>ACR Health:</strong> <a href="tel:13154752430">315-475-2430</a> &middot; <a href="https://acrhealth.org/">acrhealth.org</a> &middot; 627 W. Genesee Street, Syracuse (Monday&ndash;Friday, 8:30 AM&ndash;4:30 PM)</p>
+      <p><strong>Anywhere else in New York State:</strong> Community Health Advocates helps New Yorkers statewide at no cost.<br>
+      <strong>CHA Helpline:</strong> <a href="tel:18886145400">1-888-614-5400</a> &middot; <a href="https://communityhealthadvocates.org/">communityhealthadvocates.org</a></p>
     </div>
 
     <p><a href="../">&larr; Back to CNY Medical Debt</a></p>
@@ -318,7 +318,7 @@
     var summaryText = summaryLines.join("\n");
 
     // ---- render ----
-    var html = "";
+    var html = '<p class="hint"><strong>Screening estimate only.</strong> This is not an eligibility determination. The hospital makes the final decision, and for non-emergency care, aid can depend on whether you live in the hospital&rsquo;s service area.</p>';
     cards.forEach(function (c) {
       html += '<div class="result-card' + (c.warn ? " warn" : "") + '"><h3>' + esc(c.head) + "</h3><p>" +
         (c.html ? c.body : esc(c.body)) + "</p></div>";
