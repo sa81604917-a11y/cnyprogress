@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Revisión de facturas médicas — Ayuda en Nueva York | Sunny Aslam, MD</title>
+  <meta name="description" content="Una herramienta gratuita y privada: verifique si puede calificar para asistencia financiera hospitalaria en Nueva York, detecte problemas de facturación y obtenga un plan claro. Nada de lo que ingrese sale de su dispositivo.">
+  <link rel="stylesheet" href="../../../styles.css">
+  <style>
+    .bill-form { max-width: 640px; }
+    .bill-form fieldset { border: 1px solid #ddd; border-radius: 8px; padding: 1.1rem 1.2rem; margin: 0 0 1.2rem; }
+    .bill-form legend { font-weight: 700; padding: 0 .4rem; }
+    .bill-form label { display: block; margin: .8rem 0 .25rem; font-weight: 600; }
+    .bill-form .hint { font-weight: 400; font-size: .92rem; color: #555; margin: .15rem 0 .4rem; }
+    .bill-form input[type="number"], .bill-form input[type="text"], .bill-form select {
+      width: 100%; max-width: 340px; padding: .55rem .6rem; font-size: 1rem;
+      border: 1px solid #bbb; border-radius: 6px;
+    }
+    .bill-form .radio-row { display: flex; gap: 1.2rem; margin-top: .3rem; flex-wrap: wrap; }
+    .bill-form .radio-row label { font-weight: 400; display: flex; align-items: center; gap: .4rem; margin: 0; }
+    .bill-form .btn-row { margin-top: 1rem; }
+    #results { display: none; margin-top: 1.6rem; }
+    #results.show { display: block; }
+    .result-card { border: 1px solid #ddd; border-left: 5px solid #1b6e3f; border-radius: 8px; padding: 1.1rem 1.2rem; margin-bottom: 1rem; background: #fbfdfb; }
+    .result-card.warn { border-left-color: #b7791f; background: #fffdf7; }
+    .result-card h3 { margin-top: 0; }
+    .result-card ul { margin-bottom: 0; }
+    .big-number { font-size: 1.6rem; font-weight: 800; }
+    .privacy-note { background: #f2f5fa; border-radius: 8px; padding: .9rem 1.1rem; margin-bottom: 1.4rem; font-size: .95rem; }
+    .disclaimer { font-size: .88rem; color: #555; border-top: 1px solid #ddd; margin-top: 2rem; padding-top: 1rem; }
+    .lang-note { text-align: right; font-size: .92rem; margin-bottom: .6rem; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-title" href="../../../">Sunny Aslam, MD</a>
+      <nav class="site-nav" aria-label="Principal">
+        <a href="../../../">Inicio</a>
+        <a href="../../../data-center-deals/">Data Center Toolkit</a>
+        <a href="../../../data-center-deals/micron-record/">Micron</a>
+        <a href="../../">Deuda médica</a>
+        <a href="../../../ai-safety/">AI Safety</a>
+        <a href="../../../addiction-and-access/">Addiction &amp; Access</a>
+        <a href="../../../news-updates/">Noticias</a>
+        <a href="../../../about-me/">Sobre mí</a>
+        <a href="../../../#contact">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <p class="lang-note"><a href="../">English version (all 50 states)</a></p>
+    <h1>Revisión de facturas médicas</h1>
+    <p class="updated">Herramienta gratuita para neoyorquinos &middot; Solo Nueva York &middot; Actualizada en octubre de 2026</p>
+
+    <div class="privacy-note">
+      <strong>Privado por diseño.</strong> Todo lo que ingrese permanece en su navegador, en su propio dispositivo. No se envía a ningún lado, no se almacena y nadie lo ve. No ingrese su nombre, fecha de nacimiento ni ningún número de cuenta o factura. Esta herramienta no los necesita ni los quiere.
+    </div>
+
+    <p>Responda algunas preguntas sobre una factura hospitalaria que recibió o que espera recibir. La herramienta verificará si puede calificar para atención gratuita o con descuento según la ley de Nueva York, señalará problemas comunes de facturación y le dará un plan claro de qué hacer a continuación.</p>
+
+    <p><strong>Piense en esto como una preselección antes de llamar a ACR Health.</strong> Haga la tarea aquí en unos dos minutos, copie su resumen al final y llévelo cuando llame. Acorta la entrevista y le ayuda a obtener respuestas más rápido.</p>
+
+    <form class="bill-form" id="billForm" novalidate>
+      <fieldset>
+        <legend>1. La factura</legend>
+        <label for="careType">¿Qué tipo de atención fue?</label>
+        <select id="careType">
+          <option value="er">Visita a la sala de emergencias</option>
+          <option value="inpatient">Estancia en el hospital (ingreso de una noche o más)</option>
+          <option value="surgery">Cirugía ambulatoria o procedimiento</option>
+          <option value="imaging">Imágenes (tomografía, resonancia magnética, rayos X, ultrasonido)</option>
+          <option value="lab">Análisis de laboratorio / sangre</option>
+          <option value="clinic">Visita al médico o clínica</option>
+          <option value="other">Otra cosa</option>
+        </select>
+
+        <label for="billedAmount">Monto total que facturó el hospital ($)</label>
+        <p class="hint">El número grande en la parte superior de la factura, antes del seguro.</p>
+        <input type="number" id="billedAmount" min="0" step="1" inputmode="decimal" placeholder="p. ej. 12500">
+
+        <label for="oweAmount">Monto que la factura dice que <em>usted</em> debe ($)</label>
+        <p class="hint">Su parte después del seguro, si tiene. Ingrese 0 si la factura muestra $0.</p>
+        <input type="number" id="oweAmount" min="0" step="1" inputmode="decimal" placeholder="p. ej. 3200">
+      </fieldset>
+
+      <fieldset>
+        <legend>2. Seguro médico</legend>
+        <label>¿Tiene seguro médico?</label>
+        <div class="radio-row" role="radiogroup" aria-label="Estado del seguro">
+          <label><input type="radio" name="insured" value="yes"> Sí</label>
+          <label><input type="radio" name="insured" value="no"> No</label>
+          <label><input type="radio" name="insured" value="unsure" checked> No estoy seguro(a)</label>
+        </div>
+
+        <label>¿Recibió una Explicación de Beneficios (EOB) de su aseguradora y coincide con la factura?</label>
+        <div class="radio-row" role="radiogroup" aria-label="Coincidencia de EOB">
+          <label><input type="radio" name="eob" value="match"> Sí, coincide</label>
+          <label><input type="radio" name="eob" value="mismatch"> No, no coincide</label>
+          <label><input type="radio" name="eob" value="none" checked> Sin EOB / sin seguro</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>3. Su hogar (para la evaluación de ayuda financiera)</legend>
+        <label for="householdSize">¿Cuántas personas hay en su hogar?</label>
+        <p class="hint">Ingrese el tamaño del hogar que declararía en la solicitud de ayuda financiera del hospital. Si no está seguro, use su mejor cálculo; un asesor puede confirmarlo.</p>
+        <input type="number" id="householdSize" min="1" max="15" step="1" inputmode="numeric" value="1">
+
+        <label for="income">¿Aproximadamente cuánto gana su hogar al año, antes de impuestos? ($)</label>
+        <p class="hint">Un número aproximado está bien. Solo se usa para verificar los límites de ayuda financiera.</p>
+        <input type="number" id="income" min="0" step="100" inputmode="decimal" placeholder="p. ej. 45000">
+      </fieldset>
+
+      <fieldset>
+        <legend>4. Verificaciones rápidas</legend>
+        <label>¿El hospital le envió una factura detallada (cada cargo línea por línea)?</label>
+        <div class="radio-row" role="radiogroup" aria-label="Factura detallada">
+          <label><input type="radio" name="itemized" value="yes"> Sí</label>
+          <label><input type="radio" name="itemized" value="no" checked> No / no estoy seguro(a)</label>
+        </div>
+
+        <label>¿Ha solicitado la asistencia financiera (atención de caridad) del hospital?</label>
+        <div class="radio-row" role="radiogroup" aria-label="Asistencia financiera solicitada">
+          <label><input type="radio" name="faApplied" value="yes"> Sí</label>
+          <label><input type="radio" name="faApplied" value="no" checked> No</label>
+        </div>
+      </fieldset>
+
+      <div class="btn-row">
+        <button class="btn" type="submit">Revisar mi factura</button>
+      </div>
+    </form>
+
+    <div id="results" aria-live="polite"></div>
+
+    <div class="disclaimer">
+      <p><strong>Importante:</strong> esta herramienta ofrece cálculos con fines educativos solamente. No puede determinar exactamente lo que usted debe legalmente. Las facturas hospitalarias dependen de los precios del hospital, las tarifas contratadas de su aseguradora y los términos exactos de su plan, que esta herramienta no puede ver. Nada aquí es asesoría legal, médica ni financiera. Si los montos son grandes o confusos, hable con ACR Health (gratis, abajo) antes de pagar.</p>
+    </div>
+
+    <div class="callout">
+      <h3>¿Necesita una persona, no una herramienta?</h3>
+      <p><strong>En el centro de Nueva York:</strong> ACR Health es un recurso local de Community Health Advocates. Community Health Advocates es el programa designado de asistencia al consumidor de atención médica del estado de Nueva York y ofrece ayuda gratuita con facturas médicas, problemas de seguro y deuda médica.<br>
+      <strong>ACR Health:</strong> <a href="tel:13154752430">315-475-2430</a> &middot; <a href="https://acrhealth.org/">acrhealth.org</a> &middot; 627 W. Genesee Street, Syracuse (lunes a viernes, 8:30 AM&ndash;4:30 PM)</p>
+      <p><strong>En el resto del estado de Nueva York:</strong> Community Health Advocates ayuda a los neoyorquinos en todo el estado sin costo.<br>
+      <strong>Línea de ayuda de CHA:</strong> <a href="tel:18886145400">1-888-614-5400</a> &middot; <a href="https://communityhealthadvocates.org/">communityhealthadvocates.org</a></p>
+    </div>
+
+    <p><a href="../../">&larr; Volver a Deuda médica</a></p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Las opiniones expresadas aquí son las mías y no necesariamente representan a ninguna institución afiliada. Este sitio web ofrece información general y no establece una relación de tratamiento ni ofrece asesoría médica individual. La información compartida aquí es para educación general y no constituye asesoría médica, legal ni financiera individual.</p>
+    </div>
+  </footer>
+
+<script>
+(function () {
+  "use strict";
+
+  // Pautas federales de pobreza 2026, 48 estados contiguos (HHS).
+  var FPL_BASE = 15960;
+  var FPL_PER_PERSON = 5680;
+
+  function fpl100(household) {
+    return FPL_BASE + FPL_PER_PERSON * Math.max(0, household - 1);
+  }
+  function money(n) {
+    return "$" + Math.round(n).toLocaleString("en-US");
+  }
+  function val(id) {
+    var el = document.getElementById(id);
+    var n = parseFloat(el.value);
+    return isNaN(n) || n < 0 ? 0 : n;
+  }
+  function radio(name) {
+    var el = document.querySelector('input[name="' + name + '"]:checked');
+    return el ? el.value : null;
+  }
+  function esc(s) {
+    return String(s).replace(/[&<>"]/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
+    });
+  }
+
+  document.getElementById("billForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    var billed = val("billedAmount");
+    var owe = val("oweAmount");
+    var household = Math.max(1, Math.min(15, Math.round(val("householdSize") || 1)));
+    var income = val("income");
+    var insured = radio("insured");
+    var eob = radio("eob");
+    var itemized = radio("itemized");
+    var faApplied = radio("faApplied");
+
+    var fpl = fpl100(household);
+    var pctFpl = fpl > 0 ? (income / fpl) * 100 : 0;
+
+    var cards = [];
+
+    // ---- 1. Resultado de asistencia financiera ----
+    var faHead, faBody, faWarn = false;
+    if (income <= 0) {
+      faHead = "Asistencia financiera: ingrese un ingreso arriba";
+      faBody = "Sin un ingreso aproximado del hogar, esta verificación no puede funcionar. Ingrese un número aproximado e inténtelo de nuevo. Nunca sale de su dispositivo.";
+      faWarn = true;
+    } else if (pctFpl <= 200) {
+      faHead = "Es probable que califique para atención hospitalaria GRATUITA";
+      faBody = "La ley de ayuda financiera hospitalaria de Nueva York exige que los hospitales no cobren nada a los pacientes con ingresos iguales o inferiores al 200% del nivel federal de pobreza. " +
+        "Para un hogar de " + household + ", ese límite es aproximadamente " + money(fpl * 2) + " al año, y sus ingresos son aproximadamente el " + Math.round(pctFpl) + "% del nivel de pobreza. " +
+        "Si aún no ha solicitado asistencia financiera, hágalo antes de pagar nada.";
+    } else if (pctFpl <= 400) {
+      faHead = "Es probable que califique para atención hospitalaria CON DESCUENTO";
+      faBody = "Los hospitales de Nueva York deben ofrecer atención con descuento hasta el 400% del nivel federal de pobreza. " +
+        "Para un hogar de " + household + ", ese límite es aproximadamente " + money(fpl * 4) + " al año, y sus ingresos son aproximadamente el " + Math.round(pctFpl) + "% del nivel de pobreza. " +
+        "El descuento exacto varía según el hospital. Esto también aplica a pacientes con seguro que agotaron sus beneficios o gastaron más del 10% del ingreso del hogar en costos médicos en el último año. " +
+        "Pida al hospital su política de asistencia financiera y solicítela antes de pagar nada.";
+    } else {
+      faHead = "Está por encima de los límites de ingresos de la ayuda financiera";
+      faBody = "Con aproximadamente el " + Math.round(pctFpl) + "% del nivel de pobreza para un hogar de " + household + " (límite: " + money(fpl * 4) + "), " +
+        "está por encima de los límites de ingresos de la ley de ayuda hospitalaria de Nueva York. Algunos hospitales aún ofrecen ayuda caso por caso, y las verificaciones de facturación a continuación siguen aplicando. " +
+        "Si la factura sería una dificultad, no cuesta nada preguntar.";
+      faWarn = true;
+    }
+    cards.push({ head: faHead, body: faBody, warn: faWarn });
+
+    // ---- 2. Monto estimado ----
+    var estBody;
+    if (owe <= 0 && billed <= 0) {
+      estBody = "No ingresó ningún monto, así que no hay nada que estimar. Ingrese el total facturado y el monto que la factura dice que debe, e inténtelo de nuevo.";
+    } else {
+      if (income > 0 && pctFpl <= 200) {
+        estBody = "Debido a que es probable que califique para atención gratuita según la ley de Nueva York, su monto estimado después de la asistencia financiera es <span class=\"big-number\">" + money(0) + "</span>. " +
+          "Eso supone que solicita y es aprobado. No ignore la factura mientras solicita. Llame a la oficina de asistencia financiera del hospital y dígales que viene una solicitud.";
+      } else if (income > 0 && pctFpl <= 400) {
+        estBody = "La factura dice que debe <span class=\"big-number\">" + money(owe) + "</span>. Debido a que es probable que califique para un descuento hospitalario, " +
+          "ese número debería bajar, pero el descuento exacto depende de la política del hospital, así que esta herramienta no puede calcularlo. " +
+          "Solicite primero la asistencia financiera y luego compare el nuevo monto con esta factura.";
+      } else {
+        estBody = "La factura dice que debe <span class=\"big-number\">" + money(owe) + "</span>. " +
+          "Esta herramienta no puede verificar ese número con la tarifa contratada de su aseguradora, así que tómelo como un punto de partida, no como un veredicto. " +
+          "Revise las verificaciones a continuación antes de pagar.";
+      }
+      if (billed > 0 && owe > billed) {
+        estBody += " <strong>Nota:</strong> el monto que debe es mayor que el total facturado, lo cual es inusual. Solo eso amerita una llamada a la oficina de facturación.";
+      }
+    }
+    cards.push({ head: "Su monto estimado", body: estBody, warn: false, html: true });
+
+    // ---- 3. Señales de alerta y próximos pasos ----
+    var steps = [];
+    if (itemized === "no") {
+      steps.push("<strong>Obtenga una factura detallada.</strong> No pague hasta que el hospital liste cada cargo línea por línea. Las facturas sin detalle son donde se esconden cargos duplicados e incorrectos. Llame a la oficina de facturación y pida una.");
+    }
+    if (insured === "yes" && eob === "mismatch") {
+      steps.push("<strong>Su factura no coincide con su Explicación de Beneficios.</strong> Obtenga su EOB de su aseguradora y compárela línea por línea. Generalmente usted solo debe lo que el EOB dice que es su responsabilidad. Si el hospital le facturó más, impúgnelo con el hospital y con la aseguradora.");
+    }
+    if (insured === "yes" && eob === "none") {
+      steps.push("<strong>Busque su Explicación de Beneficios.</strong> Su aseguradora debió enviarle una por esta atención. Muestra lo que pagó la aseguradora y lo que realmente es su parte. Revise el sitio web de su aseguradora o llame al número de su tarjeta.");
+    }
+    if (faApplied === "no" && income > 0 && pctFpl <= 400) {
+      steps.push("<strong>Solicite ahora la asistencia financiera del hospital.</strong> Según la ley de Nueva York, el hospital debe tener una política escrita y una solicitud. Pida ambas a la oficina de asistencia financiera. Puede solicitarla incluso después de recibir la factura.");
+    }
+    if (insured === "no") {
+      steps.push("<strong>Pregunte por el descuento para no asegurados y la asistencia financiera juntos.</strong> Los hospitales tienen procesos separados y usted quiere que evalúen ambos. También pregunte si podría calificar para Medicaid o el Essential Plan en el futuro.");
+    }
+    if (insured === "no" || eob === "none") {
+      steps.push("<strong>¿Sin seguro o pago por cuenta propia?</strong> La ley federal exige un estimado de buena fe por escrito antes de la atención programada. Si la factura supera el estimado en al menos $400, puede usar el proceso federal de disputa paciente-proveedor, generalmente dentro de los 120 días de la primera factura.");
+    }
+    steps.push("<strong>Hable con un asesor gratuito.</strong> En el centro de Nueva York: ACR Health, 315-475-2430, acrhealth.org. En el resto del estado de Nueva York: Community Health Advocates, 1-888-614-5400. Lleve su factura, su EOB si tiene una, y una idea aproximada del ingreso de su hogar.");
+    steps.push("<strong>¿Quiere que alguien presente el papeleo?</strong> <a href=\"https://dollarfor.org/\">Dollar For</a> es una organización nacional sin fines de lucro que verifica la elegibilidad para atención de caridad y presenta solicitudes de asistencia financiera hospitalaria gratis. A diferencia de esta herramienta: le pedirán su identidad y documentos, porque presentan en su nombre.");
+    cards.push({
+      head: "Sus próximos pasos",
+      body: "<ul><li>" + steps.join("</li><li>") + "</li></ul>",
+      warn: steps.length > 2,
+      html: true
+    });
+
+    // ---- 4. Resumen copiable ----
+    var careLabels = {
+      er: "Visita a la sala de emergencias",
+      inpatient: "Estancia en el hospital (ingreso de una noche o más)",
+      surgery: "Cirugía ambulatoria o procedimiento",
+      imaging: "Imágenes (tomografía, resonancia magnética, rayos X, ultrasonido)",
+      lab: "Análisis de laboratorio / sangre",
+      clinic: "Visita al médico o clínica",
+      other: "Otra cosa"
+    };
+    var insuredLabel = { yes: "Sí", no: "No", unsure: "No estoy seguro(a)" }[insured] || "No estoy seguro(a)";
+    var eobLabel = { match: "Sí, coincide con la factura", mismatch: "No, no coincide con la factura", none: "Sin EOB / sin seguro" }[eob] || "Sin EOB / sin seguro";
+    var faLabel = income > 0
+      ? (pctFpl <= 200 ? "probablemente califica para atención GRATUITA (igual o por debajo del 200% del nivel de pobreza)"
+        : pctFpl <= 400 ? "probablemente califica para atención CON DESCUENTO (200-400% del nivel de pobreza)"
+        : "por encima de los límites de ingresos estándar (más del 400% del nivel de pobreza)")
+      : "no evaluado (no se ingresó el ingreso)";
+    var summaryLines = [
+      "Resumen de revisión de factura (" + new Date().toLocaleDateString("es-US") + ")",
+      "- Tipo de atención: " + (careLabels[document.getElementById("careType").value] || "Otra cosa"),
+      "- Total facturado: " + money(billed),
+      "- Monto que la factura dice que debo: " + money(owe),
+      "- Seguro: " + insuredLabel + "; EOB: " + eobLabel,
+      "- Hogar: " + household + (household === 1 ? " persona" : " personas") +
+        (income > 0 ? "; ingresos aproximadamente el " + Math.round(pctFpl) + "% del nivel federal de pobreza" : "; ingreso no ingresado"),
+      "- Evaluación de asistencia financiera: " + faLabel,
+      "- Factura detallada recibida: " + (itemized === "yes" ? "Sí" : "No / no estoy seguro(a)"),
+      "- Solicitó asistencia financiera del hospital: " + (faApplied === "yes" ? "Sí" : "No")
+    ];
+    var summaryText = summaryLines.join("\n");
+
+    // ---- mostrar ----
+    var html = '<p class="hint"><strong>Cálculo estimado solamente.</strong> Esto no es una determinación de elegibilidad. El hospital toma la decisión final y, para atención no urgente, la ayuda puede depender de si vive en el área de servicio del hospital.</p>';
+    cards.forEach(function (c) {
+      html += '<div class="result-card' + (c.warn ? " warn" : "") + '"><h3>' + esc(c.head) + "</h3><p>" +
+        (c.html ? c.body : esc(c.body)) + "</p></div>";
+    });
+    html += '<p class="hint">Solo cálculos. Esta herramienta no puede ver las tarifas contratadas de su aseguradora ni los términos exactos de su plan, así que no puede determinar con precisión lo que debe. ' +
+      "En caso de duda, llame a un asesor gratuito antes de pagar: ACR Health al 315-475-2430 en el centro de Nueva York, Community Health Advocates al 1-888-614-5400 en el resto del estado de Nueva York.</p>";
+
+    html += '<div class="result-card"><h3>Su resumen para su asesor</h3>' +
+      '<p class="hint">Copie esto y llévelo cuando llame. En el centro de Nueva York es ACR Health al 315-475-2430; en el resto del estado de Nueva York, Community Health Advocates al 1-888-614-5400. Le da al trabajador de admisión todo lo anterior en un solo lugar, para que se salte las idas y vueltas.</p>' +
+      '<textarea id="acrSummary" rows="10" readonly style="width:100%;max-width:560px;font-family:monospace;font-size:.88rem;padding:.6rem;border:1px solid #bbb;border-radius:6px;"></textarea>' +
+      '<p style="margin-top:.6rem;"><button class="btn" type="button" id="copySummary">Copiar resumen</button> ' +
+      '<span id="copyMsg" class="hint" role="status"></span></p></div>';
+
+    var r = document.getElementById("results");
+    r.innerHTML = html;
+    r.classList.add("show");
+    r.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    document.getElementById("acrSummary").value = summaryText;
+    document.getElementById("copySummary").addEventListener("click", function () {
+      var ta = document.getElementById("acrSummary");
+      var msg = document.getElementById("copyMsg");
+      function done() { msg.textContent = "Copiado. Llévelo cuando llame a ACR Health."; }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(ta.value).then(done, function () { ta.select(); msg.textContent = "La copia no funcionó automáticamente. Seleccione el texto de arriba y cópielo a mano."; });
+      } else {
+        ta.select();
+        try { document.execCommand("copy"); done(); }
+        catch (err) { msg.textContent = "Seleccione el texto de arriba y cópielo a mano."; }
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>
