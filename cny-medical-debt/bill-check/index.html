@@ -50,7 +50,7 @@
 
   <main class="wrap">
     <h1>Medical Bill Check</h1>
-    <p class="updated">Free tool for New Yorkers &middot; Updated October 2026</p>
+    <p class="updated">Free tool for New Yorkers &middot; works anywhere in New York State &middot; Updated October 2026</p>
 
     <div class="privacy-note">
       <strong>Private by design.</strong> Everything you enter stays in your browser on your own device. Nothing is sent anywhere, stored, or seen by anyone. Do not enter your name, birth date, or any account or bill numbers. This tool does not need them and does not want them.
@@ -139,8 +139,10 @@
 
     <div class="callout">
       <h3>Need a person, not a tool?</h3>
-      <p>New York State funds ACR Health to help Central New Yorkers with medical debt at no cost: understanding bills, applying for financial assistance, fixing insurance problems.</p>
-      <p><strong>ACR Health:</strong> 315-475-2430 &middot; <a href="https://acrhealth.org/">acrhealth.org</a> &middot; 627 W. Genesee Street, Syracuse (Monday&ndash;Friday, 8:30 AM&ndash;4:30 PM)</p>
+      <p><strong>In Central New York:</strong> New York State funds ACR Health to help with medical debt at no cost: understanding bills, applying for financial assistance, fixing insurance problems.<br>
+      <strong>ACR Health:</strong> 315-475-2430 &middot; <a href="https://acrhealth.org/">acrhealth.org</a> &middot; 627 W. Genesee Street, Syracuse (Monday&ndash;Friday, 8:30 AM&ndash;4:30 PM)</p>
+      <p><strong>Anywhere else in New York State:</strong> Community Health Advocates (a Community Service Society of NY program) helps New Yorkers with medical bills and insurance problems statewide at no cost.<br>
+      <strong>CHA Helpline:</strong> 1-888-614-5400 &middot; <a href="https://communityhealthadvocates.org/">communityhealthadvocates.org</a></p>
     </div>
 
     <p><a href="../">&larr; Back to CNY Medical Debt</a></p>
@@ -272,7 +274,7 @@
     if (insured === "no") {
       steps.push("<strong>Ask about the uninsured discount and financial assistance together.</strong> Hospitals have separate processes and you want both evaluated. Also ask whether you might qualify for Medicaid or the Essential Plan going forward.");
     }
-    steps.push("<strong>Talk to ACR Health (free).</strong> New York State funds them to help Central New Yorkers with exactly this: 315-475-2430, acrhealth.org. Bring your bill, your EOB if you have one, and a rough sense of your household income.");
+    steps.push("<strong>Talk to a free assister.</strong> In Central New York: ACR Health, 315-475-2430, acrhealth.org. Anywhere else in New York State: Community Health Advocates, 1-888-614-5400. Bring your bill, your EOB if you have one, and a rough sense of your household income.");
     steps.push("<strong>Want someone to file the paperwork?</strong> <a href=\"https://dollarfor.org/\">Dollar For</a> is a national nonprofit that checks charity-care eligibility and submits hospital financial-assistance applications for free. Different from this tool: they will ask for your identity and documents, because they file on your behalf.");
     if (steps.length === 1) {
       steps.unshift("No red flags from your answers. The items below still apply.");
@@ -322,10 +324,10 @@
         (c.html ? c.body : esc(c.body)) + "</p></div>";
     });
     html += '<p class="hint">Estimates only. This tool cannot see your insurer\'s contracted rates or your plan\'s exact terms, so it cannot determine precisely what you owe. ' +
-      'When in doubt, call ACR Health at 315-475-2430 before paying.</p>';
+      'When in doubt, call a free assister before paying: ACR Health at 315-475-2430 in Central New York, Community Health Advocates at 1-888-614-5400 anywhere else in New York State.</p>';
 
-    html += '<div class="result-card"><h3>Your summary for ACR Health</h3>' +
-      '<p class="hint">Copy this and bring it when you call 315-475-2430. It gives the intake worker everything above in one place, so you skip the back-and-forth.</p>' +
+    html += '<div class="result-card"><h3>Your summary for your assister</h3>' +
+      '<p class="hint">Copy this and bring it when you call. In Central New York that is ACR Health at 315-475-2430; anywhere else in New York State, Community Health Advocates at 1-888-614-5400. It gives the intake worker everything above in one place, so you skip the back-and-forth.</p>' +
       '<textarea id="acrSummary" rows="10" readonly style="width:100%;max-width:560px;font-family:monospace;font-size:.88rem;padding:.6rem;border:1px solid #bbb;border-radius:6px;"></textarea>' +
       '<p style="margin-top:.6rem;"><button class="btn" type="button" id="copySummary">Copy summary</button> ' +
       '<span id="copyMsg" class="hint" role="status"></span></p></div>';
