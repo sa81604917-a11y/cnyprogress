@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Medical Bill Check | CNY Medical Debt</title>
+  <meta name="description" content="A free, private tool for New Yorkers: check whether you may qualify for hospital financial assistance and get a plain-language action plan for a medical bill. Nothing you enter leaves your device.">
+  <link rel="stylesheet" href="../../styles.css">
+  <style>
+    .bill-form { max-width: 640px; }
+    .bill-form fieldset { border: 1px solid #ddd; border-radius: 8px; padding: 1.1rem 1.2rem; margin: 0 0 1.2rem; }
+    .bill-form legend { font-weight: 700; padding: 0 .4rem; }
+    .bill-form label { display: block; margin: .8rem 0 .25rem; font-weight: 600; }
+    .bill-form .hint { font-weight: 400; font-size: .92rem; color: #555; margin: .15rem 0 .4rem; }
+    .bill-form input[type="number"], .bill-form input[type="text"], .bill-form select {
+      width: 100%; max-width: 340px; padding: .55rem .6rem; font-size: 1rem;
+      border: 1px solid #bbb; border-radius: 6px;
+    }
+    .bill-form .radio-row { display: flex; gap: 1.2rem; margin-top: .3rem; flex-wrap: wrap; }
+    .bill-form .radio-row label { font-weight: 400; display: flex; align-items: center; gap: .4rem; margin: 0; }
+    .bill-form .btn-row { margin-top: 1rem; }
+    #results { display: none; margin-top: 1.6rem; }
+    #results.show { display: block; }
+    .result-card { border: 1px solid #ddd; border-left: 5px solid #1b6e3f; border-radius: 8px; padding: 1.1rem 1.2rem; margin-bottom: 1rem; background: #fbfdfb; }
+    .result-card.warn { border-left-color: #b7791f; background: #fffdf7; }
+    .result-card h3 { margin-top: 0; }
+    .result-card ul { margin-bottom: 0; }
+    .big-number { font-size: 1.6rem; font-weight: 800; }
+    .privacy-note { background: #f2f5fa; border-radius: 8px; padding: .9rem 1.1rem; margin-bottom: 1.4rem; font-size: .95rem; }
+    .disclaimer { font-size: .88rem; color: #555; border-top: 1px solid #ddd; margin-top: 2rem; padding-top: 1rem; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-title" href="../../">Sunny Aslam, MD</a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="../../">Home</a>
+        <a href="../../data-center-deals/">Data Center Toolkit</a>
+        <a href="../../data-center-deals/micron-record/">Micron</a>
+        <a href="../../cny-medical-debt/">Medical Debt</a>
+        <a href="../../ai-safety/">AI Safety</a>
+        <a href="../../addiction-and-access/">Addiction &amp; Access</a>
+        <a href="../../news-updates/">News</a>
+        <a href="../../about-me/">About</a>
+        <a href="../../#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <h1>Medical Bill Check</h1>
+    <p class="updated">Free tool for New Yorkers &middot; Updated October 2026</p>
+
+    <div class="privacy-note">
+      <strong>Private by design.</strong> Everything you enter stays in your browser on your own device. Nothing is sent anywhere, stored, or seen by anyone. Do not enter your name, birth date, or any account or bill numbers. This tool does not need them and does not want them.
+    </div>
+
+    <p>Answer a few questions about a hospital bill you received, or one you are expecting. The tool will check whether you may qualify for free or discounted care under New York law, flag common billing problems, and give you a plain-language plan for what to do next.</p>
+
+    <p><strong>Think of this as a pre-screen before you call ACR Health.</strong> Do the homework here in about two minutes, copy your summary at the end, and bring it when you call. It shortens the intake and gets you to answers faster.</p>
+
+    <form class="bill-form" id="billForm" novalidate>
+      <fieldset>
+        <legend>1. The bill</legend>
+        <label for="careType">What kind of care was it?</label>
+        <select id="careType">
+          <option value="er">Emergency room visit</option>
+          <option value="inpatient">Hospital stay (admitted overnight)</option>
+          <option value="surgery">Outpatient surgery or procedure</option>
+          <option value="imaging">Imaging (CT, MRI, X-ray, ultrasound)</option>
+          <option value="lab">Lab work / blood tests</option>
+          <option value="clinic">Doctor or clinic visit</option>
+          <option value="other">Something else</option>
+        </select>
+
+        <label for="billedAmount">Total amount the hospital billed ($)</label>
+        <p class="hint">The big number at the top of the bill, before insurance.</p>
+        <input type="number" id="billedAmount" min="0" step="1" inputmode="decimal" placeholder="e.g. 12500">
+
+        <label for="oweAmount">Amount the bill says <em>you</em> owe ($)</label>
+        <p class="hint">Your share after insurance, if any. Enter 0 if the bill shows $0.</p>
+        <input type="number" id="oweAmount" min="0" step="1" inputmode="decimal" placeholder="e.g. 3200">
+      </fieldset>
+
+      <fieldset>
+        <legend>2. Insurance</legend>
+        <label>Do you have health insurance?</label>
+        <div class="radio-row" role="radiogroup" aria-label="Insurance status">
+          <label><input type="radio" name="insured" value="yes"> Yes</label>
+          <label><input type="radio" name="insured" value="no"> No</label>
+          <label><input type="radio" name="insured" value="unsure" checked> Not sure</label>
+        </div>
+
+        <label>Did you get an Explanation of Benefits (EOB) from your insurer, and does it match the bill?</label>
+        <div class="radio-row" role="radiogroup" aria-label="EOB match">
+          <label><input type="radio" name="eob" value="match"> Yes, it matches</label>
+          <label><input type="radio" name="eob" value="mismatch"> No, it does not match</label>
+          <label><input type="radio" name="eob" value="none" checked> No EOB / no insurance</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>3. Your household (for financial-aid screening)</legend>
+        <label for="householdSize">How many people are in your household?</label>
+        <p class="hint">Count yourself, your spouse or partner, and children or others you support.</p>
+        <input type="number" id="householdSize" min="1" max="15" step="1" inputmode="numeric" value="1">
+
+        <label for="income">About how much does your household earn in a year, before taxes? ($)</label>
+        <p class="hint">A rough number is fine. This is only used to check financial-aid cutoffs.</p>
+        <input type="number" id="income" min="0" step="100" inputmode="decimal" placeholder="e.g. 45000">
+      </fieldset>
+
+      <fieldset>
+        <legend>4. Quick checks</legend>
+        <label>Did the hospital send you an itemized bill (every charge listed line by line)?</label>
+        <div class="radio-row" role="radiogroup" aria-label="Itemized bill">
+          <label><input type="radio" name="itemized" value="yes"> Yes</label>
+          <label><input type="radio" name="itemized" value="no" checked> No / not sure</label>
+        </div>
+
+        <label>Have you applied for the hospital's financial assistance (charity care)?</label>
+        <div class="radio-row" role="radiogroup" aria-label="Financial assistance applied">
+          <label><input type="radio" name="faApplied" value="yes"> Yes</label>
+          <label><input type="radio" name="faApplied" value="no" checked> No</label>
+        </div>
+      </fieldset>
+
+      <div class="btn-row">
+        <button class="btn" type="submit">Check my bill</button>
+      </div>
+    </form>
+
+    <div id="results" aria-live="polite"></div>
+
+    <div class="disclaimer">
+      <p><strong>Important:</strong> this tool gives estimates for education only. It cannot determine exactly what you legally owe. Hospital bills depend on the hospital's prices, your insurer's contracted rates, and your plan's exact terms, which this tool cannot see. Nothing here is legal, medical, or financial advice. If the amounts are large or confusing, talk to ACR Health (free, below) before you pay.</p>
+    </div>
+
+    <div class="callout">
+      <h3>Need a person, not a tool?</h3>
+      <p>New York State funds ACR Health to help Central New Yorkers with medical debt at no cost: understanding bills, applying for financial assistance, fixing insurance problems.</p>
+      <p><strong>ACR Health:</strong> 315-475-2430 &middot; <a href="https://acrhealth.org/">acrhealth.org</a> &middot; 627 W. Genesee Street, Syracuse (Monday&ndash;Friday, 8:30 AM&ndash;4:30 PM)</p>
+    </div>
+
+    <p><a href="../">&larr; Back to CNY Medical Debt</a></p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Views expressed here are my own and do not necessarily represent any affiliated institution. This website provides general information and does not establish a treatment relationship or offer individual medical advice. Information shared here is for general education and does not constitute individual medical, legal, or financial advice.</p>
+    </div>
+  </footer>
+
+<script>
+(function () {
+  "use strict";
+
+  // 2026 federal poverty guidelines, 48 contiguous states (HHS).
+  // Base + per-person increment; matches the figures published on this site.
+  var FPL_BASE = 15960;
+  var FPL_PER_PERSON = 5680;
+
+  function fpl100(household) {
+    return FPL_BASE + FPL_PER_PERSON * Math.max(0, household - 1);
+  }
+  function money(n) {
+    return "$" + Math.round(n).toLocaleString("en-US");
+  }
+  function val(id) {
+    var el = document.getElementById(id);
+    var n = parseFloat(el.value);
+    return isNaN(n) || n < 0 ? 0 : n;
+  }
+  function radio(name) {
+    var el = document.querySelector('input[name="' + name + '"]:checked');
+    return el ? el.value : null;
+  }
+  function esc(s) {
+    return String(s).replace(/[&<>"]/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
+    });
+  }
+
+  document.getElementById("billForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    var billed = val("billedAmount");
+    var owe = val("oweAmount");
+    var household = Math.max(1, Math.min(15, Math.round(val("householdSize") || 1)));
+    var income = val("income");
+    var insured = radio("insured");
+    var eob = radio("eob");
+    var itemized = radio("itemized");
+    var faApplied = radio("faApplied");
+
+    var fpl = fpl100(household);
+    var pctFpl = fpl > 0 ? (income / fpl) * 100 : 0;
+
+    var cards = [];
+
+    // ---- 1. Financial assistance result ----
+    var faHead, faBody, faWarn = false;
+    if (income <= 0) {
+      faHead = "Financial assistance: please enter an income above";
+      faBody = "Without an approximate household income, this check cannot run. Enter a rough number and run it again. It never leaves your device.";
+      faWarn = true;
+    } else if (pctFpl <= 200) {
+      faHead = "You likely qualify for FREE hospital care";
+      faBody = "New York's Hospital Financial Aid Law requires hospitals to waive all charges for patients at or below 200% of the federal poverty level. " +
+        "For a household of " + household + ", that cutoff is about " + money(fpl * 2) + " a year, and your income is about " + Math.round(pctFpl) + "% of the poverty level. " +
+        "If you have not applied for financial assistance yet, do that before paying anything.";
+    } else if (pctFpl <= 400) {
+      faHead = "You likely qualify for DISCOUNTED hospital care";
+      faBody = "New York hospitals must offer discounted care up to 400% of the federal poverty level. " +
+        "For a household of " + household + ", that cutoff is about " + money(fpl * 4) + " a year, and your income is about " + Math.round(pctFpl) + "% of the poverty level. " +
+        "The exact discount varies by hospital. This also applies to insured patients who exhausted their benefits or spent over 10% of household income on medical costs in the last year. " +
+        "Ask the hospital for its financial assistance policy and apply before paying anything.";
+    } else {
+      faHead = "You are above the standard financial-aid income cutoffs";
+      faBody = "At about " + Math.round(pctFpl) + "% of the poverty level for a household of " + household + " (cutoff: " + money(fpl * 4) + "), " +
+        "you are above the income limits in New York's hospital aid law. Some hospitals still offer help case by case, and the billing checks below still apply. " +
+        "If the bill would be a hardship, it costs nothing to ask.";
+      faWarn = true;
+    }
+    cards.push({ head: faHead, body: faBody, warn: faWarn });
+
+    // ---- 2. Estimated amount ----
+    var estHead = "Your estimated amount";
+    var estBody;
+    if (owe <= 0 && billed <= 0) {
+      estBody = "You did not enter any amounts, so there is nothing to estimate. Enter the billed total and the amount the bill says you owe, then run the check again.";
+    } else {
+      var likelyOwe;
+      var explain;
+      if (income > 0 && pctFpl <= 200) {
+        likelyOwe = 0;
+        explain = "Because you likely qualify for free care under New York law, your estimated amount after financial assistance is <span class=\"big-number\">" + money(0) + "</span>. " +
+          "That assumes you apply and are approved. Do not ignore the bill while you apply. Call the hospital's financial assistance office and tell them an application is coming.";
+      } else if (income > 0 && pctFpl <= 400) {
+        likelyOwe = null;
+        explain = "The bill says you owe <span class=\"big-number\">" + money(owe) + "</span>. Because you likely qualify for a hospital discount, " +
+          "that number should come down, but the exact discount depends on the hospital's policy, so this tool cannot compute it. " +
+          "Apply for financial assistance first, then compare the new amount to this bill.";
+      } else {
+        likelyOwe = owe;
+        explain = "The bill says you owe <span class=\"big-number\">" + money(owe) + "</span>. " +
+          "This tool cannot verify that number against your insurer's contracted rate, so treat it as a starting point, not a verdict. " +
+          "Work through the checks below before paying.";
+      }
+      if (billed > 0 && owe > billed) {
+        explain += " <strong>Note:</strong> the amount you owe is higher than the total billed, which is unusual. That alone is worth a phone call to the billing office.";
+      }
+      estBody = explain;
+    }
+    cards.push({ head: estHead, body: estBody, warn: false, html: true });
+
+    // ---- 3. Red flags + next steps ----
+    var steps = [];
+    if (itemized === "no") {
+      steps.push("<strong>Get an itemized bill.</strong> Do not pay until the hospital lists every charge line by line. Bills without detail are where duplicate and incorrect charges hide. Call the billing office and ask for one.");
+    }
+    if (insured === "yes" && eob === "mismatch") {
+      steps.push("<strong>Your bill does not match your Explanation of Benefits.</strong> Get your EOB from your insurer and compare it line by line. You generally owe only what the EOB says is your responsibility. If the hospital billed you more, dispute it with both the hospital and the insurer.");
+    }
+    if (insured === "yes" && eob === "none") {
+      steps.push("<strong>Find your Explanation of Benefits.</strong> Your insurer should have sent one for this care. It shows what the insurer paid and what is actually your share. Check your insurer's website or call the number on your card.");
+    }
+    if (faApplied === "no" && income > 0 && pctFpl <= 400) {
+      steps.push("<strong>Apply for hospital financial assistance now.</strong> Under New York law the hospital must have a written policy and an application. Ask the financial assistance office for both. You can apply even after you got the bill.");
+    }
+    if (insured === "no") {
+      steps.push("<strong>Ask about the uninsured discount and financial assistance together.</strong> Hospitals have separate processes and you want both evaluated. Also ask whether you might qualify for Medicaid or the Essential Plan going forward.");
+    }
+    steps.push("<strong>Talk to ACR Health (free).</strong> New York State funds them to help Central New Yorkers with exactly this: 315-475-2430, acrhealth.org. Bring your bill, your EOB if you have one, and a rough sense of your household income.");
+    steps.push("<strong>Want someone to file the paperwork?</strong> <a href=\"https://dollarfor.org/\">Dollar For</a> is a national nonprofit that checks charity-care eligibility and submits hospital financial-assistance applications for free. Different from this tool: they will ask for your identity and documents, because they file on your behalf.");
+    if (steps.length === 1) {
+      steps.unshift("No red flags from your answers. The items below still apply.");
+    }
+    cards.push({
+      head: "Your next steps",
+      body: "<ul><li>" + steps.join("</li><li>") + "</li></ul>",
+      warn: steps.length > 2,
+      html: true
+    });
+
+    // ---- 4. Copyable summary for ACR Health ----
+    var careLabels = {
+      er: "Emergency room visit",
+      inpatient: "Hospital stay (admitted overnight)",
+      surgery: "Outpatient surgery or procedure",
+      imaging: "Imaging (CT, MRI, X-ray, ultrasound)",
+      lab: "Lab work / blood tests",
+      clinic: "Doctor or clinic visit",
+      other: "Other"
+    };
+    var insuredLabel = { yes: "Yes", no: "No", unsure: "Not sure" }[insured] || "Not sure";
+    var eobLabel = { match: "Yes, matches bill", mismatch: "No, does not match bill", none: "No EOB / no insurance" }[eob] || "No EOB / no insurance";
+    var faLabel = income > 0
+      ? (pctFpl <= 200 ? "likely qualifies for FREE care (at/below 200% FPL)"
+        : pctFpl <= 400 ? "likely qualifies for DISCOUNTED care (200-400% FPL)"
+        : "above standard income cutoffs (over 400% FPL)")
+      : "not screened (no income entered)";
+    var summaryLines = [
+      "Medical Bill Check summary (" + new Date().toLocaleDateString("en-US") + ")",
+      "- Care type: " + (careLabels[document.getElementById("careType").value] || "Other"),
+      "- Total billed: " + money(billed),
+      "- Amount bill says I owe: " + money(owe),
+      "- Insurance: " + insuredLabel + "; EOB: " + eobLabel,
+      "- Household: " + household + (household === 1 ? " person" : " people") +
+        (income > 0 ? "; income about " + Math.round(pctFpl) + "% of federal poverty level" : "; income not entered"),
+      "- Financial assistance screen: " + faLabel,
+      "- Itemized bill received: " + (itemized === "yes" ? "Yes" : "No / not sure"),
+      "- Applied for hospital financial assistance: " + (faApplied === "yes" ? "Yes" : "No")
+    ];
+    var summaryText = summaryLines.join("\n");
+
+    // ---- render ----
+    var html = "";
+    cards.forEach(function (c) {
+      html += '<div class="result-card' + (c.warn ? " warn" : "") + '"><h3>' + esc(c.head) + "</h3><p>" +
+        (c.html ? c.body : esc(c.body)) + "</p></div>";
+    });
+    html += '<p class="hint">Estimates only. This tool cannot see your insurer\'s contracted rates or your plan\'s exact terms, so it cannot determine precisely what you owe. ' +
+      'When in doubt, call ACR Health at 315-475-2430 before paying.</p>';
+
+    html += '<div class="result-card"><h3>Your summary for ACR Health</h3>' +
+      '<p class="hint">Copy this and bring it when you call 315-475-2430. It gives the intake worker everything above in one place, so you skip the back-and-forth.</p>' +
+      '<textarea id="acrSummary" rows="10" readonly style="width:100%;max-width:560px;font-family:monospace;font-size:.88rem;padding:.6rem;border:1px solid #bbb;border-radius:6px;"></textarea>' +
+      '<p style="margin-top:.6rem;"><button class="btn" type="button" id="copySummary">Copy summary</button> ' +
+      '<span id="copyMsg" class="hint" role="status"></span></p></div>';
+
+    var r = document.getElementById("results");
+    r.innerHTML = html;
+    r.classList.add("show");
+    r.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    document.getElementById("acrSummary").value = summaryText;
+    document.getElementById("copySummary").addEventListener("click", function () {
+      var ta = document.getElementById("acrSummary");
+      var msg = document.getElementById("copyMsg");
+      function done() { msg.textContent = "Copied. Bring it when you call ACR Health."; }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(ta.value).then(done, function () { ta.select(); msg.textContent = "Copy did not work automatically. Select the text above and copy it by hand."; });
+      } else {
+        ta.select();
+        try { document.execCommand("copy"); done(); }
+        catch (err) { msg.textContent = "Select the text above and copy it by hand."; }
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>
