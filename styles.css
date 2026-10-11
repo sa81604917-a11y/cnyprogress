@@ -134,7 +134,7 @@ a:hover { color: var(--accent-dark); }
   margin-bottom: 2rem;
   box-shadow: var(--shadow);
 }
-.hero p.lede { font-size: 1.3rem; line-height: 1.45; margin: 0 0 1rem; }
+.hero .lede { font-size: 1.3rem; line-height: 1.45; margin: 0 0 1rem; font-weight: 600; }
 .hero .sub { color: var(--ink-soft); margin-bottom: 1.25rem; }
 
 .btn {
