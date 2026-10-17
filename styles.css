@@ -206,6 +206,7 @@ a:hover { color: var(--accent-dark); }
 
 /* Tables */
 .table-scroll { overflow-x: auto; margin: 1.25rem 0; }
+.table-scroll table { min-width: 620px; }
 table {
   width: 100%;
   border-collapse: collapse;
