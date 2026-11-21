@@ -1,1 +1,179 @@
-V0VCVlRUCgowMDowMDowMS4zMTAgLS0+IDAwOjAwOjA2LjQ2MApJJ20gRHIuIFN1bm55IEFzbGFtLCBhbmQgdGhpcyBpcyBhIGd1aWRlCnRvIHVzaW5nIGFuIGFtYmllbnQgc2NyaWJlIHdlbGwuCgowMDowMDowNy4yMzAgLS0+IDAwOjAwOjEwLjYyMApBbiBhbWJpZW50IHNjcmliZSBsaXN0ZW5zIHRvIHRoZSB2aXNpdCBhbmQKZHJhZnRzIHlvdXIgbm90ZS4KCjAwOjAwOjEwLjk5MCAtLT4gMDA6MDA6MTMuNzIwCkRBWCBpcyB0aGUgYmVzdCBrbm93biBvbmUuCgowMDowMDoxNC4xMTAgLS0+IDAwOjAwOjE1LjMyMApUaGUgdG9vbCBpcyBmYXN0LgoKMDA6MDA6MTUuNzUwIC0tPiAwMDowMDoxOC4xMDAKWW91ciBqb2IgaXMgdG8gbWFrZSBzdXJlIHRoZSBub3RlIGlzIHRydWUuCgowMDowMDoxOC41NzAgLS0+IDAwOjAwOjIwLjI0MApTdGVwIG9uZSwgYXNrLgoKMDA6MDA6MjAuODEwIC0tPiAwMDowMDoyMy4wNjAKQXNrIHlvdXIgcGF0aWVudCwgc2F5LAoKMDA6MDA6MjMuMjEwIC0tPiAwMDowMDoyNi40NjAKSSB1c2UgYSB0b29sIHRoYXQgbGlzdGVucyB0byBvdXIgdmlzaXQgYW5kCmhlbHBzIG1lIGRyYWZ0IG15IG5vdGUuCgowMDowMDoyNi45NTAgLS0+IDAwOjAwOjI5LjY4MApUaGlzIHdheSBJIGNhbiBmb2N1cyBvbiB5b3UgaW5zdGVhZCBvZiB0aGUKY29tcHV0ZXIuCgowMDowMDoyOS44OTAgLS0+IDAwOjAwOjMyLjEwMApJdCBkb2VzIHJlY29yZCBvdXIgY29udmVyc2F0aW9uLgoKMDA6MDA6MzIuMjMwIC0tPiAwMDowMDozMy40MjAKWW91IGNhbiBzYXkgbm8uCgowMDowMDozNC4wOTAgLS0+IDAwOjAwOjM1LjYwMApJdCB3b24ndCBhZmZlY3QgeW91ciBjYXJlLgoKMDA6MDA6MzUuODUwIC0tPiAwMDowMDozNi44NjAKSXMgdGhhdCBva2F5PwoKMDA6MDA6MzcuMTcwIC0tPiAwMDowMDozOS4yNDAKSWYgdGhlIHBhdGllbnQgaGVzaXRhdGVzLCBJIHR1cm4gaXQgb2ZmLgoKMDA6MDA6NDAuMjUwIC0tPiAwMDowMDo0MS45NjAKU3RlcCB0d28sIHJlY29yZC4KCjAwOjAwOjQyLjQ5MCAtLT4gMDA6MDA6NDYuMTYwClN0YXJ0IHdpdGggdGhlIHBhdGllbnQncyBuYW1lIGFuZCB0aGUKcmVhc29uIGZvciB0aGUgdmlzaXQgb3V0IGxvdWQuCgowMDowMDo0OS4xMzAgLS0+IDAwOjAwOjUwLjg2MApUaGVuIGhhdmUgYSBub3JtYWwgdmlzaXQuCgowMDowMDo1MS4wNzAgLS0+IDAwOjAwOjUyLjUwMApGb3JnZXQgdGhlIHBob25lIGlzIHRoZXJlLgoKMDA6MDA6NTIuOTkwIC0tPiAwMDowMDo1NC40NjAKU3RlcCB0aHJlZSwgdmVyaWZ5LgoKMDA6MDA6NTUuNDEwIC0tPiAwMDowMDo1Ny4wMDAKVGhpcyBpcyB0aGUgcGFydCB0aGF0IG1hdHRlcnMuCgowMDowMDo1Ny41NTAgLS0+IDAwOjAwOjU5LjU2MApSZWFkIHRoZSBkcmFmdCBhZ2FpbnN0IHRoZSB0cmFuc2NyaXB0LgoKMDA6MDA6NTkuNzcwIC0tPiAwMDowMTowMS4xMDAKQ2hlY2sgdGhlIG5lZ2F0aW9ucy4KCjAwOjAxOjAxLjI1MCAtLT4gMDA6MDE6MDQuMDYwCkEgZHJvcHBlZCAibm8iIGZsaXBzIHRoZSBzZW50ZW5jZSdzCm1lYW5pbmcuCgowMDowMTowNC41MzAgLS0+IDAwOjAxOjA1Ljc2MApDaGVjayBsZWZ0IGFuZCByaWdodC4KCjAwOjAxOjA2LjExMCAtLT4gMDA6MDE6MDguNjAwCkNoZWNrIGV2ZXJ5IGRvc2UgYW5kIGRydWcgbmFtZS4KCjAwOjAxOjA5LjA5MCAtLT4gMDA6MDE6MTAuNzgwCldhdGNoIGZvciBpbnZlbnRlZCBmaW5kaW5ncy4KCjAwOjAxOjExLjM1MCAtLT4gMDA6MDE6MTMuMzIwClRoaW5ncyBpbiB0aGUgbm90ZSB0aGF0IG5vYm9keSBzYWlkLgoKMDA6MDE6MTMuNzMwIC0tPiAwMDowMToxNS4wNDAKQW5kIGNoZWNrIHdobyBzYWlkIHdoYXQuCgowMDowMToxNS41NzAgLS0+IDAwOjAxOjE5LjAyMApUaGUgc2NyaWJlIHRyaWVzIHRvIHRlbGwgc3BlYWtlcnMgYXBhcnQsCmJ1dCBvZnRlbiBnZXRzIGl0IHdyb25nLgoKMDA6MDE6MTkuNDkwIC0tPiAwMDowMToyMy40NDAKTW9zdGx5IHdoZW4gYSB0aGlyZCBwZXJzb24gb3IgbW9yZSBhcmUgaW4KdGhlIHZpc2l0IGxpa2UgZmFtaWx5IG9yIHN0YWZmLgoKMDA6MDE6MjQuMzUwIC0tPiAwMDowMToyNy45MDAKSWYgdGhlIHNlbnRlbmNlIG1hdHRlcnMgYW5kIHlvdSBjYW4ndApjb25maXJtIGl0LCBkZWxldGUgaXQuCgowMDowMToyOC44MzAgLS0+IDAwOjAxOjMxLjA4MApJbiBwc3ljaGlhdHJ5LCBhIGNvdXBsZSBleHRyYSBjaGVja3MuCgowMDowMTozMS41MTAgLS0+IDAwOjAxOjMzLjcyMApSaXNrIHN0YXRlbWVudHMgbXVzdCBiZSBleGFjdC4KCjAwOjAxOjM0LjA3MCAtLT4gMDA6MDE6MzYuNDgwCkEgc3VtbWFyeSBjYW4gc29mdGVuIGEgdGhyZWF0IG9yIGEgcGxhbi4KCjAwOjAxOjM2LjcxMCAtLT4gMDA6MDE6MzguMDYwCkFuZCBxdW90ZXMgbXVzdCBiZSByZWFsLgoKMDA6MDE6MzguMTEwIC0tPiAwMDowMTo0MS4yNjAKSWYgaXQgaXMgaW4gcXVvdGF0aW9uIG1hcmtzLCB0aGUgcGF0aWVudApzYWlkIHRob3NlIHdvcmRzLgoKMDA6MDE6NDIuMDEwIC0tPiAwMDowMTo0My40ODAKU3RlcCBmb3VyLCBtYWtlIGl0IHlvdXJzLgoKMDA6MDE6NDMuOTkwIC0tPiAwMDowMTo0NS42NDAKVGVsbCB0aGUgc2NyaWJlIHdoYXQgeW91IHdhbnQuCgowMDowMTo0NS44MTAgLS0+IDAwOjAxOjQ3LjQ4MApTaG9ydCBub3RlcyBvciBmdWxsIG9uZXMuCgowMDowMTo0Ny42NTAgLS0+IDAwOjAxOjUwLjA4MApBIHRpZ2h0IEhQSSwgeW91ciBmb3JtYXQuCgowMDowMTo1MC40MTAgLS0+IDAwOjAxOjUyLjQ4MApTZXQgeW91ciBzdHlsZSBvbmNlIGFuZCBzYXZlIGl0LgoKMDA6MDE6NTIuOTMwIC0tPiAwMDowMTo1Ni45MjAKQSBydWxlIEkgdXNlIGZvciBzZW5zaXRpdmUgZGV0YWlscywgc3VjaAphcyB0cmF1bWEgYW5kIGFidXNlIGluY2x1ZGVkLgoKMDA6MDE6NTYuOTUwIC0tPiAwMDowMjowMC45MDAKSWYgYSBkZXRhaWwgZG9lcyBub3QgY2hhbmdlIGNhcmUsIEkgbGVhdmUKaXQgb3V0LgoKMDA6MDI6MDIuMzMwIC0tPiAwMDowMjowNC4yNjAKQ2hhcnQgdGhlIGZhY3QgcGxhaW5seS4KCjAwOjAyOjA0LjQ5MCAtLT4gMDA6MDI6MDYuNjYwCkNvbnRleHQgcnVsZXMsIHRob3VnaC4KCjAwOjAyOjA3LjIzMCAtLT4gMDA6MDI6MDguOTgwClNvbWUgcGF0aWVudHMgbmVlZCBhIGZ1bGxlciBub3RlLgoKMDA6MDI6MDkuMDkwIC0tPiAwMDowMjoxMC45ODAKVGhlIGxldmVsIG9mIGRldGFpbCBpcyB5b3VyIGNhbGwuCgowMDowMjoxMS42NzAgLS0+IDAwOjAyOjE0LjQyMApMYXN0bHksIGtub3cgd2hlbiB0byBrZWVwIGl0IG9mZi4KCjAwOjAyOjE0Ljg5MCAtLT4gMDA6MDI6MTguNjYwCklmIHRoZSBwYXRpZW50J3MgdW5zdXJlLCBpZiBhIHRoaXJkIHBlcnNvbgpoYXMgbm90IGFncmVlZCB0byBiZSByZWNvcmRlZCwKCjAwOjAyOjE4LjgzMCAtLT4gMDA6MDI6MjIuNTIwCmlmIGEgcmVjb3JkaW5nIHdvdWxkIGNoYW5nZSB3aGF0IHRoZQpwYXRpZW50IHRlbGxzIHlvdSwgdXNlIHlvdXIganVkZ21lbnQuCgowMDowMjoyMi45NTAgLS0+IDAwOjAyOjI1LjI4MApBIHNjcmliZSB3b3JrcyBmb3IgeW91LCBub3QgdGhlIG90aGVyIHdheQphcm91bmQuCgowMDowMjoyNS41NzAgLS0+IDAwOjAyOjMwLjAwMApBIGZ1bGwgY2hlY2tsaXN0IGlzIG9uIG15IHdlYnNpdGUgd2l0aApsaW5rcyB0byBNaWNyb3NvZnQncyBvZmZpY2lhbCBndWlkZXMuCgowMDowMjozMC4xMTAgLS0+IDAwOjAyOjMxLjEwMApMaW5rIGlzIGJlbG93LgoKMDA6MDI6MzEuMzcwIC0tPiAwMDowMjozMi4xNjAKVGhhbmsgeW91Lgo=
+WEBVTT
+
+00:00:01.310 --> 00:00:06.460
+I'm Dr. Sunny Aslam, and this is a guide
+to using an ambient scribe well.
+
+00:00:07.230 --> 00:00:10.620
+An ambient scribe listens to the visit and
+drafts your note.
+
+00:00:10.990 --> 00:00:13.720
+DAX is the best known one.
+
+00:00:14.110 --> 00:00:15.320
+The tool is fast.
+
+00:00:15.750 --> 00:00:18.100
+Your job is to make sure the note is true.
+
+00:00:18.570 --> 00:00:20.240
+Step one, ask.
+
+00:00:20.810 --> 00:00:23.060
+Ask your patient, say,
+
+00:00:23.210 --> 00:00:26.460
+I use a tool that listens to our visit and
+helps me draft my note.
+
+00:00:26.950 --> 00:00:29.680
+This way I can focus on you instead of the
+computer.
+
+00:00:29.890 --> 00:00:32.100
+It does record our conversation.
+
+00:00:32.230 --> 00:00:33.420
+You can say no.
+
+00:00:34.090 --> 00:00:35.600
+It won't affect your care.
+
+00:00:35.850 --> 00:00:36.860
+Is that okay?
+
+00:00:37.170 --> 00:00:39.240
+If the patient hesitates, I turn it off.
+
+00:00:40.250 --> 00:00:41.960
+Step two, record.
+
+00:00:42.490 --> 00:00:46.160
+Start with the patient's name and the
+reason for the visit out loud.
+
+00:00:49.130 --> 00:00:50.860
+Then have a normal visit.
+
+00:00:51.070 --> 00:00:52.500
+Forget the phone is there.
+
+00:00:52.990 --> 00:00:54.460
+Step three, verify.
+
+00:00:55.410 --> 00:00:57.000
+This is the part that matters.
+
+00:00:57.550 --> 00:00:59.560
+Read the draft against the transcript.
+
+00:00:59.770 --> 00:01:01.100
+Check the negations.
+
+00:01:01.250 --> 00:01:04.060
+A dropped "no" flips the sentence's
+meaning.
+
+00:01:04.530 --> 00:01:05.760
+Check left and right.
+
+00:01:06.110 --> 00:01:08.600
+Check every dose and drug name.
+
+00:01:09.090 --> 00:01:10.780
+Watch for invented findings.
+
+00:01:11.350 --> 00:01:13.320
+Things in the note that nobody said.
+
+00:01:13.730 --> 00:01:15.040
+And check who said what.
+
+00:01:15.570 --> 00:01:19.020
+The scribe tries to tell speakers apart,
+but often gets it wrong.
+
+00:01:19.490 --> 00:01:23.440
+Mostly when a third person or more are in
+the visit like family or staff.
+
+00:01:24.350 --> 00:01:27.900
+If the sentence matters and you can't
+confirm it, delete it.
+
+00:01:28.830 --> 00:01:31.080
+In psychiatry, a couple extra checks.
+
+00:01:31.510 --> 00:01:33.720
+Risk statements must be exact.
+
+00:01:34.070 --> 00:01:36.480
+A summary can soften a threat or a plan.
+
+00:01:36.710 --> 00:01:38.060
+And quotes must be real.
+
+00:01:38.110 --> 00:01:41.260
+If it is in quotation marks, the patient
+said those words.
+
+00:01:42.010 --> 00:01:43.480
+Step four, make it yours.
+
+00:01:43.990 --> 00:01:45.640
+Tell the scribe what you want.
+
+00:01:45.810 --> 00:01:47.480
+Short notes or full ones.
+
+00:01:47.650 --> 00:01:50.080
+A tight HPI, your format.
+
+00:01:50.410 --> 00:01:52.480
+Set your style once and save it.
+
+00:01:52.930 --> 00:01:56.920
+A rule I use for sensitive details, such
+as trauma and abuse included.
+
+00:01:56.950 --> 00:02:00.900
+If a detail does not change care, I leave
+it out.
+
+00:02:02.330 --> 00:02:04.260
+Chart the fact plainly.
+
+00:02:04.490 --> 00:02:06.660
+Context rules, though.
+
+00:02:07.230 --> 00:02:08.980
+Some patients need a fuller note.
+
+00:02:09.090 --> 00:02:10.980
+The level of detail is your call.
+
+00:02:11.670 --> 00:02:14.420
+Lastly, know when to keep it off.
+
+00:02:14.890 --> 00:02:18.660
+If the patient's unsure, if a third person
+has not agreed to be recorded,
+
+00:02:18.830 --> 00:02:22.520
+if a recording would change what the
+patient tells you, use your judgment.
+
+00:02:22.950 --> 00:02:25.280
+A scribe works for you, not the other way
+around.
+
+00:02:25.570 --> 00:02:30.000
+A full checklist is on my website with
+links to Microsoft's official guides.
+
+00:02:30.110 --> 00:02:31.100
+Link is below.
+
+00:02:31.370 --> 00:02:32.160
+Thank you.
